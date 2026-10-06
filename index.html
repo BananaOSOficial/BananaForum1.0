@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	  <title>Banana Forum</title>
+    <style>
+      * {
+        margin: 0;
+		gap: 10px;
+      }
+		h2 {
+			font-size: medium;
+		}
+		header {
+			background-color: #000000;
+			border-bottom: 2px solid rgba(255,255,255,0.1);
+		}
+		svg {
+			width: 32px;
+			height: 32px;
+			filter: drop-shadow(2px 2px 5px rgba(15,15,15,0.5));
+		}
+		header p {
+			font-size: medium;
+			margin-top: 20px;
+		}
+      body {
+        background-color: #0F0F0F;
+        color: #FFFFFF;
+		font-family: "Press Start 2P", cursive;
+      }
+		h2 {
+			text-align: center;
+		}
+      header h1 {
+		color: #F7D117;
+        text-align: center;
+		width: 100%;
+		font-size: medium;
+		animation: 2s animationh1 infinite;
+      }
+		@keyframes animationh1 {
+			0%, 100% {
+				color: #F7D117;
+			}
+			50% {
+				color: yellow;
+			}
+		}
+		p {
+			font-weight: bold;
+		}
+      #menucominicioecriarcomunidade {
+        left: 0;
+        background-color: transparent;
+        width: 70px;
+        height: 100vh;
+		position: fixed;
+      }
+      #menucominicioecriarcomunidade button {
+        display: flex;
+        flex-direction: column;
+        background-color: #303134;
+        border: none;
+        border-radius: 999px;
+        color: #FFFFFF;
+		align-items: center;
+		width: 64px;
+		height: 64px;
+	    padding: 15px 5px;
+      }
+		#janelacriarcomunidade {
+			display: none;
+			top: 0;
+			width: 100vw;
+			height: 100vh;
+			background: #0F0F0F;
+			z-index: 100;
+			position: fixed;
+		}
+		#inputcriarcomunidadeebtn {
+			position: fixed;
+			left: 50%;
+			transform: translate(-50%);
+			display: flex;
+			flex-direction: row;
+			background-color: #303134;
+			border-radius: 999px;
+			border: 2px solid rgba(255,255,255,0.08);
+			top: 50px;
+		}
+		#inputcriarcomunidadeebtn:focus-within {
+			border-color: #F7D117;
+		}
+		.fecharjanelacomunidade {
+			background-color: #303134;
+			border-radius: 999px;
+			width: 32px;
+			height: 32px;
+			border: 1px solid rgba(255,255,255,0.05);
+			color: #FFFFFF;
+		}
+		.fecharjanelacomunidade:hover {
+			background-color: #F7D117;
+			border-color: yellow;
+		}
+		#iniciobtn.selecionado {
+			background-color: #F7D117;
+			box-shadow: 0 0 10px #F7D117;
+		}
+		#iniciobtn {
+			margin-top: 200px;
+		}
+		input {
+			background-color: #303134;
+			border-radius: 999px;
+			outline: none;
+			color: #FFFFFF;
+			border: none;
+			caret-color: #F7D117;
+		}
+		#modelo-comunidade {
+			display: none;
+			background-color: transparent;
+			border-radius: 10px;
+			margin-top: 10px;
+		}
+		#modelo-comunidade h2:hover {
+			color: #5b8def;
+		}
+		#container-comunidade {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+		#criar {
+			background-color: #303134;
+			border: none;
+			border-left: 2px solid rgba(255,255,255,0.08);
+			border-radius: 999px;
+			color: #FFFFFF;
+			}
+		#criar:hover {
+			background-color: #F7D117;
+			border-color: yellow;
+		}
+		#comunidades {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			position: relative;
+	        padding-bottom: 10px;
+		}
+		#comunidades::after {
+			content: "";
+			width: 25%;
+			background-color: #F7D117;
+			height: 2px;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		#janeladascomunidades {
+			display: none;
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+			background-color: #0F0F0F;
+			top: 0;
+			padding: 20px 20px 0 20px;
+		}
+		#janeladascomunidades textarea {
+	       display: flex;
+		   position: static;
+		   bottom: 20px;
+		   background-color: transparent;
+		   color: #FFFFFF;
+		   border-radius: 20px;
+		   resize: none;
+			border: none;
+		   flex: 1;
+		}
+		#janeladascomunidades textarea:focus {
+			border: none;
+			outline: none;
+		}
+		#janeladascomunidades button {
+			background-color: #303134;
+			color: #FFFFFF;
+				border-radius: 999px;
+				border: 2px solid rgba(255,255,255,0.05);
+			box-shadow: 0 0 5px rgba(255,255,255,0.08);
+		}
+		#janeladascomunidades button:hover {
+			background-color: #F7D117;
+			border-color: yellow;
+			box-shadow: 0 0 5px #F7D117;
+		}
+		.container-conversa {
+			display: flex;
+			flex-direction: column;
+			padding: 20px;
+			border-radius: 20px;
+			width: 100vw;
+			position: fixed;
+			left: 0;
+			top: 70px;
+			height: 100vh;
+		}
+		.caixa-conversa {
+			display: none;
+			color: #FFFFFF;
+			background-color: transparent;
+			border-radius: 20px;
+			word-wrap: break-word;
+		    overflow-wrap: break-word;
+			word-break: break-word;
+			max-height: 500px;
+			gap: 5px;
+		}
+		#chatebtn {
+			flex-direction: row;
+			align-items: center;
+			display: flex;
+			position: fixed;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 40px;
+			gap: 15px;
+			background-color: #303134;
+			border: 2px solid rgba(255,255,255,0.08);
+			border-radius: 20px;
+		}
+		#chatebtn:focus-within {
+			border-color: #F7D117;
+		}
+		.fecharjaneladascomunidades {
+			width: 32px;
+			height: 32px;
+		}
+		#janelacriarconta {
+			display: none;
+			width: 100vw;
+			height: 100vh;
+			background-color: #0F0F0F;
+			position: fixed;
+			top: 0;
+		  }
+		#janelacriarconta button {
+			background-color: #303134;
+			border: 2px solid rgba(255,255,255,0.08);
+			border-radius: 999px;
+			color: #FFFFFF;
+		}
+		#janelacriarconta button:hover {
+			background-color: #F7D117;
+			border-color: yellow;
+		}
+		.fecharjanelacriarconta {
+			width: 32px;
+			border-radius: 999px;
+			height: 32px;
+			background-color: #303134;
+			border: 1px solid rgba(255,255,255,0.08);
+		}
+		.fecharjanelacriarconta:hover {
+			background-color: #F7D117;
+			border-color: yellow;
+		}
+		#olaenomeusuario {
+			display: flex;
+			margin-right: 0;
+		}
+		.nomeusuario:hover {
+			color: #F7D117;
+		}
+		#inputnomeecriarcontabtn {
+			display: flex;
+			position: fixed;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: #303134;
+		}
+		#enviar {
+			background-color: transparent !important;
+			border: none !important;
+			box-shadow: none !important;
+			}
+		#enviar:hover {
+			background-color: transparent !important;
+			border: none !important;
+			box-shadow: none !important;
+		}
+		#enviar svg {
+			fill: #FFFFFF;
+		}
+		#enviar svg:hover {
+			fill: #F7D117;
+		}
+    </style>
+  </head>
+  <body>
+    <header>
+    <h1><u>Banana Forum</u></h1>
+	<div id="olaenomeusuario">
+	<p>Olá,</p>
+	<p class="nomeusuario">Usuario</p>
+	</div>
+    </header>
+    <div id="menucominicioecriarcomunidade">
+      <button id="iniciobtn" title="Ínicio"><svg fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 width="800px" height="800px" viewBox="0 0 441.556 441.555"
+	 xml:space="preserve">
+<g>
+	<path d="M405.584,262.377h-26.899v124.201c0,22-17.7,39.799-39.801,39.799h-236.3c-22,0-39.8-17.699-39.8-39.799V262.377h-26.9
+		c-30,0-50.2-36.699-23.3-64.299l159.2-162.1c13.5-14.1,31.2-20.8,49-20.8s35.5,6.7,49.6,20.8l36.101,36.7v-32.4
+		c0-14.1,11.6-25.1,25.7-25.1h21.399c13.5,0,25.101,11,25.101,25.1v106.5l50.199,51.4
+		C455.685,225.678,436.185,262.377,405.584,262.377z"/>
+</g>
+	  </svg></button>
+      <button id="criarcomunidadebtn" title="criar comunidade"><svg fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 width="800px" height="800px" viewBox="0 0 349.03 349.031"
+	 xml:space="preserve">
+<g>
+	<path d="M349.03,141.226v66.579c0,5.012-4.061,9.079-9.079,9.079H216.884v123.067c0,5.019-4.067,9.079-9.079,9.079h-66.579
+		c-5.009,0-9.079-4.061-9.079-9.079V216.884H9.079c-5.016,0-9.079-4.067-9.079-9.079v-66.579c0-5.013,4.063-9.079,9.079-9.079
+		h123.068V9.079c0-5.018,4.069-9.079,9.079-9.079h66.579c5.012,0,9.079,4.061,9.079,9.079v123.068h123.067
+		C344.97,132.147,349.03,136.213,349.03,141.226z"/>
+</g>
+      </svg></button>
+    </div>
+    <main>
+		<div id="comunidades">
+	  <svg width="800px" height="800px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="🔍-Product-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic_fluent_people_community_28_filled" fill="#F7D117" fill-rule="nonzero">
+            <path d="M17.75,18 C18.7164983,18 19.5,18.7835017 19.5,19.75 L19.5,21.7519766 L19.4921156,21.8604403 C19.1813607,23.9866441 17.2715225,25.0090369 14.0667905,25.0090369 C10.8736123,25.0090369 8.93330141,23.9983408 8.51446278,21.8965776 L8.5,21.75 L8.5,19.75 C8.5,18.7835017 9.28350169,18 10.25,18 L17.75,18 Z M18.2439108,11.9999135 L24.25,12 C25.2164983,12 26,12.7835017 26,13.75 L26,15.7519766 L25.9921156,15.8604403 C25.6813607,17.9866441 23.7715225,19.0090369 20.5667905,19.0090369 L20.3985759,19.007437 C20.0900029,17.9045277 19.1110503,17.0815935 17.9288034,17.0057197 L17.75,17 L16.8277704,17.0007255 C17.8477843,16.1757619 18.5,14.9140475 18.5,13.5 C18.5,12.9740145 18.4097576,12.4691063 18.2439108,11.9999135 Z M3.75,12 L9.75608915,11.9999135 C9.59024243,12.4691063 9.5,12.9740145 9.5,13.5 C9.5,14.8308682 10.0777413,16.0267978 10.996103,16.8506678 L11.1722296,17.0007255 L10.25,17 C8.9877951,17 7.92420242,17.85036 7.60086562,19.0094363 L7.5667905,19.0090369 C4.37361228,19.0090369 2.43330141,17.9983408 2.01446278,15.8965776 L2,15.75 L2,13.75 C2,12.7835017 2.78350169,12 3.75,12 Z M14,10 C15.9329966,10 17.5,11.5670034 17.5,13.5 C17.5,15.4329966 15.9329966,17 14,17 C12.0670034,17 10.5,15.4329966 10.5,13.5 C10.5,11.5670034 12.0670034,10 14,10 Z M20.5,4 C22.4329966,4 24,5.56700338 24,7.5 C24,9.43299662 22.4329966,11 20.5,11 C18.5670034,11 17,9.43299662 17,7.5 C17,5.56700338 18.5670034,4 20.5,4 Z M7.5,4 C9.43299662,4 11,5.56700338 11,7.5 C11,9.43299662 9.43299662,11 7.5,11 C5.56700338,11 4,9.43299662 4,7.5 C4,5.56700338 5.56700338,4 7.5,4 Z" id="🎨-Color">
+</path>
+        </g>
+    </g>
+</svg>
+      <h2>Comunidades</h2>
+		</div>
+	  <div id="modelo-comunidade">
+		  <h2 class="nome">Nome da comunidade</h2>
+	  </div>
+		<div id="container-comunidade"></div>
+    </main>
+	  <div id="janeladascomunidades">
+		  <button class="fecharjaneladascomunidades">X</button>
+		  <div class="caixa-conversa">
+			  <p id="nomedapessoanochat">nome</p>
+			  <p class="texto-conversa"></p>
+		  </div>
+		  <div class="container-conversa"></div>
+		  <div id="chatebtn">
+		  <textarea id="chat" placeholder="Converse com outros dessa comunidade"></textarea>
+		  <button id="enviar"><svg height="800px" width="800px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 512 512"  xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F7D117;}
+</style>
+<g>
+	<path class="st0" d="M184.025,259.35h26.422c6.953,0,12.609,5.652,12.609,12.605v75.034c0,8.708,7.082,15.792,15.788,15.792h34.314
+		c8.706,0,15.786-7.084,15.786-15.792v-75.034c0-6.952,5.658-12.605,12.611-12.605h26.422c4.412,0,7.584-1.494,8.93-4.208
+		c1.347-2.71,0.619-6.141-2.046-9.658l-69.012-90.966c-2.591-3.412-6.089-5.295-9.85-5.295c-3.76,0-7.258,1.883-9.849,5.295
+		l-69.012,90.966c-2.667,3.517-3.393,6.949-2.046,9.658C176.439,257.856,179.613,259.35,184.025,259.35z"/>
+	<path class="st0" d="M256,0C114.842,0,0.002,114.84,0.002,256S114.842,512,256,512c141.158,0,255.998-114.84,255.998-256
+		S397.158,0,256,0z M256,66.785c104.334,0,189.216,84.879,189.216,189.215S360.334,445.215,256,445.215S66.783,360.336,66.783,256
+		S151.667,66.785,256,66.785z"/>
+</g>
+		  </svg></button>
+		  </div>
+	  </div>
+	  <div id="janelacriarcomunidade">
+		  <button class="fecharjanelacomunidade">X</button>
+		  <h2>Criar comunidade</h2>
+		  <div id="inputcriarcomunidadeebtn">
+		  <input id="inputNomedacomunidade" placeholder="Nome">
+		  <button id="criar">Criar</button>
+		  </div>
+	  </div>
+	  <div id="janelacriarconta">
+	  <button class="fecharjanelacriarconta">X</button>
+      <h2>Crie sua conta</h2>
+	  <div id="inputnomeecriarcontabtn">
+	  <input class="inputnomedousuario" placeholder="Digite seu nome aqui">
+	  <button class="criarcontabtn">Criar</button>
+	  </div>
+	  </div>
+	  <script>
+		  const criarcomunidadebtn = document.getElementById('criarcomunidadebtn');
+		  const fecharjanelacomunidadebtn = document.querySelector('.fecharjanelacomunidade');
+		  const janelacriarcomunidade = document.getElementById('janelacriarcomunidade');
+		  const iniciobtn = document.getElementById('iniciobtn');
+		  iniciobtn.classList.add('selecionado');
+		  criarcomunidadebtn.onclick = function() {
+			  iniciobtn.classList.remove('selecionado');
+			  janelacriarcomunidade.style.display = 'block';
+		  }
+		  fecharjanelacomunidadebtn.onclick = function() {
+			  iniciobtn.classList.add('selecionado');
+			  janelacriarcomunidade.style.display = 'none';
+		  }
+		  const inputNomedacomunidade = document.getElementById('inputNomedacomunidade');
+		  const container = document.getElementById('container-comunidade');
+		  const botaocriarcomunidade = document.getElementById('criar');
+		  const modelo = document.getElementById('modelo-comunidade');
+          const janeladascomunidades = document.getElementById('janeladascomunidades');
+		  botaocriarcomunidade.addEventListener('click', () => {
+			  const novomodelo = modelo.cloneNode(true);
+			  novomodelo.removeAttribute('id');
+			  novomodelo.style.display = 'block';
+			  const novoNome = inputNomedacomunidade.value;
+			  const nomedacomunidade = novomodelo.querySelector('.nome');
+			  nomedacomunidade.textContent = novoNome;
+			  localStorage.setItem("comunidade", novoNome);
+			  nomedacomunidade.onclick = () => {
+		      janeladascomunidades.style.display = 'flex';
+		  };
+			  container.appendChild(novomodelo);
+			  inputNomedacomunidade.value = ''
+			  janelacriarcomunidade.style.display = 'none';
+			  iniciobtn.classList.add('selecionado');
+		  })
+		  const chat = document.getElementById('chat');
+		  const caixaconversa = document.querySelector('.caixa-conversa');
+		  const textoconversa = document.querySelector('.texto-conversa');
+		  const containerconversa = document.querySelector('.container-conversa');
+		  const enviarbtn = document.getElementById('enviar');
+		  enviarbtn.addEventListener('click', () => {
+		  if (chat.value.trim() === "") {
+		  alert('Escreva algo primeiro');
+		  return;
+		  }
+		  const novacaixaconversa = caixaconversa.cloneNode(true);
+		  novacaixaconversa.style.display = 'flex';
+		  containerconversa.appendChild(novacaixaconversa);
+		  const textodoinput = chat.value;
+		  const textodaconversa = novacaixaconversa.querySelector('.texto-conversa');
+		  textodaconversa.textContent = textodoinput;
+		  chat.value = "";
+		  })
+		  const fecharjaneladascomunidades = document.querySelector('.fecharjaneladascomunidades');
+		  fecharjaneladascomunidades.onclick = function() {
+		  janeladascomunidades.style.display = 'none';
+		  iniciobtn.classList.add('selecionado');
+		  }
+		  const nomeusuario = document.querySelector('.nomeusuario');
+		  const janelacriarconta = document.getElementById('janelacriarconta');
+		  nomeusuario.onclick = function() {
+		  janelacriarconta.style.display = 'block';
+		  }
+		  const criarcontabtn = document.querySelector('.criarcontabtn');
+		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
+		  criarcontabtn.addEventListener('click', () => {
+			  const nome = inputnomedousuario.value.trim();
+			  nomeusuario.textContent = nome;
+			  if (nome === "") {
+				  alert('Digite um nome');
+				  return;
+			  }
+			  localStorage.setItem("nomeUsuario", nome);
+			  const nomedapessoanochat = document.getElementById('nomedapessoanochat');
+			  nomedapessoanochat.textContent = inputnomedousuario.value + ":";
+			  inputnomedousuario.value = "";
+			  janelacriarconta.style.display = 'none';
+		  })
+		  window.onload = function() {
+			  const nomesalvo = localStorage.getItem("nomeUsuario");
+			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
+			  const nomedacomunidade = document.querySelector('.nome');
+			  if (nomesalvo) {
+				  nomeusuario.textContent = nomesalvo;
+			  }
+			  if (nomedacomunidadesalvo) {
+				  nomedacomunidade.textContent = nomedacomunidadesalvo;
+			  }
+		  }
+		  const fecharjanelacriarconta = document.querySelector('.fecharjanelacriarconta');
+		  fecharjanelacriarconta.onclick = function() {
+			  janelacriarconta.style.display = 'none';
+		  }
+	  </script>
+  </body>
+</html>
