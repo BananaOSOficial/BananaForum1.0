@@ -263,6 +263,8 @@
 			height: 100vh;
 			background-color: #0F0F0F;
 			position: fixed;
+			justify-content: center;
+			align-items: center;
 			top: 0;
 		  }
 		#janelacriarconta button {
@@ -350,6 +352,11 @@
 			align-items: center;
 			gap: 20px;
 			}
+		#conteudocriarconta {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
     </style>
   </head>
   <body>
@@ -437,10 +444,12 @@
 	  </div>
 	  <div id="janelacriarconta">
 	  <button class="fecharjanelacriarconta">X</button>
+	  <div id="conteudocriarconta">
       <h2>Crie sua conta</h2>
 	  <div id="inputnomeecriarcontabtn">
 	  <input class="inputnomedousuario" placeholder="Digite seu nome aqui">
 	  <button class="criarcontabtn">Criar</button>
+	  </div>
 	  </div>
 	  </div>
 	  <script>
