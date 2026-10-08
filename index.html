@@ -85,6 +85,9 @@
 			position: fixed;
 			backdrop-filter: blur(10px);
 			-webkit-backdrop-filter: blur(10px);
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
 		}
 		#inputcriarcomunidadeebtn {
 			position: fixed;
@@ -250,11 +253,11 @@
 			background-color: #303134;
 			border: 2px solid rgba(255,255,255,0.08);
 			border-radius: 20px;
-			box-shadow: 0 0 5px rgba(255,255,255,0.08);
+			box-shadow: 0 0 10px rgba(255,255,255,0.08);
 		}
 		#chatebtn:focus-within {
 			border-color: #F7D117;
-			box-shadow: 0 0 5px #F7D117;
+			box-shadow: 0 0 10px #F7D117;
 		}
 		.fecharjaneladascomunidades {
 			width: 32px;
@@ -449,7 +452,7 @@
 		  iniciobtn.classList.add('selecionado');
 		  criarcomunidadebtn.onclick = function() {
 			  iniciobtn.classList.remove('selecionado');
-			  janelacriarcomunidade.style.display = 'block';
+			  janelacriarcomunidade.style.display = 'flex';
 		  }
 		  fecharjanelacomunidadebtn.onclick = function() {
 			  iniciobtn.classList.add('selecionado');
