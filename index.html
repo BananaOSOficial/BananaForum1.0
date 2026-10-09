@@ -579,10 +579,11 @@
 			  janelacriarconta.style.display = 'none';
 		  })
 		  function verificarseousuariojacriouconta() {
-		  if (nomeusuario.textContent === "Usuario") {
-			  criarcontatxt.textContent = "Criar conta";
+			  const nomesalvo = localStorage.getItem("nomeUsuario");
+		  if (nomesalvo) {
+			  criarcontatxt.textContent = "Trocar nome";
 		  } else {
-		  criarcontatxt.textContent = "Trocar nome";
+		  criarcontatxt.textContent = "Criar conta";
 		  }
 		  }
 		  window.onload = function() {
