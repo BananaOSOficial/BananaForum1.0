@@ -487,7 +487,7 @@
 	  <div id="janelacriarconta">
 	  <button class="fecharjanelacriarconta">X</button>
 	  <div id="conteudocriarconta">
-      <h2>Crie sua conta</h2>
+      <h2 class="criarcontatxt">Crie sua conta</h2>
 	  <div id="inputnomeecriarcontabtn">
 	  <input class="inputnomedousuario" placeholder="Digite seu nome aqui">
 	  <button class="criarcontabtn">Criar</button>
@@ -556,6 +556,7 @@
 		  }
 		  const nomeusuario = document.querySelector('.nomeusuario');
 		  const janelacriarconta = document.getElementById('janelacriarconta');
+		  const criarcontatxt = document.querySelector('.criarcontatxt');
 		  nomeusuario.onclick = function() {
 		  janelacriarconta.style.display = 'flex';
 		  }
@@ -574,6 +575,13 @@
 			  inputnomedousuario.value = "";
 			  janelacriarconta.style.display = 'none';
 		  })
+		  function verificarseousuariojacriouconta() {
+		  if (nomeusuario.textContent === "Usuario") {
+			  criarcontatxt.textContent = "Criar conta";
+		  } else {
+		  criarcontatxt.textContent = "Trocar nome";
+		  }
+		  }
 		  window.onload = function() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
