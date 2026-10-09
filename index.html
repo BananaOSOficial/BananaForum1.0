@@ -522,6 +522,9 @@
 			  const nomedacomunidade = novomodelo.querySelector('.nome');
 			  nomedacomunidade.textContent = novoNome;
 			  localStorage.setItem("comunidade", novoNome);
+			  const comunidades = JSON.parse(localStorage.getItem("comunidades") || "[]");
+			  comunidades.push(novoNome);
+			  localStorage.setItem("comunidades", JSON.stringify(comunidades));
 			  nomedacomunidade.onclick = () => {
 		      janeladascomunidades.style.display = 'flex';
 		  };
@@ -597,6 +600,7 @@
 				  nomedacomunidade.textContent = nomedacomunidadesalvo;
 			  }
 			  verificarseousuariojacriouconta();
+			  const comunidades = JSON.parse(localStorage.getItem("comunidades") || "[]");
 		  }
 		  const fecharjanelacriarconta = document.querySelector('.fecharjanelacriarconta');
 		  fecharjanelacriarconta.onclick = function() {
