@@ -448,7 +448,7 @@
 	  <div id="janeladascomunidades">
 		  <button class="fecharjaneladascomunidades">X</button>
 		  <div class="caixa-conversa">
-			  <p id="nomedapessoanochat">nome</p>
+			  <p class="nomedapessoanochat">nome</p>
 			  <p class="texto-conversa"></p>
 		  </div>
 		  <div class="container-conversa"></div>
@@ -537,6 +537,9 @@
 		  }
 		  const novacaixaconversa = caixaconversa.cloneNode(true);
 		  novacaixaconversa.style.display = 'flex';
+		  const nomedapessoanochat = novacaixaconversa.querySelector('.nomedapessoanochat');
+		  const nomeatual = localStorage.getItem("nomeUsuario") || "Usuario";
+		  nomedapessoanochat.textContent = nomeatual + ":";
 		  containerconversa.appendChild(novacaixaconversa);
 		  const textodoinput = chat.value;
 		  const textodaconversa = novacaixaconversa.querySelector('.texto-conversa');
@@ -563,7 +566,7 @@
 			  }
 			  nomeusuario.textContent = nome;
 			  localStorage.setItem("nomeUsuario", nome);
-			  const nomedapessoanochat = document.getElementById('nomedapessoanochat');
+			  const nomedapessoanochat = document.querySelector('.nomedapessoanochat');
 			  nomedapessoanochat.textContent = inputnomedousuario.value + ":";
 			  inputnomedousuario.value = "";
 			  janelacriarconta.style.display = 'none';
