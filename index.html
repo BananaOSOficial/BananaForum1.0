@@ -139,17 +139,17 @@
 			border: none;
 			caret-color: #F7D117;
 		}
-		#modelo-comunidade {
+		.modelo-comunidade {
 			margin-top: 10px;
 			display: none;
 			background-color: transparent;
 			border-radius: 10px;
 			margin-top: 10px;
 		}
-		#modelo-comunidade h2 {
+		.modelo-comunidade h2 {
 			cursor: pointer;
 		}
-		#modelo-comunidade h2:hover {
+		.modelo-comunidade h2:hover {
 			color: #5b8def;
 		}
 		#container-comunidade {
@@ -438,7 +438,7 @@
 </svg>
       <h2>Comunidades</h2>
 		</div>
-	  <div id="modelo-comunidade">
+	  <div class="modelo-comunidade">
 		  <h2 class="nome">Nome da comunidade</h2>
 	  </div>
 		<div id="container-comunidade"></div>
@@ -506,11 +506,10 @@
 		  const inputNomedacomunidade = document.getElementById('inputNomedacomunidade');
 		  const container = document.getElementById('container-comunidade');
 		  const botaocriarcomunidade = document.getElementById('criar');
-		  const modelo = document.getElementById('modelo-comunidade');
+		  const modelo = document.querySelector('.modelo-comunidade');
           const janeladascomunidades = document.getElementById('janeladascomunidades');
 		  botaocriarcomunidade.addEventListener('click', () => {
 			  const novomodelo = modelo.cloneNode(true);
-			  novomodelo.removeAttribute('id');
 			  novomodelo.style.display = 'block';
 			  const novoNome = inputNomedacomunidade.value;
 			  const nomedacomunidade = novomodelo.querySelector('.nome');
