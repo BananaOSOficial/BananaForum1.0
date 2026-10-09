@@ -530,17 +530,17 @@
 		  const nomeusuario = document.querySelector('.nomeusuario');
 		  const janelacriarconta = document.getElementById('janelacriarconta');
 		  nomeusuario.onclick = function() {
-		  janelacriarconta.style.display = 'block';
+		  janelacriarconta.style.display = 'flex';
 		  }
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
 		  criarcontabtn.addEventListener('click', () => {
 			  const nome = inputnomedousuario.value.trim();
-			  nomeusuario.textContent = nome;
 			  if (nome === "") {
 				  alert('Digite um nome');
 				  return;
 			  }
+			  nomeusuario.textContent = nome;
 			  localStorage.setItem("nomeUsuario", nome);
 			  const nomedapessoanochat = document.getElementById('nomedapessoanochat');
 			  nomedapessoanochat.textContent = inputnomedousuario.value + ":";
