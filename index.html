@@ -601,7 +601,17 @@
 			  }
 			  verificarseousuariojacriouconta();
 			  const comunidades = JSON.parse(localStorage.getItem("comunidades") || "[]");
-		  }
+			  comunidades.forEach((nomeComunidade) => {
+				  const novomodelo = modelo.cloneNode(true);
+				  novomodelo.style.display = 'block';
+				  const nomedacomunidade = novomodelo.querySelector('.nome');
+				  nomedacomunidade.textContent = nomeComunidade;
+				  nomedacomunidade.onclick = () => {
+					  janeladascomunidades.style.display = 'flex';
+				  };
+				  container.appendChild(novomodelo);
+			  });
+		  };
 		  const fecharjanelacriarconta = document.querySelector('.fecharjanelacriarconta');
 		  fecharjanelacriarconta.onclick = function() {
 			  janelacriarconta.style.display = 'none';
