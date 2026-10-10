@@ -598,6 +598,11 @@
 		  criarcontatxt.textContent = "Criar conta";
 		  }
 		  }
+		  const chattextarea = document.getElementById('chat');
+		  chattextarea.addEventListener("input", () => {
+		  chattextarea.style.height = 'auto';
+		  chattextarea.style.height = Math.min(chattextarea.scrollHeight, 150) + "px";
+		  });
 		  window.onload = function() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
