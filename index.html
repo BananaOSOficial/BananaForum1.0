@@ -120,13 +120,16 @@
 			border-radius: 999px;
 			width: 32px;
 			height: 32px;
-			border: 1px solid rgba(255,255,255,0.05);
+			border: 2px solid rgba(255,255,255,0.05);
 			color: #FFFFFF;
+			transition: transform 0.5s ease;
 		}
 		.fecharjanelacomunidade:hover {
 			background-color: #F7D117;
 			border-color: yellow;
 			cursor: pointer;
+			transform: scale(1.1);
+			box-shadow: 0 0 10px #F7D117;
 		}
 		#iniciobtn.selecionado {
 			background-color: #F7D117;
@@ -233,7 +236,7 @@
 		#janeladascomunidades button:hover {
 			background-color: #F7D117;
 			border-color: yellow;
-			box-shadow: 0 0 5px #F7D117;
+			box-shadow: 0 0 10px #F7D117;
 			cursor: pointer;
 		}
 		.container-conversa {
@@ -285,6 +288,10 @@
 		.fecharjaneladascomunidades {
 			width: 32px;
 			height: 32px;
+			transition: transform 0.5s ease;
+		}
+		.fecharjaneladascomunidades:hover {
+			transform: scale(1.1);
 		}
 		#janelacriarconta {
 			display: none;
@@ -308,6 +315,7 @@
 		#janelacriarconta button:hover {
 			background-color: #F7D117;
 			border-color: yellow;
+			box-shadow: 0 0 10px #F7D117;
 			cursor: pointer;
 		}
 		.fecharjanelacriarconta {
@@ -319,10 +327,12 @@
 			position: fixed;
 			top: 10px;
 			left: 10px;
+			transition: transform 0.5s ease;
 		}
 		.fecharjanelacriarconta:hover {
 			background-color: #F7D117;
 			border-color: yellow;
+			transform: scale(1.1);
 		}
 		#olaenomeusuario {
 			display: flex;
