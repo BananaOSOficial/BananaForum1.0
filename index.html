@@ -198,6 +198,7 @@
 			width: 100vw;
 			height: 100vh;
 			height: 100dvh;
+			z-index: 100;
 			background-color: rgba(0,0,0,0.9);
 			top: 0;
 			padding: 20px 20px 0 20px;
@@ -293,6 +294,7 @@
 			position: fixed;
 			flex-direction: column;
 			justify-content: center;
+			z-index: 100;
 			align-items: center;
 			top: 0;
 			backdrop-filter: blur(10px);
@@ -524,11 +526,13 @@
 			  iniciobtn.classList.remove('selecionado');
 			  janelacriarcomunidade.style.display = 'flex';
 			  criarcomunidadebtn.classList.add('selecionado');
+			  document.body.style.overflow = 'hidden';
 		  }
 		  fecharjanelacomunidadebtn.onclick = function() {
 			  iniciobtn.classList.add('selecionado');
 			  janelacriarcomunidade.style.display = 'none';
 			  criarcomunidadebtn.classList.remove('selecionado');
+			  document.body.style.overflow = '';
 		  }
 		  const inputNomedacomunidade = document.getElementById('inputNomedacomunidade');
 		  const container = document.getElementById('container-comunidade');
@@ -547,12 +551,14 @@
 			  localStorage.setItem("comunidades", JSON.stringify(comunidades));
 			  nomedacomunidade.onclick = () => {
 		      janeladascomunidades.style.display = 'flex';
+			  document.body.style.overflow = 'hidden';
 		  };
 			  container.appendChild(novomodelo);
 			  inputNomedacomunidade.value = ''
 			  janelacriarcomunidade.style.display = 'none';
 			  iniciobtn.classList.add('selecionado');
 			  criarcomunidadebtn.classList.remove('selecionado');
+			  document.body.style.overflow = '';
 		  })
 		  const chat = document.getElementById('chat');
 		  const caixaconversa = document.querySelector('.caixa-conversa');
@@ -579,6 +585,7 @@
 		  fecharjaneladascomunidades.onclick = function() {
 		  janeladascomunidades.style.display = 'none';
 		  iniciobtn.classList.add('selecionado');
+		  document.body.style.overflow = '';
 		  }
 		  const nomeusuario = document.querySelector('.nomeusuario');
 		  const janelacriarconta = document.getElementById('janelacriarconta');
@@ -586,6 +593,7 @@
 		  nomeusuario.onclick = function() {
 		  verificarseousuariojacriouconta();
 		  janelacriarconta.style.display = 'flex';
+		  document.body.style.overflow = 'hidden';
 		  }
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
@@ -601,6 +609,7 @@
 			  nomedapessoanochat.textContent = inputnomedousuario.value + ":";
 			  inputnomedousuario.value = "";
 			  janelacriarconta.style.display = 'none';
+			  document.body.style.overflow = '';
 		  })
 		  function verificarseousuariojacriouconta() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
