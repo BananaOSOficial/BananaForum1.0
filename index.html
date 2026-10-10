@@ -415,6 +415,10 @@
 			white-space: nowrap;
 			color: #5b8def;
 		}
+		#criarcomunidadebtn.selecionado {
+			background-color: #F7D117;
+			box-shadow: 0 0 10px #F7D117;
+		}
     </style>
   </head>
   <body>
@@ -518,10 +522,12 @@
 		  criarcomunidadebtn.onclick = function() {
 			  iniciobtn.classList.remove('selecionado');
 			  janelacriarcomunidade.style.display = 'flex';
+			  criarcomunidadebtn.classList.add('selecionado');
 		  }
 		  fecharjanelacomunidadebtn.onclick = function() {
 			  iniciobtn.classList.add('selecionado');
 			  janelacriarcomunidade.style.display = 'none';
+			  criarcomunidadebtn.classList.remove('selecionado');
 		  }
 		  const inputNomedacomunidade = document.getElementById('inputNomedacomunidade');
 		  const container = document.getElementById('container-comunidade');
