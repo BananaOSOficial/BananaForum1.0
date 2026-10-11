@@ -284,8 +284,22 @@
 			padding: 10px;
 			border: 2px solid #F7D117;
 			transform: scale(1);
-			transform: scale(1.2);
 			transition: display 0.5s ease, transform 0.5s ease;
+			animation: 2s animationconversa ease-out forwards;
+		}
+		@keyframes animationconversa {
+			0% {
+				transform: scale(1);
+				opacity: 0;
+			}
+			50% {
+				transform: scale(1.2);
+				opacity: 1;
+			}
+			100% {
+				transform: scale(1);
+				opacity: 1;
+			}
 		}
 		#chatebtn {
 			flex-direction: column;
