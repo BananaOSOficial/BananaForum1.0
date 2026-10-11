@@ -628,13 +628,12 @@
 		      const nomedacomunidade = novomodelo.querySelector('.nome');
 			  nomedacomunidade.textContent = comunidade.nome;
 			  nomedacomunidade.onclick = () => {
-                  abrircomunidade(comunidade);
-				  document.body.style.overflow = 'hidden';
+                  abrirComunidade(comunidade);
 			  };
 			  container.appendChild(novomodelo);
 		  }
 		  let comunidadeAtualId = null;
-		  function abrircomunidade(comunidade) {
+		  function abrirComunidade(comunidade) {
 				comunidadeAtualId = comunidade.id;
 			    janeladascomunidades.style.display = 'flex';
 			    containerconversa.innerHTML = '';
@@ -658,19 +657,17 @@
 		  const containerconversa = document.querySelector('.container-conversa');
 		  const enviarbtn = document.getElementById('enviar');
 		  enviarbtn.addEventListener('click', () => {
-		  if (chat.value.trim() === "") {
+		  const texto = chat.value.trim();
+		  if (texto === "") {
 		  alert('Escreva algo primeiro');
 		  return;
 		  }
-		  const novacaixaconversa = caixaconversa.cloneNode(true);
-		  novacaixaconversa.style.display = 'flex';
-		  const nomedapessoanochat = novacaixaconversa.querySelector('.nomedapessoanochat');
 		  const nomeatual = localStorage.getItem("nomeUsuario") || "Usuario";
-		  nomedapessoanochat.textContent = nomeatual + ":";
-		  containerconversa.appendChild(novacaixaconversa);
-		  const textodoinput = chat.value;
-		  const textodaconversa = novacaixaconversa.querySelector('.texto-conversa');
-		  textodaconversa.textContent = textodoinput;
+		  renderizarMensagem(nomeatual, texto);
+		  const chave = "msg_" + comunidadeAtualId;
+		  const mensagens = JSON.parse(localStorage.getItem(chave) || "[]");
+		  mensagens.push({nome: nomeatual, texto: texto});
+		  localStorage.setItem(chave, JSON.stringify(mensagens));
 		  chat.value = "";
 		  })
 		  const fecharjaneladascomunidades = document.querySelector('.fecharjaneladascomunidades');
