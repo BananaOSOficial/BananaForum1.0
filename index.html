@@ -385,16 +385,17 @@
 			cursor: pointer;
 		}
 		#anexar {
-			background-color: #F7D117;
+			background-color: #F7D117 !important;
 			width: 32px;
 			height: 32px;
 			border-radius: 999px;
 			display: flex;
-			align-items: flex-end;
+			transition: transform 0.5s ease;
 		}
 		#anexar:hover {
-			background-color: yellow;
-			box-shadow: 0 0 10px yellow;
+			background-color: yellow !important;
+			box-shadow: 0 0 10px yellow !important;
+			transform: scale(1.1);
 		}
 		#janelacriarconta #inputnomeecriarcontabtn {
 			display: flex;
@@ -501,6 +502,7 @@
 		.botoes {
           display: flex;
 		  align-items: flex-end;
+		  gap: 10px;
 		}
     </style>
   </head>
