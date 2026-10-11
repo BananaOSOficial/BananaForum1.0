@@ -628,11 +628,30 @@
 		      const nomedacomunidade = novomodelo.querySelector('.nome');
 			  nomedacomunidade.textContent = comunidade.nome;
 			  nomedacomunidade.onclick = () => {
-				  janeladascomunidades.style.display = 'flex';
+                  abrircomunidade(comunidade);
 				  document.body.style.overflow = 'hidden';
 			  };
 			  container.appendChild(novomodelo);
 		  }
+		  let comunidadeAtualId = null;
+		  function abrircomunidade(comunidade) {
+				comunidadeAtualId = comunidade.id;
+			    janeladascomunidades.style.display = 'flex';
+			    containerconversa.innerHTML = '';
+			    const mensagens =  JSON.parse(localStorage.getItem("msg_" + comunidade.id) || "[]");
+			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto));
+			    document.body.style.overflow = 'hidden';
+					}
+		  function renderizarMensagem(nome, texto) {
+			  const novacaixa = caixaconversa.cloneNode(true);
+			  novacaixa.style.display = 'flex';
+			  const novonome = novacaixa.querySelector('.nomedapessoanochat');
+			  novonome.textContent = nome + ":";
+			  const novotexto = novacaixa.querySelector('.texto-conversa');
+			  novotexto.textContent = texto;
+			  containerconversa.appendChild(novacaixa);
+		  }
+			  
 		  const chat = document.getElementById('chat');
 		  const caixaconversa = document.querySelector('.caixa-conversa');
 		  const textoconversa = document.querySelector('.texto-conversa');
