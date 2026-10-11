@@ -603,26 +603,36 @@
 		  const modelo = document.querySelector('.modelo-comunidade');
           const janeladascomunidades = document.getElementById('janeladascomunidades');
 		  botaocriarcomunidade.addEventListener('click', () => {
-			  const novomodelo = modelo.cloneNode(true);
-			  novomodelo.style.display = 'block';
-			  const novoNome = inputNomedacomunidade.value;
-			  const nomedacomunidade = novomodelo.querySelector('.nome');
-			  nomedacomunidade.textContent = novoNome;
-			  localStorage.setItem("comunidade", novoNome);
-			  const comunidades = JSON.parse(localStorage.getItem("comunidades") || "[]");
-			  comunidades.push(novoNome);
-			  localStorage.setItem("comunidades", JSON.stringify(comunidades));
-			  nomedacomunidade.onclick = () => {
-		      janeladascomunidades.style.display = 'flex';
-			  document.body.style.overflow = 'hidden';
+			  const novoNome = inputNomedacomunidade.value.trim();
+			    if (novoNome === '') {
+			  alert('Digite o nome da comunidade');
+			  return;
 		  };
-			  container.appendChild(novomodelo);
-			  inputNomedacomunidade.value = ''
+			  const novaComunidade = {
+				  id: Date.now().toString(),
+			      nome: novoNome
+		  };
+			   const comunidades = JSON.parse(localStorage.getItem("comunidades") || "[]");
+			   comunidades.push(novaComunidade);
+			  localStorage.setItem("comunidades", JSON.stringify(comunidades));
+			   criarElementocomunidade(novaComunidade);
+			  inputNomedacomunidade.value = '';
 			  janelacriarcomunidade.style.display = 'none';
 			  iniciobtn.classList.add('selecionado');
 			  criarcomunidadebtn.classList.remove('selecionado');
 			  document.body.style.overflow = '';
-		  })
+		  });
+		  function criarElementocomunidade(comunidade) {
+			  const novomodelo = modelo.cloneNode(true);
+			  novomodelo.style.display = 'block';
+		      const nomedacomunidade = novomodelo.querySelector('.nome');
+			  nomedacomunidade.textContent = comunidade.nome;
+			  nomedacomunidade.onclick = () => {
+				  janeladascomunidades.style.display = 'flex';
+				  document.body.style.overflow = 'hidden';
+			  };
+			  container.appendChild(novomodelo);
+		  }
 		  const chat = document.getElementById('chat');
 		  const caixaconversa = document.querySelector('.caixa-conversa');
 		  const textoconversa = document.querySelector('.texto-conversa');
