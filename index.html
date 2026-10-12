@@ -564,6 +564,7 @@
 		  <div id="chatebtn">
 		  <textarea id="chat" rows="1" placeholder="Converse com outros dessa comunidade"></textarea>
 		  <div class="botoes">
+		  <input type="file" id="input-foto" accept="image/*" style="display: none;">
 		  <button id="anexar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"
         stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -738,6 +739,11 @@
 		  chattextarea.addEventListener("input", () => {
 		  chattextarea.style.height = 'auto';
 		  chattextarea.style.height = Math.min(chattextarea.scrollHeight, 150) + "px";
+		  });
+		  const anexarbtn = document.getElementById('anexar');
+		  const inputfoto = document.getElementById('input-foto');
+		  anexar.addEventListener('click', () => {
+			  input.click;
 		  });
 		  window.onload = function() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
