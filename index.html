@@ -293,6 +293,9 @@
 		.caixa-conversa p {
 			gap: 10px;
 		}
+		.caixa-conversa img {
+			cursor: pointer;
+		}
 		@keyframes animationconversa {
 			0% {
 				transform: scale(1);
@@ -365,7 +368,7 @@
 			border-radius: 999px;
 			height: 32px;
 			background-color: #303134;
-			border: 1px solid rgba(255,255,255,0.08);
+			border: 2px solid rgba(255,255,255,0.08);
 			position: fixed;
 			top: 10px;
 			left: 10px;
@@ -511,6 +514,40 @@
 			align-self: stretch;
 			max-height: 100px;
 		}
+		#janelaimagem {
+			position: fixed;
+			width: 100vw;
+			background: transparent;
+			height: 100vh;
+			top: 0;
+			display: none;
+		}
+		#janelaimagem button {
+			position: fixed;
+			left: 10px;
+			top: 10px;
+			background-color: #303134;
+			border: 2px solid rgba(255,255,255,0.08);
+			width: 32px;
+			height: 32px;
+			transition: transform 0.5s ease;
+		}
+		#janelaimagem button:hover {
+				background-color: #F7D117;
+			    border-color: yellow;
+			    transform: scale(1.1);
+		}
+		#janelaimagem img {
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			max-height: 90vh;
+			max-width: 90vw;
+		    width: auto;
+	        height: auto;
+			object-fit: contain;
+		}
     </style>
   </head>
   <body>
@@ -593,6 +630,10 @@
 		  </button>
 		  </div>
 		  </div>
+	  </div>
+	  <div id="janelaimagem">
+		  <button id="fecharjanelaimagem">X</button>
+		  <img src="">
 	  </div>
 	  <div id="janelacriarcomunidade">
 		  <button class="fecharjanelacomunidade">X</button>
@@ -712,6 +753,20 @@
 		  }
 		  chat.value = "";
 		  })
+		  containerconversa.addEventListener('click', (e) => {
+			  if (e.target.tagName === 'IMG') {
+				  const janelaimagem = document.getElementById('janelaimagem');
+				  const imagemdajanela = janelaimagem.querySelector('img');
+		          imagemdajanela.src = e.target.src;
+		          janelaimagem.style.display = 'block';
+				  document.body.style.overflow = 'hidden';
+		  }
+		  });
+		  const fecharjanelaimagem = document.getElementById('fecharjanelaimagem');
+		  fecharjanelaimagem.onclick = function() {
+		  const janelaimagem = document.getElementById('janelaimagem');
+		  janelaimagem.style.display = 'none';
+		  };
 		  const fecharjaneladascomunidades = document.querySelector('.fecharjaneladascomunidades');
 		  fecharjaneladascomunidades.onclick = function() {
 		  janeladascomunidades.style.display = 'none';
