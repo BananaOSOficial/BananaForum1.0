@@ -315,7 +315,6 @@
 			width: 80vw;
 			padding: 10px;
 			margin-bottom: 10px;
-			max-height: 150px;
 			background-color: rgba(48,49,52,0.5);
 			border: 2px solid rgba(255,255,255,0.08);
 			border-radius: 20px;
@@ -708,6 +707,9 @@
 		  const novacaixa = renderizarMensagem(nomeatual, texto);
 		  const img = containerimagemchat.querySelector('img');
           if (img) {
+		  img.maxHeight = "300px";
+		  img.maxWidth = "300px";
+		  img.height = 'auto';
 		  novacaixa.appendChild(img)
 		  containerimagemchat.innerHTML = '';
 		  }
