@@ -745,6 +745,20 @@
 		  anexarbtn.addEventListener('click', () => {
 			  inputfoto.click();
 		  });
+		  inputfoto.addEventListener('change', () => {
+			  const arquivo = inputfoto.files[0];
+			  if (!arquivo) {
+				  return;
+		  }
+			  const image = document.createElement('img');
+			  image.src = URL.createObjectURL(arquivo);
+			  image.style.maxWidth = '200px';
+		      image.style.maxHeight = '200px';
+		      image.style.borderRadius = '10px';
+		      image.style.marginTop = '10px';
+		      containerconversa.appendChild(image);
+			  inputfoto.value = '';
+		  });
 		  window.onload = function() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
