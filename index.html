@@ -781,6 +781,10 @@
 		  janelaimagem.style.display = 'none';
 		  };
 		  const janelaimagem = document.getElementById('janelaimagem');
+		  const img = janelaimagem.querySelector('img');
+		  img.onclick = function() {
+			  janelaimagem.style.display = 'flex';
+		  };
 		  janelaimagem.onclick = function() {
 		  janelaimagem.style.display = 'none';
 		  };
