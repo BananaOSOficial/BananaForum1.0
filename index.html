@@ -293,8 +293,6 @@
 		}
 		.caixa-conversa p {
 			gap: 10px;
-			display: flex;
-			flex-direction: row;
 		}
 		.caixa-conversa img {
 			cursor: pointer;
@@ -563,6 +561,10 @@
 		#container-imagemchat img {
 			filter: drop-shadow(0 0 5px #F7D117);
 		}
+		#textosdacaixaconversa {
+			display: flex;
+			flex-direction: row;
+		}
     </style>
   </head>
   <body>
@@ -615,8 +617,10 @@
 	  <div id="janeladascomunidades">
 		  <button class="fecharjaneladascomunidades">X</button>
 		  <div class="caixa-conversa">
+			  <div id="textosdacaixaconversa">
 			  <p class="nomedapessoanochat">nome</p>
 			  <p class="texto-conversa"></p>
+			  </div>
 		  </div>
 		  <div class="container-conversa"></div>
 		  <div id="chatebtn">
