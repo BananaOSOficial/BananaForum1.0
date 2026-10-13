@@ -782,12 +782,11 @@
 		  };
 		  const janelaimagem = document.getElementById('janelaimagem');
 		  const img = janelaimagem.querySelector('img');
-		  img.onclick = function() {
-			  janelaimagem.style.display = 'flex';
-		  };
+		  if (janelaimagem.onclick && !img.onclick) {
 		  janelaimagem.onclick = function() {
 		  janelaimagem.style.display = 'none';
 		  };
+		  }
 		  const fecharjaneladascomunidades = document.querySelector('.fecharjaneladascomunidades');
 		  fecharjaneladascomunidades.onclick = function() {
 		  janeladascomunidades.style.display = 'none';
