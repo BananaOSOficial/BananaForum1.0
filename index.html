@@ -783,10 +783,11 @@
 		  const janelaimagem = document.getElementById('janelaimagem');
 		  const img = janelaimagem.querySelector('img');
 		  janelaimagem.onclick = function() {
-		  if (!img.onclick) {
 		  janelaimagem.style.display = 'none';
-		  }
 		  };
+		  img.onclick = function(event) {
+			  event.stopPropagation();
+		  }
 		  const fecharjaneladascomunidades = document.querySelector('.fecharjaneladascomunidades');
 		  fecharjaneladascomunidades.onclick = function() {
 		  janeladascomunidades.style.display = 'none';
