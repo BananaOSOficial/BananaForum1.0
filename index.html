@@ -676,6 +676,8 @@
 	  </div>
 	  </div>
 	  <script>
+		   let URLimagempendente = null;
+		  let enviandoimagem = false;
 		  const criarcomunidadebtn = document.getElementById('criarcomunidadebtn');
 		  const fecharjanelacomunidadebtn = document.querySelector('.fecharjanelacomunidade');
 		  const janelacriarcomunidade = document.getElementById('janelacriarcomunidade');
@@ -734,14 +736,23 @@
 			    janeladascomunidades.style.display = 'flex';
 			    containerconversa.innerHTML = '';
 			    const mensagens =  JSON.parse(localStorage.getItem("msg_" + comunidade.id) || "[]");
-			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto));
+			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem));
 			    document.body.style.overflow = 'hidden';
 					}
-		  function renderizarMensagem(nome, texto) {
+		  function renderizarMensagem(nome, texto, urlImagem) {
 			  const novacaixa = caixaconversa.cloneNode(true);
 			  novacaixa.style.display = 'flex';
 			  const novonome = novacaixa.querySelector('.nomedapessoanochat');
 			  novonome.textContent = nome + ":";
+			  if (urlImagem) {
+				  const img = document.createElement('img');
+				  img.src = urlImagem;
+				  img.style.maxWidth = '150px';
+				  img.style.borderRadius = '10px';
+			      img.style.cursor = 'pointer';
+				  img.style.marginTop = '5px';
+				  novacaixa.appendChild(img);
+		  };
 			  const novotexto = novacaixa.querySelector('.texto-conversa');
 			  novotexto.textContent = texto;
 			  containerconversa.appendChild(novacaixa);
@@ -754,23 +765,24 @@
 		  const containerconversa = document.querySelector('.container-conversa');
 		  const enviarbtn = document.getElementById('enviar');
 		  enviarbtn.addEventListener('click', () => {
+		  if (enviandoimagem) {
+		  alert('Espera a imagem está sendo enviada');
+		  return;
+		  }
 		  const texto = chat.value.trim();
-		  if (texto === "") {
+		  if (texto === "" && !URLimagempendente) {
 		  alert('Escreva algo primeiro');
 		  return;
 		  }
 		  const nomeatual = localStorage.getItem("nomeUsuario") || "Usuario";
 		  const chave = "msg_" + comunidadeAtualId;
 		  const mensagens = JSON.parse(localStorage.getItem(chave) || "[]");
-		  mensagens.push({nome: nomeatual, texto: texto});
+		  mensagens.push({nome: nomeatual, texto: texto, imagem: URLimagempendente});
 		  localStorage.setItem(chave, JSON.stringify(mensagens));
 		  const containerimagemchat = document.getElementById('container-imagemchat');
-		  const novacaixa = renderizarMensagem(nomeatual, texto);
-		  const img = containerimagemchat.querySelector('img');
-          if (img) {
-		  novacaixa.appendChild(img)
+		  const novacaixa = renderizarMensagem(nomeatual, texto, URLimagempendente);
 		  containerimagemchat.innerHTML = '';
-		  }
+		  URLimagempendente = null;
 		  chat.value = "";
 		  })
 		  containerconversa.addEventListener('click', (e) => {
@@ -838,21 +850,39 @@
 		  anexarbtn.addEventListener('click', () => {
 			  inputfoto.click();
 		  });
-		  inputfoto.addEventListener('change', () => {
+		  inputfoto.addEventListener('change', async () => {
 			  const arquivo = inputfoto.files[0];
 			  if (!arquivo) {
 				  return;
 		  }
+			  const urlTemporaria = URL.createObjectURL(arquivo);
 			  const image = document.createElement('img');
-			  image.src = URL.createObjectURL(arquivo);
+			  image.src = urlTemporaria;
 			  image.style.maxWidth = '100px';
 		      image.style.maxHeight = '100px';
 		      image.style.borderRadius = '10px';
 			  const containerimagemchat = document.getElementById('container-imagemchat');
 		      containerimagemchat.appendChild(image);
+			  enviandoimagem = true;
+			  URLimagempendente = await enviarparacloudinary(arquivo);
+			  enviandoimagem = false;
+			  URL.revokeObjectURL(urlTemporaria);
 			  inputfoto.value = '';
 		  });
-		  window.onload = function() {
+		  async function enviarparacloudinary(arquivo) {
+		  const formData = new FormData();
+			 formData.append('file', arquivo);
+		     formData.append('upload_preset', 'banana-forum_unsigned');
+			  const resposta = await fetch('https://api.cloudinary.com/v1_1/esdfqfqro/image/upload',
+		  {
+			  method: 'POST',
+			  body: formData
+		  }
+		  );
+		  const dados = await resposta.json();
+		  return dados.secure_url;
+		  }
+			  window.onload = function() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
 			  const nomedacomunidade = document.querySelector('.nome');
