@@ -5,6 +5,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+	  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 	  <title>Banana Forum</title>
     <style>
       * {
@@ -399,7 +400,6 @@
 			display: flex;
 			transition: transform 0.5s ease;
 			align-items: center;
-			cursor: pointer;
 		}
 		#anexar:hover {
 			background-color: yellow !important;
@@ -558,10 +558,10 @@
 	        height: auto;
 			object-fit: contain;
 			border-radius: 10px;
-			filter: drop-shadow(0 0 10px #FFFFFF);
+			filter: drop-shadow(0 0 10px #F7D117);
 		}
 		#container-imagemchat img {
-			filter: drop-shadow(0 0 5px #FFFFFF);
+			filter: drop-shadow(0 0 5px #F7D117);
 		}
 		#textosdacaixaconversa {
 			display: flex;
@@ -677,6 +677,9 @@
 	  </div>
 	  </div>
 	  <script>
+		  const SUPABASE_URL = 'https://krsrcrrdwceritanlsih.supabase.co';
+		  const SUPABASE_ANON_KEY = 'sb_publishable_T4B-seLE58QT9egUSovN9w_TwhsRxSf';
+		  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 		   let URLimagempendente = null;
 		  let enviandoimagem = false;
 		  const criarcomunidadebtn = document.getElementById('criarcomunidadebtn');
@@ -701,20 +704,22 @@
 		  const botaocriarcomunidade = document.getElementById('criar');
 		  const modelo = document.querySelector('.modelo-comunidade');
           const janeladascomunidades = document.getElementById('janeladascomunidades');
-		  botaocriarcomunidade.addEventListener('click', () => {
+		  botaocriarcomunidade.addEventListener('click', async () => {
 			  const novoNome = inputNomedacomunidade.value.trim();
 			    if (novoNome === '') {
 			  alert('Digite o nome da comunidade');
 			  return;
 		  };
-			  const novaComunidade = {
-				  id: Date.now().toString(),
-			      nome: novoNome
-		  };
-			   const comunidades = JSON.parse(localStorage.getItem("comunidades") || "[]");
-			   comunidades.push(novaComunidade);
-			  localStorage.setItem("comunidades", JSON.stringify(comunidades));
-			   criarElementocomunidade(novaComunidade);
+		const {data, error} = await supabase 
+			.from('comunidades')
+			.insert({nome: novoNome})
+			.select()
+			.single();
+			  if (error) {
+				  alert('Erro:' + error.message);
+				  return;
+		  }
+			   criarElementocomunidade({id: data.id, nome: data.nome});
 			  inputNomedacomunidade.value = '';
 			  janelacriarcomunidade.style.display = 'none';
 			  iniciobtn.classList.add('selecionado');
@@ -732,11 +737,23 @@
 			  container.appendChild(novomodelo);
 		  }
 		  let comunidadeAtualId = null;
-		  function abrirComunidade(comunidade) {
+		   const chat = document.getElementById('chat');
+		  const caixaconversa = document.querySelector('.caixa-conversa');
+		  const textoconversa = document.querySelector('.texto-conversa');
+		  const containerconversa = document.querySelector('.container-conversa');
+		  async function abrirComunidade(comunidade) {
 				comunidadeAtualId = comunidade.id;
 			    janeladascomunidades.style.display = 'flex';
 			    containerconversa.innerHTML = '';
-			    const mensagens =  JSON.parse(localStorage.getItem("msg_" + comunidade.id) || "[]");
+			    const {data: mensagens, error} = await supabase
+			    .from('mensagens')
+			    .select('*')
+			    .eq('comunidade_id', comunidade.id)
+		         .order('criado_em', {ascending: true});
+			    if (error) {
+					alert('Erro ao carregar mensagens' + error.message);
+					return;
+		  }
 			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem));
 			    document.body.style.overflow = 'hidden';
 					}
@@ -760,12 +777,8 @@
 			  return novacaixa;
 		  }
 			  
-		  const chat = document.getElementById('chat');
-		  const caixaconversa = document.querySelector('.caixa-conversa');
-		  const textoconversa = document.querySelector('.texto-conversa');
-		  const containerconversa = document.querySelector('.container-conversa');
 		  const enviarbtn = document.getElementById('enviar');
-		  enviarbtn.addEventListener('click', () => {
+		  enviarbtn.addEventListener('click', async () => {
 		  if (enviandoimagem) {
 		  alert('Espera a imagem está sendo enviada');
 		  return;
@@ -776,10 +789,18 @@
 		  return;
 		  }
 		  const nomeatual = localStorage.getItem("nomeUsuario") || "Usuario";
-		  const chave = "msg_" + comunidadeAtualId;
-		  const mensagens = JSON.parse(localStorage.getItem(chave) || "[]");
-		  mensagens.push({nome: nomeatual, texto: texto, imagem: URLimagempendente});
-		  localStorage.setItem(chave, JSON.stringify(mensagens));
+		  const {error} = await supabase
+		  .from('mensagens')
+		  .insert({
+			comunidade_id: comunidadeAtualId,
+			texto: texto,
+			nome: nomeatual,
+		    imagem: URLimagempendente
+	        });
+		  if (error) {
+		  alert('Erro ao enviar: ' + error.message);
+		  return;
+		  }
 		  const containerimagemchat = document.getElementById('container-imagemchat');
 		  const novacaixa = renderizarMensagem(nomeatual, texto, URLimagempendente);
 		  containerimagemchat.innerHTML = '';
@@ -883,7 +904,7 @@
 		  const dados = await resposta.json();
 		  return dados.secure_url;
 		  }
-			  window.onload = function() {
+			  window.onload = async function() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
 			  const nomedacomunidade = document.querySelector('.nome');
@@ -894,11 +915,15 @@
 				  nomedacomunidade.textContent = nomedacomunidadesalvo;
 			  }
 			  verificarseousuariojacriouconta();
-			  const comunidades = JSON.parse(localStorage.getItem("comunidades") || "[]");
-			  comunidades.forEach((c) => {
-				if (typeof c === 'string') c = {id: c, nome: c};
-				criarElementocomunidade(c);
-			  });
+			  const {data: comunidades, error} = await supabase
+			  .from('comunidades')
+			  .select('*')
+			  .order('criado_em', {ascending: false});
+			  if (error) {
+		      console.error('Erro ao carregar comunidades', error);
+		      return;
+		  }
+				  comunidades.forEach(criarElementocomunidade);
 		  };
 		  const fecharjanelacriarconta = document.querySelector('.fecharjanelacriarconta');
 		  fecharjanelacriarconta.onclick = function() {
