@@ -776,9 +776,10 @@
 			  containerconversa.appendChild(novacaixa);
 			  return novacaixa;
 		  }
-			  
+		  let enviandoMensagem = false;
 		  const enviarbtn = document.getElementById('enviar');
 		  enviarbtn.addEventListener('click', async () => {
+		  if (enviandoMensagem) return;
 		  if (enviandoimagem) {
 		  alert('Espera a imagem está sendo enviada');
 		  return;
@@ -789,6 +790,7 @@
 		  return;
 		  }
 		  const nomeatual = localStorage.getItem("nomeUsuario") || "Usuario";
+		  enviandoMensagem = true;
 		  const {error} = await Clientesupabase
 		  .from('mensagens')
 		  .insert({
@@ -797,6 +799,7 @@
 			nome: nomeatual,
 		    imagem: URLimagempendente
 	        });
+			enviandoMensagem = false;
 		  if (error) {
 		  alert('Erro ao enviar: ' + error.message);
 		  return;
