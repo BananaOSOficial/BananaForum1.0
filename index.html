@@ -679,7 +679,7 @@
 	  <script>
 		  const SUPABASE_URL = 'https://krsrcrrdwceritanlsih.supabase.co';
 		  const SUPABASE_ANON_KEY = 'sb_publishable_T4B-seLE58QT9egUSovN9w_TwhsRxSf';
-		  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+		  const Clientesupabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 		   let URLimagempendente = null;
 		  let enviandoimagem = false;
 		  const criarcomunidadebtn = document.getElementById('criarcomunidadebtn');
@@ -710,7 +710,7 @@
 			  alert('Digite o nome da comunidade');
 			  return;
 		  };
-		const {data, error} = await supabase 
+		const {data, error} = await Clientesupabase 
 			.from('comunidades')
 			.insert({nome: novoNome})
 			.select()
@@ -745,7 +745,7 @@
 				comunidadeAtualId = comunidade.id;
 			    janeladascomunidades.style.display = 'flex';
 			    containerconversa.innerHTML = '';
-			    const {data: mensagens, error} = await supabase
+			    const {data: mensagens, error} = await Clientesupabase
 			    .from('mensagens')
 			    .select('*')
 			    .eq('comunidade_id', comunidade.id)
@@ -789,7 +789,7 @@
 		  return;
 		  }
 		  const nomeatual = localStorage.getItem("nomeUsuario") || "Usuario";
-		  const {error} = await supabase
+		  const {error} = await Clientesupabase
 		  .from('mensagens')
 		  .insert({
 			comunidade_id: comunidadeAtualId,
@@ -915,7 +915,7 @@
 				  nomedacomunidade.textContent = nomedacomunidadesalvo;
 			  }
 			  verificarseousuariojacriouconta();
-			  const {data: comunidades, error} = await supabase
+			  const {data: comunidades, error} = await Clientesupabase
 			  .from('comunidades')
 			  .select('*')
 			  .order('criado_em', {ascending: false});
