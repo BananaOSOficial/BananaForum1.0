@@ -578,7 +578,7 @@
 			flex-direction: row;
 		}
 		.entrarcontagooglebtn {
-			display: flex;
+			display: none;
 			align-items: center;
 			background: transparent;
 			border-radius: 10px;
@@ -600,6 +600,7 @@
 	<div id="olaenomeusuario">
 	<p>Olá,</p>
 	<p class="nomeusuario">Usuario</p>
+	<p class="mostrarondecriaconta">Clique no "Usuario" se não criou uma conta.</p>
 	</div>
     </header>
     <div id="menucominicioecriarcomunidade">
@@ -707,6 +708,14 @@
 		  const Clientesupabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 		   let URLimagempendente = null;
 		  let enviandoimagem = false;
+		  const nomeatual = localStorage.getItem("nomeUsuario");
+		  const dica = document.querySelector('.mostrarondecriaconta');
+		  if (nomeatual) {
+			  dica.style.display = 'none';
+		  }
+		  if (!nomeatual) {
+			  dica.style.display = 'block';
+		  }
 		  const criarcomunidadebtn = document.getElementById('criarcomunidadebtn');
 		  const fecharjanelacomunidadebtn = document.querySelector('.fecharjanelacomunidade');
 		  const janelacriarcomunidade = document.getElementById('janelacriarcomunidade');
