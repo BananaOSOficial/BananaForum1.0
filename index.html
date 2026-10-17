@@ -786,6 +786,7 @@
 		  }
 		  const sairconta = document.getElementById('sairconta');
 		  sairconta.onclick = function() {
+			  console.log('clicou no sair');
 			  localStorage.removeItem('nomeUsuario');
 			  location.reload();
 		  }
