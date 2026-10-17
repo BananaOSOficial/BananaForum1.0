@@ -592,6 +592,32 @@
 			    background: rgba(255,255,255,0.1);
 				border-color: #F7D117;
 			}
+		#menu {
+			display: none;
+			border-radius: 10px;
+			background: #303134;
+			border: 2px solid rgba(255,255,255,0.1);
+			}
+		#trocarnomeecriarconta {
+			background: transparent;
+		    border: none;
+			border-radius: 10px;
+			border-bottom: 2px solid rgba(255,255,255,0,1);
+		}
+		#trocarnomeecriarconta:hover {
+			background: #444548;
+				}
+		#sairconta {
+			border-radius: 10px;
+			background: transparent;
+			}
+		#sairconta:hover {
+			background: #444548;
+		}
+		#menuenomeusuario {
+				display: flex;
+			flex-direction: column;
+		}
     </style>
   </head>
   <body>
@@ -599,8 +625,14 @@
     <h1><u>Banana Forum</u></h1>
 	<div id="olaenomeusuario">
 	<p>Olá,</p>
+    <div id="menuenomeusuario">
 	<p class="nomeusuario">Usuario</p>
 	<p class="mostrarondecriaconta">Clique no "Usuario" se não criou uma conta.</p>
+	<div id="menu">
+		<button id="trocarnomeecriarconta"></button>
+		<button id="sairconta">Sair da conta</button>
+	</div>
+	</div>
 	</div>
     </header>
     <div id="menucominicioecriarcomunidade">
@@ -710,11 +742,27 @@
 		  let enviandoimagem = false;
 		  const nomeatual = localStorage.getItem("nomeUsuario");
 		  const dica = document.querySelector('.mostrarondecriaconta');
+		  		  const trocarnomeecriarconta = document.getElementById('trocarnomeecriarconta');
 		  if (nomeatual) {
 			  dica.style.display = 'none';
+			  trocarnomeecriarconta.textContent = 'Trocar nome';
 		  }
 		  if (!nomeatual) {
 			  dica.style.display = 'block';
+			  trocarnomeecriarconta.textContent = 'Criar conta';
+		  }
+		  const nomeconta = document.querySelector('.nomeusuario');
+		  const menu = document.getElementById('menu');
+		  nomeconta.onclick = function() {
+			  menu.style.display = 'block';
+		  }
+		  const janelacriarconta = document.getElementById('janelacriarconta');
+		  trocarnomeecriarconta.onclick = function() {
+			  janelacriarconta.style.display = 'flex';
+		  }
+		  const sairconta = document.getElementById('sairconta');
+		  sairconta.onclick = function() {
+			  localStorage.removeItem('nomeUsuario');
 		  }
 		  const criarcomunidadebtn = document.getElementById('criarcomunidadebtn');
 		  const fecharjanelacomunidadebtn = document.querySelector('.fecharjanelacomunidade');
@@ -872,9 +920,8 @@
 		  const criarcontatxt = document.querySelector('.criarcontatxt');
 		  nomeusuario.onclick = function() {
 		  verificarseousuariojacriouconta();
-		  janelacriarconta.style.display = 'flex';
-		  document.body.style.overflow = 'hidden';
 		  }
+		  
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
 		  criarcontabtn.addEventListener('click', () => {
