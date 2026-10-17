@@ -596,7 +596,7 @@
 			display: none;
 			position: fixed;
 			left: 10px;
-		    top: 60px;
+		    top: 65px;
 			border-radius: 10px;
 			background: #000000;
 			border: 2px solid rgba(255,255,255,0.1);
@@ -764,6 +764,7 @@
 		  const nomeusuarioconta = localStorage.getItem("nomeUsuario");
 		  const dica = document.querySelector('.mostrarondecriaconta');
 		  		  const trocarnomeecriarconta = document.getElementById('trocarnomeecriarconta');
+		  const sairconta = document.getElementById('sairconta');
 		  if (nomeusuarioconta) {
 			  dica.style.display = 'none';
 			  trocarnomeecriarconta.textContent = 'Trocar nome';
@@ -771,6 +772,11 @@
 		  if (!nomeusuarioconta) {
 			  dica.style.display = 'block';
 			  trocarnomeecriarconta.textContent = 'Criar conta';
+		  }
+		  if (trocarnomeecriarconta.textContent === 'Trocar nome') {
+			  sairconta.style.display = 'block';
+		  } else {
+			  sairconta.style.display = 'none';
 		  }
 		  const nomeconta = document.querySelector('.nomeusuario');
 		  const menu = document.getElementById('menu');
