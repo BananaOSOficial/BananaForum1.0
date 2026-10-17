@@ -594,9 +594,13 @@
 			}
 		#menu {
 			display: none;
+			position: fixed;
+			left: 10px;
+		    top: 60px;
 			border-radius: 10px;
 			background: #303134;
 			border: 2px solid rgba(255,255,255,0.1);
+			flex-direction: column;
 			}
 		#trocarnomeecriarconta {
 			background: transparent;
@@ -609,6 +613,7 @@
 				}
 		#sairconta {
 			border-radius: 10px;
+			border: none;
 			background: transparent;
 			}
 		#sairconta:hover {
@@ -754,7 +759,7 @@
 		  const nomeconta = document.querySelector('.nomeusuario');
 		  const menu = document.getElementById('menu');
 		  nomeconta.onclick = function() {
-			  menu.style.display = 'block';
+			  menu.style.display = 'flex';
 			  verificarseousuariojacriouconta();
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
