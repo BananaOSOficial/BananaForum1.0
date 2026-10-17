@@ -628,6 +628,11 @@
 				display: flex;
 			flex-direction: column;
 		}
+		.mostrarondecriaconta {
+			position: fixed;
+		top: 0;
+			left: 10px;
+			}
     </style>
   </head>
   <body>
@@ -767,7 +772,7 @@
 			  const clicoudentrodomenu = menu.contains(evento.target);
 			  const clicounonome = nomeconta.contains(evento.target);
 			  if (!clicoudentrodomenu && !clicounonome) {
-				  menu.classList.add('escondido');
+				  menu.style.display = 'none';
 			  }
 		  });
 		  nomeconta.onclick = function() {
