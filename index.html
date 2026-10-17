@@ -765,7 +765,8 @@
 		  const menu = document.getElementById('menu');
 		  document.addEventListener('click', (evento) => {
 			  const clicoudentrodomenu = menu.contains(evento.target);
-			  if (!clicoudentrodomenu) {
+			  const clicounonome = nomeconta.contains(evento.target);
+			  if (!clicoudentrodomenu && !clicounonome) {
 				  menu.classList.add('escondido');
 			  }
 		  });
