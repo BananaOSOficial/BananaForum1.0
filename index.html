@@ -740,14 +740,14 @@
 		  const Clientesupabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 		   let URLimagempendente = null;
 		  let enviandoimagem = false;
-		  const nomeatual = localStorage.getItem("nomeUsuario");
+		  const nomeusuarioconta = localStorage.getItem("nomeUsuario");
 		  const dica = document.querySelector('.mostrarondecriaconta');
 		  		  const trocarnomeecriarconta = document.getElementById('trocarnomeecriarconta');
-		  if (nomeatual) {
+		  if (nomeusuarioconta) {
 			  dica.style.display = 'none';
 			  trocarnomeecriarconta.textContent = 'Trocar nome';
 		  }
-		  if (!nomeatual) {
+		  if (!nomeusuarioconta) {
 			  dica.style.display = 'block';
 			  trocarnomeecriarconta.textContent = 'Criar conta';
 		  }
@@ -755,6 +755,7 @@
 		  const menu = document.getElementById('menu');
 		  nomeconta.onclick = function() {
 			  menu.style.display = 'block';
+			  verificarseousuariojacriouconta();
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
 		  trocarnomeecriarconta.onclick = function() {
@@ -917,9 +918,6 @@
 		  }
 		  const nomeusuario = document.querySelector('.nomeusuario');
 		  const criarcontatxt = document.querySelector('.criarcontatxt');
-		  nomeusuario.onclick = function() {
-		  verificarseousuariojacriouconta();
-		  }
 		  
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
