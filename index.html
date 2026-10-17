@@ -598,23 +598,25 @@
 			left: 10px;
 		    top: 60px;
 			border-radius: 10px;
-			background: #303134;
+			background: #000000;
 			border: 2px solid rgba(255,255,255,0.1);
 			flex-direction: column;
 			}
 		#trocarnomeecriarconta {
 			background: transparent;
 		    border: none;
-			border-radius: 10px;
-			border-bottom: 2px solid rgba(255,255,255,0,1);
+			border-radius: 10px !important;
+			border-bottom: 2px solid rgba(255,255,255,0,1) !important;
+			color: #FFFFFF;
 		}
 		#trocarnomeecriarconta:hover {
 			background: #444548;
 				}
 		#sairconta {
-			border-radius: 10px;
+			border-radius: 10px !important;
 			border: none;
 			background: transparent;
+			color: #FFFFFF;
 			}
 		#sairconta:hover {
 			background: #444548;
@@ -631,8 +633,8 @@
 	<div id="olaenomeusuario">
 	<p>Olá,</p>
     <div id="menuenomeusuario">
+    <p class="mostrarondecriaconta">Clique no "Usuario" se não criou uma conta.</p>
 	<p class="nomeusuario">Usuario</p>
-	<p class="mostrarondecriaconta">Clique no "Usuario" se não criou uma conta.</p>
 	<div id="menu">
 		<button id="trocarnomeecriarconta"></button>
 		<button id="sairconta">Sair da conta</button>
