@@ -602,6 +602,9 @@
 			border: 2px solid rgba(255,255,255,0.1);
 			flex-direction: column;
 			}
+		#menu.escondido {
+			display: none;
+		}
 		#trocarnomeecriarconta {
 			background: transparent;
 		    border: none;
@@ -760,8 +763,15 @@
 		  }
 		  const nomeconta = document.querySelector('.nomeusuario');
 		  const menu = document.getElementById('menu');
+		  document.addEventListener('click', (evento) => {
+			  const clicoudentrodomenu = menu.contains(evento.target);
+			  if (!clicoudentrodomenu) {
+				  menu.classList.add('escondido');
+			  }
+		  });
 		  nomeconta.onclick = function() {
 			  menu.style.display = 'flex';
+			  menu.classList.remove('escondido');
 			  verificarseousuariojacriouconta();
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
