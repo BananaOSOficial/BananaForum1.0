@@ -787,6 +787,7 @@
 		  const sairconta = document.getElementById('sairconta');
 		  sairconta.onclick = function() {
 			  localStorage.removeItem('nomeUsuario');
+			  location.reload();
 		  }
 		  const criarcomunidadebtn = document.getElementById('criarcomunidadebtn');
 		  const fecharjanelacomunidadebtn = document.querySelector('.fecharjanelacomunidade');
@@ -957,6 +958,7 @@
 			  inputnomedousuario.value = "";
 			  janelacriarconta.style.display = 'none';
 			  document.body.style.overflow = '';
+			  location.reload();
 		  })
 		  function verificarseousuariojacriouconta() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
