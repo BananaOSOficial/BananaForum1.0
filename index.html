@@ -676,6 +676,12 @@
 		.inputfotoconta {
 			display: none;
 		}
+		.imgconta {
+			border-radius: 999px;
+			width: 32px;
+			height: 32px;
+			border: 2px solid #303134;
+		}
     </style>
   </head>
   <body>
@@ -832,6 +838,16 @@
 		  const inputfotoconta = document.querySelector('.inputfotoconta');
 		  botaocolocarfoto.addEventListener('click', () => {
 			  inputfotoconta.click();
+		  })
+		  const imgconta = document.querySelector('.imgconta')
+		  inputfotoconta.addEventListener('change', () => {
+			 const arquivo = inputfotoconta.files[0];
+			  if (!arquivo) {
+				  return;
+			  }
+			  const URLImagemconta = URL.createObjectURL(arquivo);
+			  const img = document.createElement('img');
+			  imgconta.src = URLImagemconta;
 		  })
 		  nomeconta.onclick = function() {
 			  menu.style.display = 'flex';
