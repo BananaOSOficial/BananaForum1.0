@@ -421,10 +421,11 @@
 		#olaenomeusuario {
 			display: flex;
 			align-items: center;
-			background-color: #303134;
-			border-radius: 10px;
-			border: 2px solid rgba(255,255,255,0.2);
-			margin-bottom: 10px
+			flex-direction: row;
+		}
+		#olaenomeusuarioeimg {
+			display: flex;
+			flex-direction: column;
 		}
 		.nomeusuario:hover {
 			color: #F7D117;
@@ -691,8 +692,9 @@
   <body>
     <header>
     <h1><u>Banana Forum</u></h1>
-	<div id="olaenomeusuario">
+	<div id="olaenomeusuarioeimg">
 	<img src="" class="imgconta">
+    <div id="olaenomeusuario">
 	<p>Olá,</p>
     <div id="menuenomeusuario">
     <p class="mostrarondecriaconta">Clique no "Usuario" se não criou uma conta.</p>
@@ -700,6 +702,7 @@
 	<div id="menu">
 		<button id="trocarnomeecriarconta"></button>
 		<button id="sairconta">Sair da conta</button>
+	</div>
 	</div>
 	</div>
 	</div>
