@@ -105,7 +105,7 @@
 			top: 0;
 			width: 100vw;
 			height: 100vh;
-			background: rgba(0,0,0,0.9);
+			background-color: rgba(0,0,0,0.9);
 			z-index: 100;
 			position: fixed;
 			backdrop-filter: blur(10px);
@@ -114,10 +114,10 @@
 			align-items: center;
 			justify-content: center;
 			background-image: url('saturn.png'),
-			repeating-radial-gradient(circle, #fff, #fff 1px, transparent 1px, transparent 40px),
-			repeating-radial-gradient(circle, #fff, #fff 1px, transparent 2px, transparent 70px);
-			background-size: 64px, 150px 150px, 250px 250px;
-			background-position: right top, left top, left top;
+			radial-gradient(1px 1px at 25px 25px, #fff, transparent),
+			radial-gradient(1.5px 1.5px at 50px 70px, #fff, transparent);
+			background-size: 64px, 150px 150px, 200px 200px;
+			background-position: right 20px top 20px, 0 0, 0 0;
 			background-repeat: no-repeat, repeat, repeat;
 		}
 		#inputcriarcomunidadeebtn {
