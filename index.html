@@ -119,6 +119,15 @@
 			background-size: 64px, 150px 150px, 200px 200px;
 			background-position: right 20px top 20px, 0 0, 0 0;
 			background-repeat: no-repeat, repeat, repeat;
+			animation: moverEstrelas 0.5s infinite;
+		}
+		@keyframes moverEstrelas {
+			from {
+				background-position: right 20px top 20px, 0 0, 0 0;
+			}
+			to {
+				background-position: right 20px top 20px, 0 120px, 0 200px;
+			}
 		}
 		#inputcriarcomunidadeebtn {
 			display: flex;
