@@ -840,14 +840,15 @@
 			  inputfotoconta.click();
 		  })
 		  const imgconta = document.querySelector('.imgconta')
-		  inputfotoconta.addEventListener('change', () => {
+		  inputfotoconta.addEventListener('change', async () => {
 			 const arquivo = inputfotoconta.files[0];
 			  if (!arquivo) {
 				  return;
 			  }
 			  const URLImagemconta = URL.createObjectURL(arquivo);
-			  const img = document.createElement('img');
 			  imgconta.src = URLImagemconta;
+			  URLimagemcontasalva = await enviarparacloudinary(arquivo);
+			  URL.revokeObjectURL(URLImagemconta);
 		  })
 		  nomeconta.onclick = function() {
 			  menu.style.display = 'flex';
