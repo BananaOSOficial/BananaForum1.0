@@ -28,7 +28,6 @@
 			top: 0;
 			width: 100vw;
 			z-index: 100;
-			padding: 10px;
 		}
 		
 		svg {
@@ -38,7 +37,7 @@
 		}
 		header p {
 			font-size: medium;
-			margin-top: 10px;
+			margin-top: 5px;
 		}
       body {
         background-color: #0F0F0F;
@@ -633,12 +632,12 @@
 		#menu {
 			display: none;
 			position: fixed;
-			left: 22px;
+			left: 50%;
 		    top: 62px;
 			border-radius: 10px;
+			transform: translateX(-50%);
 			background: #000000;
 			border: 2px solid rgba(255,255,255,0.2);
-			flex-direction: column;
 			}
 		#trocarnomeecriarconta {
 			background: transparent;
@@ -689,6 +688,9 @@
 			border: 2px solid #303134;
 		}
 		.mostrarondecriaconta {
+			position: fixed;
+			top: 20px;
+			right: 0;
 			margin-left: 5px;
 		}
     </style>
