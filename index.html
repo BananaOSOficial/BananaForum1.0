@@ -851,9 +851,8 @@
 			  URLimagemcontasalva = await enviarparacloudinary(arquivo);
               localStorage.setItem("URLimagemconta", URLimagemcontasalva);
 			  } catch (e) {
-				  alert('Erro ao salvar: ' + e.message;
-			  }
-			  finally {
+				  alert('Erro ao salvar: ' + e.message);
+			  } finally {
 			  URL.revokeObjectURL(URLImagemconta);
 			  inputfotoconta.value = "";
 			  }
