@@ -847,9 +847,16 @@
 			  }
 			  const URLImagemconta = URL.createObjectURL(arquivo);
 			  imgconta.src = URLImagemconta;
+			  try {
 			  URLimagemcontasalva = await enviarparacloudinary(arquivo);
+              localStorage.setItem("URLimagemconta", URLimagemcontasalva);
+			  } catch (e) {
+				  alert('Erro ao salvar: ' + e.message;
+			  }
+			  finally {
 			  URL.revokeObjectURL(URLImagemconta);
 			  inputfotoconta.value = "";
+			  }
 		  })
 		  nomeconta.onclick = function() {
 			  menu.style.display = 'flex';
@@ -1092,6 +1099,10 @@
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
 			  const nomedacomunidade = document.querySelector('.nome');
+			  const fotosalva = localStorage.getItem("URLimagemconta");
+			  if (fotosalva) {
+				  imgconta.src = fotosalva;
+			  }
 			  if (nomesalvo) {
 				  nomeusuario.textContent = nomesalvo;
 			  }
