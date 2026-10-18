@@ -849,6 +849,7 @@
 			  imgconta.src = URLImagemconta;
 			  URLimagemcontasalva = await enviarparacloudinary(arquivo);
 			  URL.revokeObjectURL(URLImagemconta);
+			  inputfotoconta.value = "";
 		  })
 		  nomeconta.onclick = function() {
 			  menu.style.display = 'flex';
