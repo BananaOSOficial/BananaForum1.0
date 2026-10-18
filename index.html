@@ -610,7 +610,7 @@
 		#trocarnomeecriarconta {
 			background: transparent;
 		    border: none;
-			border-radius: 10px !important;
+			border-radius: 5px !important;
 			border-bottom: 2px solid rgba(255,255,255,0,1) !important;
 			color: #FFFFFF;
 		}
@@ -618,7 +618,7 @@
 			background: #444548;
 				}
 		#sairconta {
-			border-radius: 10px !important;
+			border-radius: 5px !important;
 			border: none;
 			background: transparent;
 			color: #FFFFFF;
@@ -640,12 +640,27 @@
 			bottom: 0;
 			left: 0;
 			}
+		.botaocolocarfoto {
+			background: transparent;
+			border: 2px solid rgba(255,255,255,0.2);
+			border-radius: 5px;
+			transition: border-color 0.5s ease, transform 0.5s ease;
+		}
+		.botaocolocarfoto:hover {
+			border-color: #F7D117;
+			box-shadow: 0 0 10px #F7D117;
+			transform: scale(1.05);
+								}
+		.inputfotoconta {
+			display: none;
+		}
     </style>
   </head>
   <body>
     <header>
     <h1><u>Banana Forum</u></h1>
 	<div id="olaenomeusuario">
+	<img src="" class="imgconta">
 	<p>Olá,</p>
     <div id="menuenomeusuario">
     <p class="mostrarondecriaconta">Clique no "Usuario" se não criou uma conta.</p>
@@ -753,6 +768,8 @@
       <h2 class="criarcontatxt">Crie sua conta</h2>
 	  <div id="inputnomeecriarcontabtn">
 	  <input class="inputnomedousuario" placeholder="Digite seu nome aqui">
+	  <input type="file" accept="image/*" class="inputfotoconta">
+	  <button class="botaocolocarfoto">Escolha sua foto</button>
 	  <button class="criarcontabtn">Criar</button>
 	  </div>
 	  </div>
@@ -789,6 +806,11 @@
 				  menu.style.display = 'none';
 			  }
 		  });
+		  const botaocolocarfoto = document.querySelector('.botaocolocarfoto');
+		  const inputfotoconta = document.querySelector('.inputfotoconta');
+		  botaocolocarfoto.addEventListener('click', () => {
+			  inputfotoconta.click();
+		  }
 		  nomeconta.onclick = function() {
 			  menu.style.display = 'flex';
 			  menu.classList.remove('escondido');
