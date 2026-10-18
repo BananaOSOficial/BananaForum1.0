@@ -1003,6 +1003,9 @@
 		  
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
+		  if (criarcontatxt.textContent === 'Trocar nome') {
+			  criarcontabtn.textContent = 'Trocar';
+		  }
 		  criarcontabtn.addEventListener('click', () => {
 			  const nome = inputnomedousuario.value.trim();
 			  if (nome === "") {
