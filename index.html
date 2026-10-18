@@ -692,6 +692,11 @@
 			right: 0;
 			margin-left: 5px;
 		}
+		#imagemperfilnaconversa {
+			border-radius: 999px;
+			width: 64px;
+			height: 64px;
+		}
     </style>
   </head>
   <body>
@@ -757,6 +762,7 @@
 		  <button class="fecharjaneladascomunidades">X</button>
 		  <div class="caixa-conversa">
 			  <div id="textosdacaixaconversa">
+			  <img id="imagemperfilnaconversa" src="">
 			  <p class="nomedapessoanochat">nome</p>
 			  <p class="texto-conversa"></p>
 			  </div>
@@ -990,6 +996,9 @@
 		  alert('Escreva algo primeiro');
 		  return;
 		  }
+		  const imagemperfil = localStorage.getItem("URLimagemconta");
+		  const imagemperfilnaconversa = document.getElementById('imagemperfilnaconversa');
+		  imagemperfilnaconversa.src = imagemperfil;
 		  const nomeatual = localStorage.getItem("nomeUsuario") || "Usuario";
 		  enviandoMensagem = true;
 		  const {error} = await Clientesupabase
