@@ -972,6 +972,7 @@
 			  if (imgPerfil) {
 				  if (urlAvatar) {
 					  imgPerfil.src = urlAvatar;
+					  imgPerfil.style.display = 'block';
 				  } else {
 					  imgPerfil.style.display = 'none';
 				  }
@@ -1132,7 +1133,7 @@
 			  const fotosalva = localStorage.getItem("URLimagemconta");
 		      const imagemperfilnaconversa = document.querySelector('.imagemperfilnaconversa');
 		      if (fotosalva) {
-				  imagemperfilnaconversa.src = fotosalva;
+				  imgconta.src = fotosalva;
 			  }
 			  if (nomesalvo) {
 				  nomeusuario.textContent = nomesalvo;
