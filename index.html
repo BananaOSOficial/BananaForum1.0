@@ -968,7 +968,7 @@
 		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar) {
 			  const novacaixa = caixaconversa.cloneNode(true);
 			  novacaixa.style.display = 'flex';
-			  const imgPerfil = document.querySelector('.imagemperfilnaconversa');
+			  const imgPerfil = novacaixa.querySelector('.imagemperfilnaconversa');
 			  if (imgPerfil) {
 				  if (urlAvatar) {
 					  imgPerfil.src = urlAvatar;
@@ -1129,12 +1129,6 @@
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
 			  const nomedacomunidade = document.querySelector('.nome');
-			  const fotosalva = localStorage.getItem("URLimagemconta");
-			  const imagemperfilnaconversa = document.getElementById('imagemperfilnaconversa');
-			  if (fotosalva) {
-				  imgconta.src = fotosalva;
-				  imagemperfilnaconversa.src = fotosalva;
-			  }
 			  if (nomesalvo) {
 				  nomeusuario.textContent = nomesalvo;
 			  }
