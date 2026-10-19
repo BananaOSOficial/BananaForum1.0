@@ -1129,6 +1129,10 @@
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
 			  const nomedacomunidade = document.querySelector('.nome');
+			  const fotosalva = localStorage.getItem("URLimagemconta");
+		      if (fotosalva) {
+				  imgconta.src = fotosalva;
+			  }
 			  if (nomesalvo) {
 				  nomeusuario.textContent = nomesalvo;
 			  }
