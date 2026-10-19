@@ -886,6 +886,8 @@
 				  janelaimagemperfil.style.display = 'none';
 			  }
 		  });
+		  const imgPerfil = localStorage.getItem("URLimagemconta");
+		  imgdajanelaimagemperfil.src = imgPerfil;
 		  inputfotoconta.addEventListener('change', async () => {
 			 const arquivo = inputfotoconta.files[0];
 			  if (!arquivo) {
@@ -1160,6 +1162,7 @@
 			  const nomedacomunidade = document.querySelector('.nome');
 			  const fotosalva = localStorage.getItem("URLimagemconta");
 		      const imagemperfilnaconversa = document.querySelector('.imagemperfilnaconversa');
+			  imgdajanelaperfil.src = fotosalva;
 		      if (fotosalva) {
 				  imgconta.src = fotosalva;
 			  }
