@@ -872,14 +872,14 @@
 			  verificarseousuariojacriouconta();
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
-		  trocarnomeecriarconta.onclick = function() {
+		  trocarnomeecriarconta.addEventListener('click', () => {
 			  janelacriarconta.style.display = 'flex';
 			  menu.style.display = 'none';
-		  }
-		  sairconta.onclick = function() {
+		  })
+		  sairconta.addEventListener('click', () => {
 			  localStorage.removeItem('nomeUsuario');
 			  location.reload();
-		  }
+		  })
 		  const criarcomunidadebtn = document.getElementById('criarcomunidadebtn');
 		  const fecharjanelacomunidadebtn = document.querySelector('.fecharjanelacomunidade');
 		  const janelacriarcomunidade = document.getElementById('janelacriarcomunidade');
