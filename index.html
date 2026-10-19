@@ -846,9 +846,9 @@
 		  document.addEventListener('click', (evento) => {
 			  const clicoudentrodomenu = menu.contains(evento.target);
 			  const clicounonome = nomeconta.contains(evento.target);
-			  if (!clicoudentrodomenu && !clicounonome) {
+			  if (!clicoudentrodomenu) {
+				  evento.stopPropagation();
 				  menu.style.display = 'none';
-				  alert('clicou fora!');
 			  } else {
 				  menu.style.display = 'flex';
 			  }
