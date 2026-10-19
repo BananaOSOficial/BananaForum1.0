@@ -848,6 +848,7 @@
 			  const clicounonome = nomeconta.contains(evento.target);
 			  if (!clicoudentrodomenu && !clicounonome) {
 				  menu.style.display = 'none';
+				  alert('clicou fora!');
 			  } else {
 				  menu.style.display = 'flex';
 			  }
@@ -882,10 +883,12 @@
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
 		  trocarnomeecriarconta.onclick = function() {
+			  alert('clicou');
 			  janelacriarconta.style.display = 'flex';
 			  menu.style.display = 'none';
 		  }
 		  sairconta.onclick = function() {
+			  alert('clicou!');
 			  localStorage.removeItem('nomeUsuario');
 			  location.reload();
 		  }
