@@ -848,6 +848,8 @@
 			  const clicounonome = nomeconta.contains(evento.target);
 			  if (!clicoudentrodomenu && !clicounonome) {
 				  menu.style.display = 'none';
+			  } else {
+				  menu.style.display = 'flex';
 			  }
 		  });
 		  const botaocolocarfoto = document.querySelector('.botaocolocarfoto');
@@ -881,9 +883,9 @@
 		  const janelacriarconta = document.getElementById('janelacriarconta');
 		  trocarnomeecriarconta.onclick = function() {
 			  janelacriarconta.style.display = 'flex';
+			  menu.style.display = 'none';
 		  }
 		  sairconta.onclick = function() {
-			  console.log('clicou no sair');
 			  localStorage.removeItem('nomeUsuario');
 			  location.reload();
 		  }
