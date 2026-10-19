@@ -874,7 +874,6 @@
 		  })
 		  nomeconta.onclick = function() {
 			  menu.style.display = 'flex';
-			  menu.classList.remove('escondido');
 			  verificarseousuariojacriouconta();
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
@@ -894,6 +893,7 @@
 		  criarcomunidadebtn.onclick = function() {
 			  iniciobtn.classList.remove('selecionado');
 			  janelacriarcomunidade.style.display = 'flex';
+			  menu.style.display = 'none';
 			  criarcomunidadebtn.classList.add('selecionado');
 			  document.body.style.overflow = 'hidden';
 		  }
@@ -948,6 +948,7 @@
 		  async function abrirComunidade(comunidade) {
 				comunidadeAtualId = comunidade.id;
 			    janeladascomunidades.style.display = 'flex';
+			    menu.style.display = 'none';
 			    containerconversa.innerHTML = '';
 			    const {data: mensagens, error} = await Clientesupabase
 			    .from('mensagens')
