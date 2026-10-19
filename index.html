@@ -696,6 +696,22 @@
 			width: 48px;
 			height: 48px;
 		}
+		.janelaimagemperfil {
+			display: none;
+			background: transparent;
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			width: 100vw;
+			height: 100vh;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		.janelaimagemperfil img {
+			border-radius: 999px;
+	        width: 64px;
+			height: 64px;
+		}
     </style>
   </head>
   <body>
@@ -756,6 +772,12 @@
 	  </div>
 		<div id="container-comunidade"></div>
     </main>
+	  <div class="janelaimagemperfil">
+		  <p>Escolha sua foto</p>
+		  <img class="imagemdajanelaimagemperfil" src="">
+		  <button class="botaocolocarfoto">Escolha sua foto</button>
+	  <input type="file" accept="image/*" class="inputfotoconta">
+	  </div>
 	  <p class="copyright">© 2026 Luiz Fernando. Todos os direitos reservados.</p>
 	  <div id="janeladascomunidades">
 		  <button class="fecharjaneladascomunidades">X</button>
@@ -812,9 +834,6 @@
 	  <div id="conteudocriarconta">
       <h2 class="criarcontatxt">Crie sua conta</h2>
 	  <div id="inputnomeecriarcontabtn">
-	  <input class="inputnomedousuario" placeholder="Digite seu nome aqui">
-	  <input type="file" accept="image/*" class="inputfotoconta">
-	  <button class="botaocolocarfoto">Escolha sua foto</button>
 	  <button class="criarcontabtn">Criar</button>
 	  </div>
 	  </div>
@@ -854,7 +873,17 @@
 		  botaocolocarfoto.addEventListener('click', () => {
 			  inputfotoconta.click();
 		  })
-		  const imgconta = document.querySelector('.imgconta')
+		  const janelaimagemperfil = document.querySelector('janelaimagemperfil');
+		  const imgconta = document.querySelector('.imgconta');
+		  imgconta.onclick = function() {
+			  janelaimagemperfil.style.display = 'flex';
+		  }
+		  const imgdajanelaimagemperfil = document.querySelector('.imagemdajanelaimagemperfil');
+		  janelaimagemperfil.addEventListener('click', (e) => {
+			  if (!botaocolocarfoto.contains(e.target) && !imgdajanelaimagemperfil.contains(e.target)) {
+				  janelaimagemperfil.style.display = 'none';
+			  }
+		  })
 		  inputfotoconta.addEventListener('change', async () => {
 			 const arquivo = inputfotoconta.files[0];
 			  if (!arquivo) {
