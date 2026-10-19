@@ -844,6 +844,11 @@
 		  }
 		  const nomeconta = document.querySelector('.nomeusuario');
 		  const menu = document.getElementById('menu');
+		  document.addEventListener('click', (e) {
+			  if (!menu.contains) {
+				  menu.style.display = 'none';
+			  }
+		  })
 		  const botaocolocarfoto = document.querySelector('.botaocolocarfoto');
 		  const inputfotoconta = document.querySelector('.inputfotoconta');
 		  botaocolocarfoto.addEventListener('click', () => {
