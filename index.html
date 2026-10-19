@@ -763,7 +763,7 @@
 		  <button class="fecharjaneladascomunidades">X</button>
 		  <div class="caixa-conversa">
 			  <div id="textosdacaixaconversa">
-			  <img id="imagemperfilnaconversa" src="">
+			  <img class="imagemperfilnaconversa" src="">
 			  <p class="nomedapessoanochat">nome</p>
 			  <p class="texto-conversa"></p>
 			  </div>
@@ -962,12 +962,20 @@
 					alert('Erro ao carregar mensagens' + error.message);
 					return;
 		  }
-			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem));
+			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem, m.avatar));
 			    document.body.style.overflow = 'hidden';
 					}
-		  function renderizarMensagem(nome, texto, urlImagem) {
+		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar) {
 			  const novacaixa = caixaconversa.cloneNode(true);
 			  novacaixa.style.display = 'flex';
+			  const imgPerfil = document.querySelector('.imagemperfilnaconversa');
+			  if (imgPerfil) {
+				  if (urlAvatar) {
+					  imgPerfil.src = urlAvatar;
+				  } else {
+					  imgPerfil.style.display = 'none';
+				  }
+			  }
 			  const novonome = novacaixa.querySelector('.nomedapessoanochat');
 			  novonome.textContent = nome + ":";
 			  if (urlImagem) {
@@ -998,8 +1006,8 @@
 		  return;
 		  }
 		  const imagemperfil = localStorage.getItem("URLimagemconta");
+		  
 		  const imagemperfilnaconversa = document.getElementById('imagemperfilnaconversa');
-		  imagemperfilnaconversa.src = imagemperfil;
 		  const nomeatual = localStorage.getItem("nomeUsuario") || "Usuario";
 		  enviandoMensagem = true;
 		  const {error} = await Clientesupabase
@@ -1008,7 +1016,8 @@
 			comunidade_id: comunidadeAtualId,
 			texto: texto,
 			nome: nomeatual,
-		    imagem: URLimagempendente
+		    imagem: URLimagempendente,
+			avatar: imagemperfil || null
 	        });
 			enviandoMensagem = false;
 		  if (error) {
@@ -1016,7 +1025,7 @@
 		  return;
 		  }
 		  const containerimagemchat = document.getElementById('container-imagemchat');
-		  const novacaixa = renderizarMensagem(nomeatual, texto, URLimagempendente);
+		  const novacaixa = renderizarMensagem(nomeatual, texto, URLimagempendente, imagemperfil);
 		  containerimagemchat.innerHTML = '';
 		  URLimagempendente = null;
 		  chat.value = "";
