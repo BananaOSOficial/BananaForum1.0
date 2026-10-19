@@ -845,7 +845,7 @@
 		  const nomeconta = document.querySelector('.nomeusuario');
 		  const menu = document.getElementById('menu');
 		  document.addEventListener('click', (e) {
-			  if (!menu.contains) {
+			  if (!menu.contains(e.target)) {
 				  menu.style.display = 'none';
 			  }
 		  })
