@@ -843,9 +843,6 @@
 		  }
 		  const nomeconta = document.querySelector('.nomeusuario');
 		  const menu = document.getElementById('menu');
-		  nomeconta.onclick = function() {
-		  menu.style.display = 'flex';
-		  }
 		  const botaocolocarfoto = document.querySelector('.botaocolocarfoto');
 		  const inputfotoconta = document.querySelector('.inputfotoconta');
 		  botaocolocarfoto.addEventListener('click', () => {
@@ -876,12 +873,10 @@
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
 		  trocarnomeecriarconta.onclick = function() {
-			  alert('clicou');
 			  janelacriarconta.style.display = 'flex';
 			  menu.style.display = 'none';
 		  }
 		  sairconta.onclick = function() {
-			  alert('clicou!');
 			  localStorage.removeItem('nomeUsuario');
 			  location.reload();
 		  }
