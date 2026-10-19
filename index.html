@@ -843,16 +843,6 @@
 		  }
 		  const nomeconta = document.querySelector('.nomeusuario');
 		  const menu = document.getElementById('menu');
-		  document.addEventListener('click', (evento) => {
-			  const clicoudentrodomenu = menu.contains(evento.target);
-			  const clicounonome = nomeconta.contains(evento.target);
-			  if (!clicoudentrodomenu) {
-				  evento.stopPropagation();
-				  menu.style.display = 'none';
-			  } else {
-				  menu.style.display = 'flex';
-			  }
-		  });
 		  const botaocolocarfoto = document.querySelector('.botaocolocarfoto');
 		  const inputfotoconta = document.querySelector('.inputfotoconta');
 		  botaocolocarfoto.addEventListener('click', () => {
