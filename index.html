@@ -908,7 +908,8 @@
 		  }
 		  document.addEventListener('click', (e) => {
 			  const clicounoabrirjanelaimagemperfil = abrirjanelaimagemperfil.contains(e.target);
-			  if (!clicounoabrirjanelaimagemperfil) {
+			  const clicouimgconta = imgconta.contains(e.target);
+			  if (!clicounoabrirjanelaimagemperfil && !clicouimgconta) {
 				  abrirjanelaimagemperfil.style.display = 'none';
 			  }
 		  })
