@@ -1148,8 +1148,13 @@
 				  .select()
 				  .single();
 			  if (error) {
+				  if (error.code = '23505') {
+					  alert('Coloque um nome que uma pessoa não está usando');
+					  return;
+				  } else {
 				  alert('Erro ao trocar nome:' + error.message);
 				  return;
+			  }
 			  }
 			  } else {
 			  const {data, error} = await ClientUsuarios
