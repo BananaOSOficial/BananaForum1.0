@@ -1136,9 +1136,12 @@
 				  alert('Digite um nome');
 				  return;
 			  }
+			  const SUPABASEURL2 = 'https://gxhpugwnsxrcnqpciqpn.supabase.co';
+			  const SUPABASE_ANON_KEY_2 = 'sb_publishable_53UTGTptBzBsUre_tAahXQ_XyMu13jM';
+			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 			  const idSalvo = localStorage.getItem("idUsuario");
 			  if (idSalvo) {
-			  const {data, error} = await Clientesupabase
+			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
 				  .update({nome: nome})
 				  .eq('id', idSalvo)
@@ -1149,7 +1152,7 @@
 				  return;
 			  }
 			  } else {
-			  const {data, error} = await Clientesupabase
+			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
 			  .insert({nome: nome})
 			  .select()
