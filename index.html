@@ -1154,10 +1154,10 @@
 			  .insert({nome: nome})
 			  .select()
 			  .single();
-			  }
 			  if (error) {
 				  alert('Erro ao criar conta: ' + error.message);
 				  return;
+			  }
 			  }
 			  nomeusuario.textContent = nome;
 			  localStorage.setItem("nomeUsuario", nome);
