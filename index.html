@@ -954,6 +954,8 @@
 			  menu.style.display = 'none';
 		  })
 		  sairconta.addEventListener('click', () => {
+			  localStorage.removeItem('idUsuario');
+			  localStorage.removeItem('URLimagemconta');
 			  localStorage.removeItem('nomeUsuario');
 			  location.reload();
 		  })
@@ -1134,8 +1136,32 @@
 				  alert('Digite um nome');
 				  return;
 			  }
+			  const idSalvo = localStorage.getItem("idUsuario");
+			  if (idSalvo) {
+			  const {data, error} = await Clientesupabase
+				  .from('usuarios')
+				  .insert({nome: nome})
+				  .eq('id', idSalvo)
+				  .select()
+				  .single();
+			  if (error) {
+				  alert('Erro ao trocar nome:' + error.message);
+				  return;
+			  }
+			  } else {
+			  const {data, error} = await Clientesupabase
+			  .from('usuarios') 
+			  .insert({nome: nome})
+			  .select()
+			  .single();
+			  }
+			  if (error) {
+				  alert('Erro ao criar conta: ' + error.message);
+				  return;
+			  }
 			  nomeusuario.textContent = nome;
 			  localStorage.setItem("nomeUsuario", nome);
+			  localStorage.setItem("idUsuario", data.id);
 			  const nomedapessoanochat = document.querySelector('.nomedapessoanochat');
 			  nomedapessoanochat.textContent = inputnomedousuario.value + ":";
 			  inputnomedousuario.value = "";
