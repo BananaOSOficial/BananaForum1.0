@@ -904,7 +904,14 @@
 		  }
 		  abrirjanelaimagemperfil.onclick = function() {
 			  janelaimagemperfil.style.display = 'flex';
+			  abrirjanelaimagemperfil.style.display = 'none';
 		  }
+		  document.addEventListener('click', (e) => {
+			  const clicounoabrirjanelaimagemperfil = abrirjanelaimagemperfil.contains(e.target);
+			  if (!clicounoabrirjanelaimagemperfil) {
+				  abrirjanelaimagemperfil.style.display = 'none';
+			  }
+		  })
 		  const imgdajanelaimagemperfil = document.querySelector('.imagemdajanelaimagemperfil');
 		  janelaimagemperfil.addEventListener('click', (e) => {
 			  if (!botaocolocarfoto.contains(e.target) && !imgdajanelaimagemperfil.contains(e.target)) {
