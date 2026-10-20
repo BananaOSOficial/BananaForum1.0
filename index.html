@@ -897,7 +897,7 @@
 			  const URLImagemconta = URL.createObjectURL(arquivo);
 			  imgconta.src = URLImagemconta;
 			  try {
-			  URLimagemcontasalva = await enviarparacloudinary(arquivo);
+			  const URLimagemcontasalva = await enviarparacloudinary(arquivo);
               localStorage.setItem("URLimagemconta", URLimagemcontasalva);
 			  } catch (e) {
 				  alert('Erro ao salvar: ' + e.message);
