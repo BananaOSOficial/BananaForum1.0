@@ -1166,8 +1166,10 @@
 			  .select()
 			  .single();
 			  if (error) {
+				  janelacriarconta.style.display = 'flex';
 				  if (error.code === '23505') {
 					  alert('Coloque um nome que ninguém usou');
+					  return;
 				  } else {
 				  alert('Erro ao criar conta: ' + error.message);
 				  return;
