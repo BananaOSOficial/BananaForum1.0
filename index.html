@@ -1130,7 +1130,7 @@
 		  
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
-		  criarcontabtn.addEventListener('click', () => {
+		  criarcontabtn.addEventListener('click', async () => {
 			  const nome = inputnomedousuario.value.trim();
 			  if (nome === "") {
 				  alert('Digite um nome');
@@ -1140,7 +1140,7 @@
 			  if (idSalvo) {
 			  const {data, error} = await Clientesupabase
 				  .from('usuarios')
-				  .insert({nome: nome})
+				  .update({nome: nome})
 				  .eq('id', idSalvo)
 				  .select()
 				  .single();
