@@ -1140,6 +1140,8 @@
 			  const SUPABASE_ANON_KEY_2 = 'sb_publishable_53UTGTptBzBsUre_tAahXQ_XyMu13jM';
 			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 			  const idSalvo = localStorage.getItem("idUsuario");
+			  janelacriarconta.style.display = 'none';
+			  inputnomedousuario.value = '';
 			  if (idSalvo) {
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
@@ -1148,7 +1150,8 @@
 				  .select()
 				  .single();
 			  if (error) {
-				  if (error.code = '23505') {
+				  janelacriarconta.style.display = 'flex';
+				  if (error.code === '23505') {
 					  alert('Coloque um nome que uma pessoa não está usando');
 					  return;
 				  } else {
@@ -1163,8 +1166,12 @@
 			  .select()
 			  .single();
 			  if (error) {
+				  if (error.code === '23505') {
+					  alert('Coloque um nome que ninguém usou');
+				  } else {
 				  alert('Erro ao criar conta: ' + error.message);
 				  return;
+				  }
 			  }
 			  }
 			  nomeusuario.textContent = nome;
@@ -1172,8 +1179,6 @@
 			  localStorage.setItem("idUsuario", data.id);
 			  const nomedapessoanochat = document.querySelector('.nomedapessoanochat');
 			  nomedapessoanochat.textContent = inputnomedousuario.value + ":";
-			  inputnomedousuario.value = "";
-			  janelacriarconta.style.display = 'none';
 			  document.body.style.overflow = '';
 			  location.reload();
 		  })
