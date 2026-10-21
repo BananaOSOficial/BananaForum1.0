@@ -1223,7 +1223,9 @@
 		  }
 		  const nomeusuario = document.querySelector('.nomeusuario');
 		  const criarcontatxt = document.querySelector('.criarcontatxt');
-		  
+		  const SUPABASEURL2 = 'https://gxhpugwnsxrcnqpciqpn.supabase.co';
+			  const SUPABASE_ANON_KEY_2 = 'sb_publishable_53UTGTptBzBsUre_tAahXQ_XyMu13jM';
+			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
 		  criarcontabtn.addEventListener('click', async () => {
@@ -1232,9 +1234,6 @@
 				  alert('Digite um nome');
 				  return;
 			  }
-			  const SUPABASEURL2 = 'https://gxhpugwnsxrcnqpciqpn.supabase.co';
-			  const SUPABASE_ANON_KEY_2 = 'sb_publishable_53UTGTptBzBsUre_tAahXQ_XyMu13jM';
-			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 			  const idSalvo = localStorage.getItem("idUsuario");
 			  janelacriarconta.style.display = 'none';
 			  inputnomedousuario.value = '';
@@ -1293,7 +1292,7 @@
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios')
 		      .select('id, nome')
-	          .ilike('nome', '%${textodotextarea}%')
+	          .ilike('nome', `%${textodotextarea}%`
 			  .limit(20);
 			  if (error) {
 				  containerpessoas.innerHTML = '';
