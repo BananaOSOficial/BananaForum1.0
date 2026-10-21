@@ -294,7 +294,7 @@
 			background-color: #303134;
 			color: #FFFFFF;
 				border-radius: 999px;
-				border: 2px solid rgba(255,255,255,0.05);
+				border: 2px solid rgba(255,255,255,0.08);
 			box-shadow: 0 0 5px rgba(255,255,255,0.08);
 		}
 		#janeladascomunidades button:hover {
@@ -746,6 +746,12 @@
 			border-radius: 999px;
 			border: 2px solid #303134;
 		}
+		#textareaebotaodajanelaamizades:focus-within {
+			border-color: #F7D117;
+		}
+		#textareaebotaodajanelaamizades:focus-within button {
+			border-color: #F7D117;
+		}
 		.textareaamizade {
 			background: transparent;
 			border: none;
@@ -775,6 +781,22 @@
 		}
 		#container-pessoas {
 		margin-top: 20px;
+		}
+		.fecharjanelaamizades {
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			width: 32px;
+			height: 32px;
+			border: 2px solid rgba(255,255,255,0.08);
+			border-radius: 999px;
+			box-shadow: 0 0 10px rgba(255,255,255,0.08);
+			background-color: #303134;
+		}
+		.fecharjanelaamizades:hover {
+			border-color: yellow;
+			background-color: #F7D117;
+			box-shadow: 0 0 10px #F7D117;
 		}
     </style>
   </head>
@@ -855,8 +877,9 @@
 		<div id="container-comunidade"></div>
     </main>
 	  <div class="janelaamizades">
+		  <button class="fecharjanelaamizades">X</button>
 		  <div id="textareaebotaodajanelaamizades">
-		  <textarea class="textareaamizade" placeholder="Procure por uma pessoa que você queira adicionar"></textarea>
+		  <textarea class="textareaamizade"></textarea>
 		  <button class="botaoprocuraramizade">Pesquisar</button>
 		  </div>
 		  <div id="container-pessoas"></div>
@@ -941,6 +964,10 @@
 		  const abrirjanelaimagemperfil = document.querySelector('.abrirjanelaimagemperfil');
 		  const abrirjanelaamizades = document.querySelector('.abrirjanelaamizades');
 		  const janelaamizades = document.querySelector('.janelaamizades');
+		  const fecharjanelaamizades = document.querySelector('.fecharjanelaamizades');
+		  fecharjanelaamizades.onclick = function() {
+			  janelaamizades.style.display = 'none';
+		  }
 		  abrirjanelaamizades.onclick = function() {
 			  janelaamizades.style.display = 'flex';
 		  }
