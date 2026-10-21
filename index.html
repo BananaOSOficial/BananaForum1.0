@@ -1287,6 +1287,7 @@
 			  const textodotextarea = textareaamizade.value.trim();
 			  if (textodotextarea === '') {
 				  alert('Digite um nome para pesquisar');
+				  return;
 			  }
 			  containerpessoas.innerHTML = '<p>Pesquisando</p>';
 			  const {data, error} = await ClientUsuarios
@@ -1319,9 +1320,9 @@
 	          p.style.color = '#FFFFFF';
 			  p.textContent = usuario.nome;
 	          containerpessoas.appendChild(p);
+			    containerpessoas.appendChild(div);
 	});
 		  });
-		  containerpessoas.appendChild(div);
 		  function verificarseousuariojacriouconta() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 		  if (nomesalvo) {
