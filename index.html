@@ -1328,7 +1328,7 @@
 				const {data, error} = await ClientUsuarios
 				  .from('amizades')
 				  .insert({ 
-					  usuario_id: iddousuario
+					  usuario_id: iddousuario,
 					  amigo_id: usuario.id
 			  });
 			  if (error) {
