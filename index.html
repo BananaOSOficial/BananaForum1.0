@@ -1417,9 +1417,9 @@
 					  .select('id')
 					  .eq('nome', nomeSalvo)
 					  .single();
-				  }
 				  if (!error && data) {
 					  localStorage.setItem("idUsuario", data.id);
+				  }
 				  }
 		      if (fotosalva) {
 				  imgconta.src = fotosalva;
