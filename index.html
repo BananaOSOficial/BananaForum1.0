@@ -1317,9 +1317,30 @@
 			  button.style.border = '2px solid #5b8def';
 			  button.style.borderRadius = '999px';
 			  button.textContent = 'Adicionar';
-			  button.onclick = function() {
+			  button.onclick = async function() {
+				const iddousuario = localStorage.getItem("idUsuario");
+				if (!iddousuario) {
+					alert('Primeiro crie uma conta');
+					return;
+				}
+			    button.textContent = 'Adicionando...';
+				button.disabled = 'true';
+				const {data, error} = await ClientUsuarios
+				  .from('amizades')
+				  .insert({ 
+					  usuario_id: iddousuario
+					  amigo_id: usuario.id
+			  });
+			  if (error) {
+				  button.disabled = false;
+				  button.textContent = 'Adicionar';
+				  alert('Erro ao adicionar essa pessoa: ' + error.message);
+				  return;
+			  }
 				button.textContent = 'Adicionado';
 				alert('Vocês se tornaram amigos');
+			    button.style.backgroundColor = '#28a745';
+			    button.style.border = 'none';
 		        return;
 			  }
 			  div.style.marginTop = '10px';
