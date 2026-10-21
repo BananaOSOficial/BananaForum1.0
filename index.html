@@ -1409,6 +1409,18 @@
 			  const fotosalva = localStorage.getItem("URLimagemconta");
 		      const imagemperfilnaconversa = document.querySelector('.imagemperfilnaconversa');
 			  imgdajanelaimagemperfil.src = fotosalva;
+				  const nomeSalvo = localStorage.getItem("nomeUsuario");
+				  const idSalvo = localStorage.getItem("idUsuario");
+				  if (nomeSalvo && !idSalvo) {
+					  const {data, error} = await ClienteSupabase
+					  .from('usuarios')
+					  .select('id')
+					  .eq('nome', nomeSalvo)
+					  .single();
+				  }
+				  if (!error && data) {
+					  localStorage.setItem("idUsuario", data.id);
+				  }
 		      if (fotosalva) {
 				  imgconta.src = fotosalva;
 			  }
