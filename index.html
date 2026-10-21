@@ -1280,6 +1280,49 @@
 			  document.body.style.overflow = '';
 			  location.reload();
 		  })
+		  const botaoprocurarpessoas = document.querySelector('.botaoprocurarpessoas');
+		  const textareaamizades = document.querySelector('.textareaamizades');
+		  const containerpessoas = document.getElementById('container-pessoas');
+		  botaoprocurarpessoas.addEventListener('click', async () => {
+			  textareaamizades.style.top = '10px';
+			  const textodotextarea = textareaamizades.value.trim();
+			  if (textodotextarea === '') {
+				  alert('Digite um nome para pesquisar');
+			  }
+			  containerpessoas.innerHTML = '<p>Pesquisando</p>';
+			  const {data, error} = await ClientUsuarios
+			  .from('usuarios')
+		      .select('id, nome')
+	          .ilike('nome', '%${textodotextarea}%')
+			  .limit(20);
+			  if (error) {
+				  containerpessoas.innerHTML = '';
+				  alert('Erro ao pesquisar: ' + error.message);
+				  return;
+		  }
+			  containerpessoas.innerHTML = '';
+		  if (!data || data.length === 0) {
+		  containerpessoas.innerHTML = '<p>Nenhum usuário encontrado que tenha esse nome</p>';
+			  return;
+		  }
+		  data.forEach(usuario => {
+			  const div = document.createElement('div');
+			  const p = document.createElement('p');
+			  const button = document.createElement('button');
+			  div.appendChild(p);
+	          div.appendChild(button);
+			  div.style.display = 'flex';
+	          div.style.flexDirection = 'row';
+			  button.style.backgroundColor = '#2E6BFF';
+			  button.style.border = '2px solid #5b8def';
+			  button.style.borderRadius = '999px';
+			  div.style.marginTop = '10px';
+	          p.style.color = '#FFFFFF';
+			  p.textContent = usuario.nome;
+	          containerpessoas.appendChild(p);
+	});
+		  });
+		  containerpessoas.appendChild(div);
 		  function verificarseousuariojacriouconta() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 		  if (nomesalvo) {
