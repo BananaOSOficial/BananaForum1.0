@@ -1261,8 +1261,10 @@
 				  return;
 			  }
 			  }
+				  if (data) {
 				  localStorage.setItem("nomeUsuario", novonome);
 				  localStorage.setItem("idUsuario", data.id);
+		  }
 			  } else {
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
@@ -1279,13 +1281,16 @@
 				  return;
 				  }
 			  }
+			  if (data) {
 		      localStorage.setItem("idUsuario", data.id);
 			  localStorage.setItem("nomeUsuario", novonome);
+		  }
 			  }
 			  nomeusuario.textContent = novonome;
 			  const nomedapessoanochat = document.querySelector('.nomedapessoanochat');
-			  nomedapessoanochat.textContent = inputnomedousuario.value + ":";
+			  nomedapessoanochat.textContent = novonome + ":";
 			  document.body.style.overflow = '';
+			  location.reload();
 		  })
 		  const botaoprocurarpessoas = document.querySelector('.botaoprocuraramizade');
 		  const textareaamizade = document.querySelector('.textareaamizade');
