@@ -801,6 +801,9 @@
 		.abrirjanelaamizades {
 			margin-top: 10px;
 		}
+		#container-pessoas {
+			margin-left: 40px;
+		}
     </style>
   </head>
   <body>
@@ -1289,7 +1292,7 @@
 				  alert('Digite um nome para pesquisar');
 				  return;
 			  }
-			  containerpessoas.innerHTML = '<p>Pesquisando</p>';
+			  containerpessoas.innerHTML = '<p>Pesquisando...</p>';
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios')
 		      .select('id, nome')
