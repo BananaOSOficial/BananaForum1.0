@@ -1451,6 +1451,10 @@
 			  }
 			  if (fotosalva) {
 			  imgdajanelaimagemperfil.src = fotosalva;
+			  imgconta.src = fotosalva;
+			  } else {
+		       imgconta.src = 'bananaperfil.jpeg';
+				  imgdajanelaimagemperfil.src = 'bananaperfil.jpeg';
 			  }
 				  const nomeSalvo = localStorage.getItem("nomeUsuario");
 				  const idSalvo = localStorage.getItem("idUsuario");
@@ -1465,9 +1469,6 @@
 				  }
 				  }
 				  await carregaramizades()
-		      if (fotosalva) {
-				  imgconta.src = fotosalva;
-			  }
 			  if (nomesalvo) {
 				  nomeusuario.textContent = nomesalvo;
 			  }
