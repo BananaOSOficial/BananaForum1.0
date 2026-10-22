@@ -1262,7 +1262,7 @@
 			  } else {
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
-			  .insert({nome: nome})
+			  .insert({nome: novonome})
 			  .select()
 			  .single();
 			  if (error) {
