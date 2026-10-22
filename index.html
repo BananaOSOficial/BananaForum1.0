@@ -1405,6 +1405,18 @@
 		  const dados = await resposta.json();
 		  return dados.secure_url;
 		  }
+		  let amigosid = [];
+		  async function carregaramizades() {
+			  const idUsuario = localStorage.getItem("idUsuario");
+			  if !idUsuario return;
+			  const {data, error} = await ClientUsuarios
+			  .from('amizades')
+			  .select('amigo_id')
+			  .eq('usuario_id', idUsuario);
+			  if (!error && data) {
+				  amigosid = data.map(amizade => amizade.amigo_id);
+			  }
+		  }
 			  window.onload = async function() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
