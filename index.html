@@ -1340,6 +1340,11 @@
 				  alert('Erro ao adicionar essa pessoa: ' + error.message);
 				  return;
 			  }
+				if (amigosid.includes(usuario.id)) {
+					button.textContent = 'Adicionado';
+					button.style.backgroundColor = '#28a745';
+					button.disabled = true;
+		  }
 				button.textContent = 'Adicionado';
 				alert('Vocês se tornaram amigos');
 			    button.style.backgroundColor = '#28a745';
