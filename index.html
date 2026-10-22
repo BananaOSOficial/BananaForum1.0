@@ -1312,6 +1312,15 @@
 			  const div = document.createElement('div');
 			  const p = document.createElement('p');
 			  const button = document.createElement('button');
+			  if (amigosid.includes(usuario.id)) {
+					button.textContent = 'Adicionado';
+					button.style.backgroundColor = '#28a745';
+					button.disabled = true;
+		  } else {
+		  button.textContent = 'Adicionar';
+		  button.style.backgroundColor = '#2E6BFF';
+		  button.style.border = '#5b8def';
+				}
 			  div.appendChild(p);
 	          div.appendChild(button);
 			  div.style.display = 'flex';
@@ -1340,15 +1349,6 @@
 				  alert('Erro ao adicionar essa pessoa: ' + error.message);
 				  return;
 			  }
-				if (amigosid.includes(usuario.id)) {
-					button.textContent = 'Adicionado';
-					button.style.backgroundColor = '#28a745';
-					button.disabled = true;
-		  } else {
-		  button.textContent = 'Adicionar';
-		  button.style.backgroundColor = '#2E6BFF';
-		  button.style.border = '#5b8def';
-				}
 				amigosid.push(usuario.id);
 				button.textContent = 'Adicionado';
 				alert('Vocês se tornaram amigos');
@@ -1359,7 +1359,6 @@
 			  div.style.marginTop = '10px';
 	          p.style.color = '#FFFFFF';
 			  p.textContent = usuario.nome;
-	          containerpessoas.appendChild(p);
 			    containerpessoas.appendChild(div);
 	});
 		  });
