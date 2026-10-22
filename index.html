@@ -1408,7 +1408,7 @@
 		  let amigosid = [];
 		  async function carregaramizades() {
 			  const idUsuario = localStorage.getItem("idUsuario");
-			  if !idUsuario return;
+			  if (!idUsuario) return;
 			  const {data, error} = await ClientUsuarios
 			  .from('amizades')
 			  .select('amigo_id')
