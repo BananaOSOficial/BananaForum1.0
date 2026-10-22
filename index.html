@@ -1024,6 +1024,7 @@
 			  const clicouimgconta = imgconta.contains(e.target);
 			  if (!clicounoabrirjanelaimagemperfil && !clicouimgconta) {
 				  abrirjanelaimagemperfil.style.display = 'none';
+				  imgconta.style.filter = 'blur(0)';
 			  }
 		  })
 		  const imgdajanelaimagemperfil = document.querySelector('.imagemdajanelaimagemperfil');
