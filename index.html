@@ -1259,6 +1259,7 @@
 				  return;
 			  }
 			  }
+				  localStorage.getItem("idUsuario", data.id);
 			  } else {
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
@@ -1275,10 +1276,10 @@
 				  return;
 				  }
 			  }
+				  localStorage.getItem("idUsuario", data.id);
 			  }
 			  nomeusuario.textContent = nome;
 			  localStorage.setItem("nomeUsuario", nome);
-			  localStorage.setItem("idUsuario", data.id);
 			  const nomedapessoanochat = document.querySelector('.nomedapessoanochat');
 			  nomedapessoanochat.textContent = inputnomedousuario.value + ":";
 			  document.body.style.overflow = '';
@@ -1287,6 +1288,7 @@
 		  const botaoprocurarpessoas = document.querySelector('.botaoprocuraramizade');
 		  const textareaamizade = document.querySelector('.textareaamizade');
 		  const containerpessoas = document.getElementById('container-pessoas');
+		  let amigosid = [];
 		  botaoprocurarpessoas.addEventListener('click', async () => {
 			  textareaamizade.style.top = '10px';
 			  const textodotextarea = textareaamizade.value.trim();
@@ -1417,7 +1419,6 @@
 		  const dados = await resposta.json();
 		  return dados.secure_url;
 		  }
-		  let amigosid = [];
 		  async function carregaramizades() {
 			  const idUsuario = localStorage.getItem("idUsuario");
 			  if (!idUsuario) return;
