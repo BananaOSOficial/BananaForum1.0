@@ -1008,6 +1008,9 @@
 		  })
 		  const janelaimagemperfil = document.querySelector('.janelaimagemperfil');
 		  const imgconta = document.querySelector('.imgconta');
+		  if (imgconta.src === "") {
+			  imgconta.src = 'bananaperfil.jpeg';
+		  }
 		  imgconta.onclick = function() {
 			  abrirjanelaimagemperfil.style.display = 'block';
 		  }
@@ -1443,6 +1446,9 @@
 			  const nomedacomunidade = document.querySelector('.nome');
 			  const fotosalva = localStorage.getItem("URLimagemconta");
 		      const imagemperfilnaconversa = document.querySelector('.imagemperfilnaconversa');
+			  if (!fotoconta && imgconta.src === "") {
+				  imgconta.src = 'bananaperfil.jpeg';
+			  }
 			  if (fotosalva) {
 			  imgdajanelaimagemperfil.src = fotosalva;
 			  }
