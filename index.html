@@ -1250,7 +1250,7 @@
 				  .update({nome: novonome})
 				  .eq('nome', nomeantigo)
 				  .select()
-				  .single();
+				  .maybeSingle();
 			  if (error) {
 				  janelacriarconta.style.display = 'flex';
 				  if (error.code === '23505') {
@@ -1266,7 +1266,7 @@
 			  .from('usuarios', {schema: 'public'})
 			  .insert({nome: novonome})
 			  .select()
-			  .single();
+			  .maybeSingle();
 			  if (error) {
 				  janelacriarconta.style.display = 'flex';
 				  if (error.code === '23505') {
