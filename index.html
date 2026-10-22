@@ -1234,21 +1234,21 @@
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
 		  criarcontabtn.addEventListener('click', async () => {
-			  const nome = inputnomedousuario.value.trim();
-			  if (nome === "") {
+			  const novonome = inputnomedousuario.value.trim();
+			  if (novonome === "") {
 				  alert('Digite um nome');
 				  return;
 			  }
-			  const idSalvo = localStorage.getItem("idUsuario");
 			  janelacriarconta.style.display = 'none';
 			  inputnomedousuario.value = '';
-			  if (idSalvo) {
+			  const nomeantigo = localStorage.getItem("nomeUsuario");
+			  if (nomeantigo) {
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
-				  .update({nome: nome})
-				  .eq('id', idSalvo)
+				  .update({nome: novonome})
+				  .eq('nome', nomeantigo)
 				  .select()
-				  .single();
+				  .maybeSingle();
 			  if (error) {
 				  janelacriarconta.style.display = 'flex';
 				  if (error.code === '23505') {
@@ -1259,11 +1259,10 @@
 				  return;
 			  }
 			  }
-				  localStorage.getItem("idUsuario", data.id);
 			  } else {
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
-			  .insert({nome: nome})
+			  .insert({nome: novonome})
 			  .select()
 			  .single();
 			  if (error) {
@@ -1276,7 +1275,6 @@
 				  return;
 				  }
 			  }
-				  localStorage.getItem("idUsuario", data.id);
 			  }
 			  nomeusuario.textContent = nome;
 			  localStorage.setItem("nomeUsuario", nome);
