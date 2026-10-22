@@ -1248,7 +1248,7 @@
 				  .update({nome: novonome})
 				  .eq('nome', nomeantigo)
 				  .select()
-				  .maybeSingle();
+				  .single();
 			  if (error) {
 				  janelacriarconta.style.display = 'flex';
 				  if (error.code === '23505') {
@@ -1262,7 +1262,7 @@
 			  } else {
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
-			  .insert({nome: novonome})
+			  .insert({nome: nome})
 			  .select()
 			  .single();
 			  if (error) {
