@@ -1390,13 +1390,7 @@
 		  button.style.borderRadius = '999px';
 		  button.style.backgroundColor = '#2E6BFF';
 		  button.style.border = '#5b8def';
-				}
-			  div.appendChild(p);
-	          div.appendChild(button);
-			  div.style.display = 'flex';
-	          div.style.flexDirection = 'row';
-			  div.style.gap = '10px';
-			  button.onclick = async function() {
+				  button.onclick = async function() {
 				const iddousuario = localStorage.getItem("idUsuario");
 				if (!iddousuario) {
 					alert('Primeiro crie uma conta');
@@ -1410,6 +1404,12 @@
 					  usuario_id: iddousuario,
 					  amigo_id: usuario.id
 			  });
+				}
+			  div.appendChild(p);
+	          div.appendChild(button);
+			  div.style.display = 'flex';
+	          div.style.flexDirection = 'row';
+			  div.style.gap = '10px';
 			  if (error) {
 				  button.disabled = false;
 				  button.textContent = 'Adicionar';
