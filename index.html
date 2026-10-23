@@ -1386,7 +1386,6 @@
                       abrirjanelaperfilamigo(usuario.id, usuario.nome);
 				  }
 			  }
-		  })
 		  } else {
 		  button.textContent = 'Seguir';
 		  button.style.borderRadius = '999px';
@@ -1447,6 +1446,7 @@
 	          p.style.color = '#FFFFFF';
 			  p.textContent = usuario.nome;
 			    containerpessoas.appendChild(div);
+	});
 	});
 		  async function abrirjanelaperfilamigo(idAmigo, nomeamigo) {
 			  const fotopessoa = document.querySelector('.fotopessoa');
