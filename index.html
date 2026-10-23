@@ -1398,12 +1398,30 @@
 				}
 			    button.textContent = 'Adicionando...';
 				button.disabled = true;
-				const {data, error} = await ClientUsuarios
+				const {data: inserido, error: errorinsert} = await ClientUsuarios
 				  .from('amizades')
 				  .insert({ 
 					  usuario_id: iddousuario,
 					  amigo_id: usuario.id
-			  });
+			  })
+					  .select();
+				  if (errorinsert) {
+		  button.disabled = false;
+	button.textContent = 'Seguir';
+		  alert('Erro ao seguir essa pessoa: ', + errorinsert.message);
+	return;
+	}
+					  amigosid.push(usuario.id);
+		  button.textContent = 'Ver perfil';
+		  button.style.backgroundColor = '#28a745';
+					  button.style.color = '#FFFFFF';
+					  button.style.borderRadius = '999px';
+	button.style.cursor = 'default';
+					  button.disabled = false;
+					  button.onclick = async function() {
+	abrirjanelaperfilamigo(usuario.id, usuario.nome);
+		  }
+				  }
 				}
 			  div.appendChild(p);
 	          div.appendChild(button);
