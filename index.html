@@ -1431,7 +1431,7 @@
 					return;
 				}
 			    button.textContent = 'Adicionando...';
-				button.disabled = 'true';
+				button.disabled = true;
 				const {data, error} = await ClientUsuarios
 				  .from('amizades')
 				  .insert({ 
