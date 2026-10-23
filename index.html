@@ -823,6 +823,7 @@
 			height: 100vh;
 			width: 100vw;
 			position: fixed;
+			text-align: center;
 			top: 0;
 			left: 0;
 			background-color: rgba(10,10,10,0.5);
@@ -832,6 +833,20 @@
 		.container-amigos {
 			border-top: 2px solid #303134;
 			margin-top: 10px;
+		}
+		.fecharjaneladosamigos {
+			width: 32px;
+			height: 32px;
+			background-color: #303134;
+			border: 2px solid rgba(255,255,255,0.08);
+			box-shadow: 0 0 10px rgba(255,255,255,0.08);
+			transition: transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+		}
+		.fecharjaneladosamigos:hover {
+			background-color: #F7D117;
+			border-color: #F7D117;
+			box-shadow: 0 0 10px #F7D117;
+			transform: scale(1.1);
 		}
     </style>
   </head>
@@ -916,9 +931,11 @@
 		<div id="container-comunidade"></div>
     </main>
 	  <div class="janelaseusamigos">
+		  <button class="fecharjaneladosamigos">X</button>
 		  <p>Seus amigos</p>
 		  <div class="container-amigos">
 		  </div>
+	  </div>
 	  <div class="janelaamizades">
 		  <button class="fecharjanelaamizades">X</button>
 		  <div id="textareaebotaodajanelaamizades">
@@ -1012,12 +1029,19 @@
 		  const janelaseusamigos = document.querySelector('.janelaseusamigos');
 		  botaoamigos.onclick = function() {
 			  janelaseusamigos.style.display = 'block';
+			  document.body.style.overflow = 'hidden';
+		  }
+		  const fecharjaneladosamigos = document.querySelector('.fecharjaneladosamigos');
+		  fecharjaneladosamigos.onclick = function() {
+			  janelaseusamigos.style.display = 'none';
 		  }
 		  fecharjanelaamizades.onclick = function() {
 			  janelaamizades.style.display = 'none';
+			  document.body.style.overflow = '';
 		  }
 		  abrirjanelaamizades.onclick = function() {
 			  janelaamizades.style.display = 'flex';
+			  document.body.style.overflow = 'hidden';
 		  }
 		  if (nomeusuarioconta) {
 			  dica.style.display = 'none';
