@@ -1041,7 +1041,8 @@
 		  const fecharjanelaamizades = document.querySelector('.fecharjanelaamizades');
 		  const botaoamigos = document.querySelector('.botaoamigos');
 		  const janelaseusamigos = document.querySelector('.janelaseusamigos');
-		  botaoamigos.onclick = function() {
+		  const svgbotaoamigos = botaoamigos.querySelector('svg');
+		  svgbotaoamigos.onclick = function() {
 			  janelaseusamigos.style.display = 'block';
 			  document.body.style.overflow = 'hidden';
 		  }
