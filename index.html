@@ -1018,7 +1018,7 @@
 		  const janelaamigo = document.querySelector('.janelaamigo');
 		  const fecharjanelaamigo = document.querySelector('.fecharjanelaamigo');
 		  fecharjanelaamigo.onclick = function() {
-			  janelaseusamigos.style.display = 'none';
+			  janelaamigos.style.display = 'none';
 			  document.body.style.overflow = '';
 		  }
 		  fecharjanelaamizades.onclick = function() {
@@ -1383,7 +1383,8 @@
 				  button.style.border = 'none';
 				  button.style.cursor = 'default';
 				  button.onclick = function() {
-					  
+                      abrirjanelaperfilamigo(usuario.id, usuario.nome);
+				  }
 		  } else {
 		  button.textContent = 'Seguir';
 		  button.style.borderRadius = '999px';
@@ -1428,6 +1429,51 @@
 			    containerpessoas.appendChild(div);
 	});
 		  });
+		  async function abrirjanelaperfilamigo(idAmigo, nomeAntigo) {
+			  const fotopessoa = document.querySelector('.fotopessoa');
+			  const nomepessoa = document.querySelector('.nomepessoausuarioseguindo');
+		  const containercomunidades = document.querySelector('.comunidadespessoa');
+			  const janelaamigo = document.querySelector('.janelaamigo');
+
+		  janelaamigo.style.display = 'flex';
+		  document.body.style.overflow = 'hidden';
+		  nomepessoa.textContent = nomeamigo;
+
+			  fotopessoa.src = 'bananaperfil.jpeg';
+			  fotopessoa.style.width = '64px';
+		  fotopessoa.style.height = '64px';
+			  fotopessoa.style.borderRadius = '999px';
+			  fotopessoa.style.marginTop = '10px';
+	fotopessoa.style.border = '2px solid #F7D117';
+			  containercomunidades.innerHTML = '<p>Carregando comunidades...</p>'
+			  const {data, error} = await Clientesupabase
+			  .from('mensagens')
+		  .select('comunidade_id')
+			  .eq('nome', nomeamigo);
+
+		  containercomunidades.innerHTML = '';
+			  if (error || !mensagens || mensagens.length === 0) {
+				  containercomunidades.innerHTML = '<p>Esse usuário não mandou mensagem em nenhuma das comunidades.</p>';
+		  return;
+	}
+			  const idsdascomunidadesqueousuariocomentou = [... new Set(mensagens.map(m => m.comunidade_id))];
+			  const {data: comunidades, error: errorcomunidades} 
+			  .from('comunidades')
+			  .select('nome')
+			  .in('id', idsdascomunidadesqueousuariocomentou);
+
+			  if (errorcomunidades || !comunidades) {
+		  containercomunidades.innerHTML = '<p>Erro ao carregar comunidades</p>';
+				  return;
+	}
+			  comunidades.forEach(comunidade => {
+		  const p = document.createElement('p');
+		  p.textContent = comunidade.nome;
+				  p.style.color = '#FFFFFF';
+	      p.style.marginTop = '10px';
+	containercomunidades.appendChild(p);
+		  });
+		  }
 		  function verificarseousuariojacriouconta() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 		  if (nomesalvo) {
