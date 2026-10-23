@@ -809,27 +809,7 @@
 			margin-top: 60px;
 			margin-left: 60px;
 		}
-		#imgcontaebotaoamigos {
-			display: flex;
-	    flex-direction: row;
-			align-items: center;
-			gap: 3px;
-			}
-		.botaoamigos {
-			background-color: transparent;
-			border-radius: 999px;
-			width: 64px;
-			border: none;
-			height: 64px;
-			cursor: default;
-		}
-		.botaoamigos svg {
-			cursor: pointer;
-		}
-		.botaoamigos svg:hover {
-			fill: #F7D117;
-		}
-		.janelaseusamigos {
+		.janelaamigo {
 			display: none;
 			height: 100vh;
 			width: 100vw;
@@ -841,10 +821,7 @@
 			backdrop-filter: blur(12px);
 			-webkit-backdrop-filter: blur(12px);
 		}
-		.container-amigos {
-			margin-top: 10px;
-		}
-		.fecharjaneladosamigos {
+		.fecharjanelaamigo {
 			position: fixed;
 			top: 5px;
 			left: 5px;
@@ -873,11 +850,7 @@
 <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M4.02693 18.329C4.18385 19.277 5.0075 20 6 20H18C19.1046 20 20 19.1046 20 18V14.1901M4.02693 18.329C4.00922 18.222 4 18.1121 4 18V6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V14.1901M4.02693 18.329L7.84762 14.5083C8.52765 13.9133 9.52219 13.8482 10.274 14.3494L10.7832 14.6888C11.5078 15.1719 12.4619 15.1305 13.142 14.5865L15.7901 12.4679C16.4651 11.9279 17.4053 11.8856 18.1228 12.3484C18.2023 12.3997 18.2731 12.4632 18.34 12.5302L20 14.1901M11 9C11 10.1046 10.1046 11 9 11C7.89543 11 7 10.1046 7 9C7 7.89543 7.89543 7 9 7C10.1046 7 11 7.89543 11 9Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg></button>
-	<div id="imgcontaebotaoamigos">
 	<img src="" class="imgconta">
-		<button class="botaoamigos"><svg fill="#FFFFFF" width="800px" height="800px" viewBox="0 -64 640 640" xmlns="http://www.w3.org/2000/svg"><path d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C51.6 288 0 339.6 0 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zM480 256c53 0 96-43 96-96s-43-96-96-96-96 43-96 96 43 96 96 96zm48 32h-3.8c-13.9 4.8-28.6 8-44.2 8s-30.3-3.2-44.2-8H432c-20.4 0-39.2 5.9-55.7 15.4 24.4 26.3 39.7 61.2 39.7 99.8v38.4c0 2.2-.5 4.3-.6 6.4H592c26.5 0 48-21.5 48-48 0-61.9-50.1-112-112-112z"/></svg>
-		</button>
-	</div>
     <div id="olaenomeusuario">
 	<p>Olá,</p>
     <div id="menuenomeusuario">
@@ -945,11 +918,12 @@
 	  </div>
 		<div id="container-comunidade"></div>
     </main>
-	  <div class="janelaseusamigos">
-		  <button class="fecharjaneladosamigos">X</button>
-		  <p>Seus amigos</p>
-		  <div class="container-amigos">
-		  </div>
+	  <div class="janelaamigo">
+		  <button class="fecharjanelaamigo">X</button>
+		  <h2 class="nomepessoausuarioseguindo"></h2>
+		  <img class="fotopessoa">
+		  <p>Comunidades que essa pessoa está conversando: </p>
+		  <div class="comunidadespessoa"></div>
 	  </div>
 	  <div class="janelaamizades">
 		  <button class="fecharjanelaamizades">X</button>
@@ -1041,14 +1015,9 @@
 		  const janelaamizades = document.querySelector('.janelaamizades');
 		  const fecharjanelaamizades = document.querySelector('.fecharjanelaamizades');
 		  const botaoamigos = document.querySelector('.botaoamigos');
-		  const janelaseusamigos = document.querySelector('.janelaseusamigos');
-		  const svgbotaoamigos = botaoamigos.querySelector('svg');
-		  svgbotaoamigos.onclick = function() {
-			  janelaseusamigos.style.display = 'block';
-			  document.body.style.overflow = 'hidden';
-		  }
-		  const fecharjaneladosamigos = document.querySelector('.fecharjaneladosamigos');
-		  fecharjaneladosamigos.onclick = function() {
+		  const janelaamigo = document.querySelector('.janelaamigo');
+		  const fecharjanelaamigo = document.querySelector('.fecharjanelaamigo');
+		  fecharjanelaamigo.onclick = function() {
 			  janelaseusamigos.style.display = 'none';
 			  document.body.style.overflow = '';
 		  }
@@ -1408,14 +1377,15 @@
 			  const p = document.createElement('p');
 			  const button = document.createElement('button');
 			  if (amigosid.includes(usuario.id)) {
-					button.textContent = 'Adicionado';
+					button.textContent = 'Ver perfil';
 					button.style.backgroundColor = '#28a745';
-					button.disabled = true;
 				    button.style.borderRadius = '999px';
 				  button.style.border = 'none';
 				  button.style.cursor = 'default';
+				  button.onclick = function() {
+					  
 		  } else {
-		  button.textContent = 'Adicionar';
+		  button.textContent = 'Seguir';
 		  button.style.borderRadius = '999px';
 		  button.style.backgroundColor = '#2E6BFF';
 		  button.style.border = '#5b8def';
