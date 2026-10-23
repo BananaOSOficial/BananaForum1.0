@@ -1382,7 +1382,7 @@
 				    button.style.borderRadius = '999px';
 				  button.style.border = 'none';
 				  button.style.cursor = 'default';
-				  button.onclick = function() {
+				  button.onclick = async function() {
                       abrirjanelaperfilamigo(usuario.id, usuario.nome);
 				  }
 		  } else {
@@ -1446,7 +1446,6 @@
 			  p.textContent = usuario.nome;
 			    containerpessoas.appendChild(div);
 	});
-		  });
 		  async function abrirjanelaperfilamigo(idAmigo, nomeamigo) {
 			  const fotopessoa = document.querySelector('.fotopessoa');
 			  const nomepessoa = document.querySelector('.nomepessoausuarioseguindo');
