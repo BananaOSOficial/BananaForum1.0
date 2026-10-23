@@ -1409,9 +1409,6 @@
 				  if (errorinsert) {
 		  button.disabled = false;
 	button.textContent = 'Seguir';
-		  alert('Erro ao seguir essa pessoa: ' + errorinsert.message);
-	return;
-	}
 					  amigosid.push(usuario.id);
 		  button.textContent = 'Ver perfil';
 		  button.style.backgroundColor = '#28a745';
@@ -1428,13 +1425,6 @@
 			  div.style.display = 'flex';
 	          div.style.flexDirection = 'row';
 			  div.style.gap = '10px';
-				amigosid.push(usuario.id);
-				button.textContent = 'Adicionado';
-				alert('Vocês se tornaram amigos');
-			    button.style.backgroundColor = '#28a745';
-			    button.style.border = 'none';
-		        return;
-			  }
 			  div.style.marginTop = '10px';
 	          p.style.color = '#FFFFFF';
 			  p.textContent = usuario.nome;
