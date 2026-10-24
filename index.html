@@ -1325,9 +1325,9 @@
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
 				  .update({nome: novonome})
-				  .eq('id', localStorage.getItem("idUsuario"))
+				  .eq('nome', nomeantigo)
 				  .select()
-				  .maybeSingle();
+				  .single();
 			  if (error) {
 				  janelacriarconta.style.display = 'flex';
 				  if (error.code === '23505') {
