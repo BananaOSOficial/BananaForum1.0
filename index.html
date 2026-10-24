@@ -1221,11 +1221,11 @@
 			  novacaixa.style.display = 'flex';
 			  const imgPerfil = novacaixa.querySelector('.imagemperfilnaconversa');
 			  if (imgPerfil) {
-				  if (urlAvatar && imgPerfil.src === 'bananaperfil.jpeg') {
+				  if (urlAvatar) {
 					  imgPerfil.src = urlAvatar;
 					  imgPerfil.style.display = 'block';
 				  } else {
-					  imgPerfil.style.display = 'none';
+					  imgPerfil.src = 'bananaperfil.jpeg';
 				  }
 			  }
 			  const novonome = novacaixa.querySelector('.nomedapessoanochat');
