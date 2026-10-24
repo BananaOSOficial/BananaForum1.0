@@ -1221,7 +1221,7 @@
 			  novacaixa.style.display = 'flex';
 			  const imgPerfil = novacaixa.querySelector('.imagemperfilnaconversa');
 			  if (imgPerfil) {
-				  if (urlAvatar) {
+				  if (urlAvatar && imgPerfil.src === 'bananaperfil.jpeg') {
 					  imgPerfil.src = urlAvatar;
 					  imgPerfil.style.display = 'block';
 				  } else {
