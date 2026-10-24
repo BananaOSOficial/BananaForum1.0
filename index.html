@@ -1318,8 +1318,6 @@
 				  alert('Digite um nome');
 				  return;
 			  }
-			  janelacriarconta.style.display = 'none';
-			  inputnomedousuario.value = '';
 			  const nomeantigo = localStorage.getItem("nomeUsuario");
 			  if (nomeantigo) {
 			  const {data, error} = await ClientUsuarios
@@ -1363,6 +1361,8 @@
 			  localStorage.setItem("nomeUsuario", novonome);
 		  }
 			  }
+			  janelacriarconta.style.display = 'none';
+			  inputnomedousuario.value = '';
 			  nomeusuario.textContent = novonome;
 			  const nomedapessoanochat = document.querySelector('.nomedapessoanochat');
 			  nomedapessoanochat.textContent = novonome + ":";
