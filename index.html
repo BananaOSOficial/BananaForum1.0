@@ -1325,7 +1325,7 @@
 				  .update({nome: novonome})
 				  .eq('nome', nomeantigo)
 				  .select()
-				  .single();
+				  .maybeSingle();
 			  if (error) {
 				  janelacriarconta.style.display = 'flex';
 				  if (error.code === '23505') {
