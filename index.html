@@ -831,6 +831,8 @@
 			}
 		.janelaamigo img {
 			display: flex;
+			border: 2px solid #F7D117;
+			box-shadow: 0 0 10px #F7D117;
 			align-self: center;
 		}
 		.fecharjanelaamigo {
@@ -1403,7 +1405,7 @@
 					button.style.backgroundColor = '#28a745';
 				    button.style.borderRadius = '999px';
 				  button.style.border = 'none';
-				  button.style.cursor = 'default';
+				  button.style.cursor = 'pointer';
 				  button.onclick = async function() {
                       abrirjanelaperfilamigo(usuario.id, usuario.nome);
 				  }
@@ -1439,7 +1441,7 @@
 		  button.style.backgroundColor = '#28a745';
 					  button.style.color = '#FFFFFF';
 					  button.style.borderRadius = '999px';
-	button.style.cursor = 'default';
+	button.style.cursor = 'pointer';
 					  button.disabled = false;
 					  button.onclick = async function() {
 	abrirjanelaperfilamigo(usuario.id, usuario.nome);
