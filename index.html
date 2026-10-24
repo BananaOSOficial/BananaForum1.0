@@ -1325,7 +1325,7 @@
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
 				  .update({nome: novonome})
-				  .eq('id', localStorage.getItem("idUsuario"));
+				  .eq('id', localStorage.getItem("idUsuario"))
 				  .select()
 				  .maybeSingle();
 			  if (error) {
