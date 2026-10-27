@@ -1402,7 +1402,6 @@
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
 				  .update({nome: novonome})
-				  .eq('id', idUsuario)
 				  .select()
 				  .maybeSingle();
 			  if (error) {
