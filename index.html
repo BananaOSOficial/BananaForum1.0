@@ -441,8 +441,7 @@
 			display: flex;
 		margin-top: 10px;
 			flex-direction: column;
-		    align-items: center;
-			justify-content: center;
+			margin-left: 20px;
 		}
 		#olaenomeusuarioeimg img {
 			margin-top: 10px;
@@ -745,7 +744,7 @@
 			background: transparent;
 			position: fixed;
 			top: 33px;
-			left: 115px;
+			left: 30px;
 			z-index: 103;
 			border: none;
 		}
@@ -900,6 +899,7 @@
 		}
 		.abrirmenucombotoes.selecionado {
 			background-color: #F7D117;
+			box-shadow: 0 0  10px #F7D117;
 		}
 		.abrirmenucombotoes.selecionado svg path {
 			fill: #000000;
@@ -1101,15 +1101,22 @@
 		  const fecharjanelaamigo = document.querySelector('.fecharjanelaamigo');
 		  const menucominicioecriarcomunidade = document.getElementById('menucominicioecriarcomunidade');
 		  const abrirmenucombotoes = document.querySelector('.abrirmenucombotoes')
-
+          const olaenomeusuarioeimg = document.querySelector('.olaenomeusuarioeimg');
+		  const menu = document.getElementById('menu');
 		  abrirmenucombotoes.onclick = function() {
 			  if (menucominicioecriarcomunidade.style.display === 'none') {
 				  menucominicioecriarcomunidade.style.display = 'block';
 				  abrirmenucombotoes.style.left = '95px';
+				  olaenomeusuarioeimg.style.marginLeft = '105px';
+				  abrirjanelaimagemperfil.style.left = '115px';
+				  menu.style.left = '115px';
 				  abrirmenucombotoes.classList.add('selecionado');
 			  } else {
 				  menucominicioecriarcomunidade.style.display = 'none';
 				  abrirmenucombotoes.style.left = '5px';
+				  olaenomeusuarioeimg.style.marginLeft = '20px';
+				  abrirjanelaimagemperfil.style.left = '30px';
+				  menu.style.left = '30px';
 				  abrirmenucombotoes.classList.remove('selecionado');
 			  }
 		  }
