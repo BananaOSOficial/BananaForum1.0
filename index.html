@@ -1104,9 +1104,11 @@
 		  abrirmenucombotoes.onclick = function() {
 			  if (menucominicioecriarcomunidade.style.display === 'none') {
 				  menucominicioecriarcomunidade.style.display = 'block';
+				  abrirmenucombotoes.style.left = '95px';
 				  abrirmenucombotoes.classList.add('selecionado');
 			  } else {
 				  menucominicioecriarcomunidade.style.display = 'none';
+				  abrirmenucombotoes.style.left = '5px';
 				  abrirmenucombotoes.classList.remove('selecionado');
 			  }
 		  }
