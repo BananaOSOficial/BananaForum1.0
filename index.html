@@ -1390,6 +1390,7 @@
 			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
+		  const idUsuario = localStorage.getItem("idUsuario");
 		  criarcontabtn.addEventListener('click', async () => {
 			  const novonome = inputnomedousuario.value.trim();
 			  if (novonome === "") {
@@ -1401,7 +1402,7 @@
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
 				  .update({nome: novonome})
-				  .eq('nome', nomeantigo)
+				  .eq('id', idUsuario)
 				  .select()
 				  .maybeSingle();
 			  if (error) {
@@ -1414,6 +1415,11 @@
 				  return;
 			  }
 			  }
+				  if (!data) {
+					  janelacriarconta.style.display = 'flex';
+					  alert('Não foi possível trocar nome, nome antigo não encontrado');
+					  return;
+				  }
 				  if (data) {
 				  localStorage.setItem("nomeUsuario", novonome);
 				  localStorage.setItem("idUsuario", data.id);
