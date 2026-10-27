@@ -1390,7 +1390,6 @@
 			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
-		  const idUsuario = localStorage.getItem("idUsuario");
 		  criarcontabtn.addEventListener('click', async () => {
 			  const novonome = inputnomedousuario.value.trim();
 			  if (novonome === "") {
@@ -1399,6 +1398,7 @@
 			  }
 			  const nomeantigo = localStorage.getItem("nomeUsuario");
 			  if (nomeantigo) {
+			  const idUsuario = localStorage.getItem("idUsuario");
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
 				  .update({nome: novonome})
