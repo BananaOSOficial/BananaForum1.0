@@ -1401,9 +1401,10 @@
 			  if (nomeantigo) {
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
-				  .insert({nome: novonome})
+				  .update({nome: novonome})
+				  .eq('id', idUsuario)
 				  .select()
-				  .maybeSingle();
+				  .single();
 			  if (error) {
 				  janelacriarconta.style.display = 'flex';
 				  if (error.code === '23505') {
