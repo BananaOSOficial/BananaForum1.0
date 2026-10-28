@@ -1404,7 +1404,7 @@
 		  }
 		  const fecharjaneladascomunidades = document.querySelector('.fecharjaneladascomunidades');
 		  fecharjaneladascomunidades.onclick = function() {
-		  janeladascomunidades.style.display = 'none';
+		  janeladascomunidades.classList.remove('aberta');
 		  iniciobtn.classList.add('selecionado');
 		  document.body.style.overflow = '';
 		  }
