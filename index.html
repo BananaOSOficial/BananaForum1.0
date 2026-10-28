@@ -938,6 +938,10 @@
 		#menu {
 			transition: left 0.35s ease, margin-left 0.35s ease;
 			}
+		#pessoasadicionadas {
+			display: flex;
+			flex-direction: column;
+		}
     </style>
   </head>
   <body>
@@ -1044,8 +1048,8 @@
 		  <input class="textareaamizade" placeholder="Pesquise para acha uma pessoa">
 		  <button class="botaoprocuraramizade">Pesquisar</button>
 		  </div>
-		  <h2>Pessoas que você está seguindo:</h2>
 		  <div id="pessoasadicionadas">
+			<h2>Pessoas que você está seguindo:</h2>
 		  </div>
 		  <div id="container-pessoas"></div>
 	  </div>
@@ -1523,8 +1527,11 @@
 			  if (textodotextarea === '') {
 				  alert('Digite um nome para pesquisar');
 				  return;
+				  await carregarpessoasseguindas();
 			  }
 			  containerpessoas.innerHTML = '<p>Pesquisando...</p>';
+			  const containerpessoasadicionadas = document.getElementById('pessoasadicionadas');
+			  containerpessoasadicionadas.innerHTML = '';
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios')
 		      .select('id, nome')
