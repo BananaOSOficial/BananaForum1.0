@@ -275,7 +275,7 @@
 			transform: translateX(-50%);
 		}
 		#janeladascomunidades {
-			display: none;
+			display: flex;
 			position: fixed;
 			width: 100vw;
 			height: 100vh;
@@ -289,6 +289,11 @@
 			overflow-y: hidden;
 			overflow-x: hidden;
 			flex-direction: column;
+			transform: translateX(-100%);
+			transition: transform 0.35s ease;
+		}
+		#janeladascomunidades.aberta {
+			transform: translateX(0);
 		}
 		#janeladascomunidades textarea {
 	       display: flex;
@@ -1291,7 +1296,7 @@
 		  const containerconversa = document.querySelector('.container-conversa');
 		  async function abrirComunidade(comunidade) {
 				comunidadeAtualId = comunidade.id;
-			    janeladascomunidades.style.display = 'flex';
+			  janeladascomunidades.classList.add('aberta');
 			    menu.style.display = 'none';
 			    containerconversa.innerHTML = '';
 			    const {data: mensagens, error} = await Clientesupabase
