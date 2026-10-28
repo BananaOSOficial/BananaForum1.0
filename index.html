@@ -416,7 +416,12 @@
 			align-items: center;
 			top: 0;
 			backdrop-filter: blur(10px);
+		    transform: translateY(-100%);
+			transition: transform 0.35s ease;
 		  }
+		#janelacriarconta.aberta {
+			transform: translateY(0);
+		}
 		#janelacriarconta button {
 			background-color: #303134;
 			border: 2px solid rgba(255,255,255,0.08);
@@ -803,8 +808,8 @@
 			left: 0;
 			width: 100vw;
 			height: 100vh;
-			backdrop-filter: blur(12px);
-			-webkit-backdrop-filter: blur(12px);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
 			display: flex;
 			transform: translateY(-100%);
 			transition: transform 0.35s ease;
@@ -1247,7 +1252,7 @@
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
 		  trocarnomeecriarconta.addEventListener('click', () => {
-			  janelacriarconta.style.display = 'flex';
+			  janelacriarconta.classList.add('aberta');
 			  menu.style.display = 'none';
 		  })
 		  sairconta.addEventListener('click', () => {
@@ -1745,7 +1750,7 @@ if (!idUsuario) return;
 		  };
 		  const fecharjanelacriarconta = document.querySelector('.fecharjanelacriarconta');
 		  fecharjanelacriarconta.onclick = function() {
-			  janelacriarconta.style.display = 'none';
+			  janelacriarconta.classList.remove('aberta');
 		  }
 	  </script>
   </body>
