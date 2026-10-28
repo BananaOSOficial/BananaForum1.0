@@ -1292,7 +1292,7 @@
 		  }
 			   criarElementocomunidade({id: data.id, nome: data.nome});
 			  inputNomedacomunidade.value = '';
-			  janelacriarcomunidade.style.display = 'none';
+			  janelacriarcomunidade.classList.remove('aberta');;
 			  iniciobtn.classList.add('selecionado');
 			  criarcomunidadebtn.classList.remove('selecionado');
 			  document.body.style.overflow = '';
