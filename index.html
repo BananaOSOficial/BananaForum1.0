@@ -333,7 +333,6 @@
 			word-break: break-word;
 			max-height: 500px;
 			margin-top: 10px;
-			margin-left: 30px;
 			flex-direction: column;
 			width: fit-content;
 			padding: 10px;
@@ -1310,6 +1309,9 @@
 			  if (nome && nome === nomeatual) {
 				  novacaixa.style.backgroundColor = '#F7D117';
 				  novacaixa.style.marginRight = '5px';
+			  }
+			  if (!nome === nomeatual) {
+				  novacaixa.style.marginLeft = '5px';
 			  }
 			  if (urlImagem) {
 				  const img = document.createElement('img');
