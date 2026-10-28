@@ -1763,7 +1763,8 @@ if (!idUsuario) return;
 					  localStorage.setItem("idUsuario", data.id);
 				  }
 				  }
-				  await carregaramizades()
+				  await carregaramizades();
+				  await carregarpessoasseguidas();
 			  if (nomesalvo) {
 				  nomeusuario.textContent = nomesalvo;
 			  }
