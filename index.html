@@ -1493,7 +1493,7 @@
 			  }
 			  }
 				  if (!data) {
-					  const {data: novo, error} = ClientUsuarios
+					  const {data: novo, error} =  await ClientUsuarios
 					  .from('usuarios')
 					  .insert({nome: novonome})
 					  .select()
