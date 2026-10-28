@@ -1729,6 +1729,7 @@ if (!idUsuario) return;
 			  usuarios.forEach(u => {
 				 const p = document.createElement('p');
 				  p.style.color = '#FFFFFF';
+				  p.textContent = u.nome;
 	p.style.display = 'flex';
 				  p.onclick = () => abrirjanelaperfilamigo(u.id, u.nome);
 				  container.appendChild(p);
