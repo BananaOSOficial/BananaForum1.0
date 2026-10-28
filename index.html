@@ -1465,12 +1465,21 @@
 				  return;
 			  }
 			  const nomeantigo = localStorage.getItem("nomeUsuario");
-			  if (nomeantigo) {
 			  const idUsuario = localStorage.getItem("idUsuario");
+			  const {data: usuarioexistente} = await ClientUsuarios
+			  .from("usuarios")
+			  .select('id')
+			  .eq('nome', nomeantigo)
+			  .maybeSingle();
+			  if (usuarioexistente) {
+				  idUsuario = usuarioexistente.id;
+				  localStorage.setItem("idUsuario", idUsuario);
+			  }
+			  if (nomeantigo) {
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
 				  .update({nome: novonome})
-				  .eq('id', idUsuario)
+				  .eq('nome', nomeantigo)
 				  .select()
 				  .maybeSingle();
 			  if (error) {
@@ -1484,11 +1493,19 @@
 			  }
 			  }
 				  if (!data) {
-					  janelacriarconta.style.display = 'flex';
-					  alert('Não foi possível trocar nome, nome antigo não encontrado');
+					  const {data: novo, error} = ClientUsuarios
+					  .from('usuarios')
+					  .insert({nome: novonome})
+					  .select()
+					  .maybeSingle();
+				  }
+				  if (error) {
+					  alert('Erro: ' + error.message);
 					  return;
 				  }
-				  if (data) {
+				  localStorage.setItem("idUsuario", novo.id);
+				  localStorage.setItem("nomeUsuario", novonome);
+				  else {
 				  localStorage.setItem("nomeUsuario", novonome);
 				  localStorage.setItem("idUsuario", data.id);
 		  }
