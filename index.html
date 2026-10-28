@@ -1053,7 +1053,6 @@
 		  <button class="botaoprocuraramizade">Pesquisar</button>
 		  </div>
 		  <div id="pessoasadicionadas">
-			<h2>Pessoas que você está seguindo:</h2>
 		  </div>
 		  <div id="container-pessoas"></div>
 	  </div>
@@ -1738,11 +1737,14 @@ if (!idUsuario) return;
 			  }
 			  const {data: usuarios} = await ClientUsuarios.from('usuarios').select('id, nome').in('id', amizades.map(a => a.amigo_id));
 			  usuarios.forEach(u => {
-				 const p = document.createElement('p');
-				  p.style.color = '#FFFFFF';
-				  p.textContent = u.nome;
+				  const p1 = document.createElement('p');
+				 const p2 = document.createElement('p');
+				  p1.textContent = 'Pessoas que você segue:'
+				  p1.style.color = '#FFFFFF';
+				  p2.style.color = '#FFFFFF';
+				  p2.textContent = u.nome;
 	p.style.display = 'flex';
-				  p.onclick = () => abrirjanelaperfilamigo(u.id, u.nome);
+				  p2.onclick = () => abrirjanelaperfilamigo(u.id, u.nome);
 				  container.appendChild(p);
 		  });
 		  }
