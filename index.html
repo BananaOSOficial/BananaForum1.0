@@ -1466,24 +1466,20 @@
 			  }
 			  const nomeantigo = localStorage.getItem("nomeUsuario");
 			  let idUsuario = localStorage.getItem("idUsuario");
-			  const {data: usuarioexistente} = await ClientUsuarios
-			  .from("usuarios")
-			  .select('id')
-			  .eq('nome', nomeantigo)
-			  .maybeSingle();
-			  if (usuarioexistente) {
-				  idUsuario = usuarioexistente.id;
-				  localStorage.setItem("idUsuario", idUsuario);
-			  }
-			  if (nomeantigo && idUsuario) {
+			  
+			  if (nomeantigo) {
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
-				  .update({nome: novonome})
-				  .eq('id', idUsuario)
-				  .select()
-				  .maybeSingle();
+				  .delete()
+				  .eq('nome', nomeantigo);
+			  }
+			  const {data, error} = await ClientUsuarios
+			  .from('usuarios')
+			  .insert({nome: novonome})
+			  .select
+			  .maybeSingle();
 			  if (error) {
-				  janelacriarconta.style.display = 'flex';
+				  janelacriarconta.classList.add('aberta');
 				  if (error.code === '23505') {
 					  alert('Coloque um nome que uma pessoa não está usando');
 					  return;
@@ -1492,8 +1488,10 @@
 				  return;
 			  }
 			  }
+			  if (data) {
 				  localStorage.setItem("nomeUsuario", novonome);
 				  localStorage.setItem("idUsuario", data.id);
+			  }
 			  } else {
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
