@@ -1472,8 +1472,7 @@
 			  .eq('nome', nomeantigo)
 			  .maybeSingle();
 			  if (usuarioexistente) {
-				  idUsuario = usuarioexistente.id;
-				  localStorage.setItem("idUsuario", idUsuario);
+				  localStorage.setItem("idUsuario", usuarioexistente.id);
 			  }
 			  if (nomeantigo && idUsuario) {
 			  const {data, error} = await ClientUsuarios
@@ -1530,7 +1529,7 @@
 			  localStorage.setItem("nomeUsuario", novonome);
 		  }
 			  }
-			  janelacriarconta.style.display = 'none';
+			  janelacriarconta.classList.remove('aberta');
 			  inputnomedousuario.value = '';
 			  nomeusuario.textContent = novonome;
 			  const nomedapessoanochat = document.querySelector('.nomedapessoanochat');
