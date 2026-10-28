@@ -1472,7 +1472,7 @@
 			  .eq('nome', nomeantigo)
 			  .maybeSingle();
 			  if (usuarioexistente) {
-				  idUsuario = usuarioexistente.id;
+				  let idUsuario = localStorage.getItem("idUsuario");
 				  localStorage.setItem("idUsuario", idUsuario);
 			  }
 			  if (nomeantigo) {
@@ -1498,14 +1498,13 @@
 					  .insert({nome: novonome})
 					  .select()
 					  .maybeSingle();
-				  }
 				  if (error) {
 					  alert('Erro: ' + error.message);
 					  return;
 				  }
 				  localStorage.setItem("idUsuario", novo.id);
 				  localStorage.setItem("nomeUsuario", novonome);
-				  else {
+				  } else {
 				  localStorage.setItem("nomeUsuario", novonome);
 				  localStorage.setItem("idUsuario", data.id);
 		  }
