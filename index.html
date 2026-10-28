@@ -326,7 +326,7 @@
 		.caixa-conversa {
 			display: none;
 			color: #1a1a1a;
-			background-color: #FFED29;
+			background-color: #303134;
 			border-radius: 20px;
 			word-wrap: break-word;
 		    overflow-wrap: break-word;
@@ -1308,6 +1308,10 @@
 			  }
 			  const novonome = novacaixa.querySelector('.nomedapessoanochat');
 			  novonome.textContent = nome + ":";
+			  if (nome) {
+				  novacaixa.style.backgroundColor = '#F7D117';
+				  novacaixa.style.marginRight = '5px';
+			  }
 			  if (urlImagem) {
 				  const img = document.createElement('img');
 				  img.src = urlImagem;
