@@ -1492,23 +1492,8 @@
 				  return;
 			  }
 			  }
-				  if (!data) {
-					  const {data: novo, error} =  await ClientUsuarios
-					  .from('usuarios')
-					  .update({nome: novonome})
-					  .eq('id', idUsuario)
-					  .select()
-					  .maybeSingle();
-				  if (error) {
-					  alert('Erro: ' + error.message);
-					  return;
-				  }
-				  localStorage.setItem("idUsuario", novo.id);
-				  localStorage.setItem("nomeUsuario", novonome);
-				  } else {
 				  localStorage.setItem("nomeUsuario", novonome);
 				  localStorage.setItem("idUsuario", data.id);
-		  }
 			  } else {
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
