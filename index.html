@@ -1465,13 +1465,14 @@
 				  return;
 			  }
 			  const nomeantigo = localStorage.getItem("nomeUsuario");
-			  const idUsuario = localStorage.getItem("idUsuario");
+			  let idUsuario = localStorage.getItem("idUsuario");
 			  const {data: usuarioexistente} = await ClientUsuarios
 			  .from("usuarios")
 			  .select('id')
 			  .eq('nome', nomeantigo)
 			  .maybeSingle();
 			  if (usuarioexistente) {
+				  idUsuario = usuarioexistente.id;
 				  localStorage.setItem("idUsuario", idUsuario);
 			  }
 			  if (nomeantigo && idUsuario) {
