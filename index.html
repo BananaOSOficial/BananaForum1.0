@@ -807,7 +807,12 @@
 			height: 100vh;
 			backdrop-filter: blur(12px);
 			-webkit-backdrop-filter: blur(12px);
-			display: none;
+			display: flex;
+			transform: translateY(-100%);
+			transition: transform 0.35s ease;
+		}
+		.janelaamizades.aberta {
+			transform: translateY(0);
 		}
 		#container-pessoas {
 		margin-top: 20px;
@@ -833,6 +838,10 @@
 		}
 		.abrirjanelaamizades {
 			margin-top: 10px;
+		}
+		.abrirjanelaamizades.selecionado {
+			background-color: #F7D117;
+			box-shadow: 0 0 10px #F7D117;
 		}
 		#container-pessoas {
 			margin-top: 60px;
@@ -1146,12 +1155,17 @@
 			  janelaamigo.style.display = 'none';
 			  document.body.style.overflow = '';
 		  }
+		  const iniciobtn = document.getElementById('iniciobtn');
 		  fecharjanelaamizades.onclick = function() {
-			  janelaamizades.style.display = 'none';
+			  iniciobtn.classList.add('selecionado');
+			  abrirjanelaamizades.classList.remove('selecionado');
+			  janelaamizades.classList.remove('aberta');
 			  document.body.style.overflow = '';
 		  }
 		  abrirjanelaamizades.onclick = function() {
-			  janelaamizades.style.display = 'flex';
+			  iniciobtn.classList.remove('selecionado');
+			  abrirjanelaamizades.classList.add('selecionado');
+			  janelaamizades.classList.add('aberta');
 			  document.body.style.overflow = 'hidden';
 		  }
 		  if (nomeusuarioconta) {
@@ -1242,7 +1256,6 @@
 		  const criarcomunidadebtn = document.getElementById('criarcomunidadebtn');
 		  const fecharjanelacomunidadebtn = document.querySelector('.fecharjanelacomunidade');
 		  const janelacriarcomunidade = document.getElementById('janelacriarcomunidade');
-		  const iniciobtn = document.getElementById('iniciobtn');
 		  iniciobtn.classList.add('selecionado');
 		  criarcomunidadebtn.onclick = function() {
 			  iniciobtn.classList.remove('selecionado');
