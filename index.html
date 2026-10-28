@@ -1476,7 +1476,7 @@
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios')
 			  .insert({nome: novonome})
-			  .select
+			  .select()
 			  .maybeSingle();
 			  if (error) {
 				  janelacriarconta.classList.add('aberta');
