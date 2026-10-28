@@ -1528,6 +1528,7 @@
 			  textareaamizade.style.top = '10px';
 			  const textodotextarea = textareaamizade.value.trim();
 			  if (textodotextarea === '') {
+				  containerpessoas.innerHTML = '';
 				  await carregarpessoasseguindas();
 			  }
 			  containerpessoas.innerHTML = '<p>Pesquisando...</p>';
