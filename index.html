@@ -126,7 +126,7 @@
 			background: #444548;
 		}
 		#janelacriarcomunidade {
-			display: none;
+			display: flex;
 			top: 0;
 			width: 100vw;
 			height: 100vh;
@@ -145,6 +145,11 @@
 			background-position: right 20px top 20px, 0 0, 0 0;
 			background-repeat: no-repeat, repeat, repeat;
 			animation: moverEstrelas 60s linear infinite;
+			transform: translateY(-100%);
+			transition: transform 0.35s ease;
+		}
+		#janelacriarcomunidade.aberta {
+			transform: translateY(0);
 		}
 		@keyframes moverEstrelas {
 			from {
@@ -1241,14 +1246,14 @@
 		  iniciobtn.classList.add('selecionado');
 		  criarcomunidadebtn.onclick = function() {
 			  iniciobtn.classList.remove('selecionado');
-			  janelacriarcomunidade.style.display = 'flex';
+			  janelacriarcomunidade.classList.add('aberta');
 			  menu.style.display = 'none';
 			  criarcomunidadebtn.classList.add('selecionado');
 			  document.body.style.overflow = 'hidden';
 		  }
 		  fecharjanelacomunidadebtn.onclick = function() {
 			  iniciobtn.classList.add('selecionado');
-			  janelacriarcomunidade.style.display = 'none';
+			  janelacriarcomunidade.classList.remove('aberta');
 			  criarcomunidadebtn.classList.remove('selecionado');
 			  document.body.style.overflow = '';
 		  }
