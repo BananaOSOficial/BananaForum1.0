@@ -1308,8 +1308,7 @@
 			  }
 			  const novonome = novacaixa.querySelector('.nomedapessoanochat');
 			  novonome.textContent = nome + ":";
-			  const nomeusuario = localStorage.getItem("nomeUsuario");
-			  if (nomeusuario) {
+			  if (novonome.textContent === nome + ":") {
 				  novacaixa.style.backgroundColor = '#F7D117';
 				  novacaixa.style.marginRight = '5px';
 			  }
