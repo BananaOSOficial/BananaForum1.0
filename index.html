@@ -1534,6 +1534,8 @@
 			  nomeusuario.textContent = novonome;
 			  const nomedapessoanochat = document.querySelector('.nomedapessoanochat');
 			  nomedapessoanochat.textContent = novonome + ":";
+			  await carregaramizades();
+			  await carregarpessoasseguidas();
 			  document.body.style.overflow = '';
 		  })
 		  const botaoprocurarpessoas = document.querySelector('.botaoprocuraramizade');
