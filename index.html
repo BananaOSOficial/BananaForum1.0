@@ -1308,10 +1308,9 @@
 			  const nomeatual = localStorage.getItem("nomeUsuario");
 			  if (nome && nome === nomeatual) {
 				  novacaixa.style.backgroundColor = '#F7D117';
-				  novacaixa.style.marginRight = '5px';
-			  }
-			  if (!nome === nomeatual) {
-				  novacaixa.style.marginLeft = '5px';
+				  novacaixa.style.alignSelf = 'flex-end';
+			  } else {
+				  novacaixa.style.alignSelf = 'flex-start';
 			  }
 			  if (urlImagem) {
 				  const img = document.createElement('img');
