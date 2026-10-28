@@ -1090,6 +1090,13 @@
 		  		  const trocarnomeecriarconta = document.getElementById('trocarnomeecriarconta');
 		  const sairconta = document.getElementById('sairconta');
 		  const abrirjanelaimagemperfil = document.querySelector('.abrirjanelaimagemperfil');
+		  window.addEventListener('scroll', () => {
+			  if (window.scrollY > 0) {
+				  abrirjanelaimagemperfil.style.display = '';
+			  } else {
+				  abrirjanelaimagemperfil.style.display = 'none';
+			  }
+		  }
 		  const abrirjanelaamizades = document.querySelector('.abrirjanelaamizades');
 		  const janelaamizades = document.querySelector('.janelaamizades');
 		  const fecharjanelaamizades = document.querySelector('.fecharjanelaamizades');
