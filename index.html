@@ -1090,11 +1090,13 @@
 		  		  const trocarnomeecriarconta = document.getElementById('trocarnomeecriarconta');
 		  const sairconta = document.getElementById('sairconta');
 		  const abrirjanelaimagemperfil = document.querySelector('.abrirjanelaimagemperfil');
+		  const imgconta = document.querySelector('.imgconta');
 		  window.addEventListener('scroll', () => {
 			  if (window.scrollY > 0) {
 				  abrirjanelaimagemperfil.style.display = '';
 			  } else {
 				  abrirjanelaimagemperfil.style.display = 'none';
+				  imgconta.style.filter = 'blur(0)';
 			  }
 		  });
 		  const abrirjanelaamizades = document.querySelector('.abrirjanelaamizades');
@@ -1162,7 +1164,6 @@
 			  inputfotoconta.click();
 		  })
 		  const janelaimagemperfil = document.querySelector('.janelaimagemperfil');
-		  const imgconta = document.querySelector('.imgconta');
 		  if (imgconta.src === "") {
 			  imgconta.src = 'bananaperfil.jpeg';
 		  }
