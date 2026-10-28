@@ -1530,6 +1530,7 @@
 			  if (textodotextarea === '') {
 				  containerpessoas.innerHTML = '';
 				  await carregarpessoasseguidas();
+				  return;
 			  }
 			  containerpessoas.innerHTML = '<p>Pesquisando...</p>';
 			  const containerpessoasadicionadas = document.getElementById('pessoasadicionadas');
