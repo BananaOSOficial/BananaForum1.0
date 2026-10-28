@@ -1472,7 +1472,7 @@
 			  .eq('nome', nomeantigo)
 			  .maybeSingle();
 			  if (usuarioexistente) {
-				  localStorage.setItem("idUsuario", usuarioexistente.id);
+				  localStorage.setItem("idUsuario", idUsuario);
 			  }
 			  if (nomeantigo && idUsuario) {
 			  const {data, error} = await ClientUsuarios
