@@ -1472,14 +1472,14 @@
 			  .eq('nome', nomeantigo)
 			  .maybeSingle();
 			  if (usuarioexistente) {
-				  let idUsuario = localStorage.getItem("idUsuario");
+				  idUsuario = usuarioexistente.id;
 				  localStorage.setItem("idUsuario", idUsuario);
 			  }
-			  if (nomeantigo) {
+			  if (nomeantigo && idUsuario) {
 			  const {data, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
 				  .update({nome: novonome})
-				  .eq('nome', nomeantigo)
+				  .eq('id', idUsuario)
 				  .select()
 				  .maybeSingle();
 			  if (error) {
@@ -1495,7 +1495,8 @@
 				  if (!data) {
 					  const {data: novo, error} =  await ClientUsuarios
 					  .from('usuarios')
-					  .insert({nome: novonome})
+					  .update({nome: novonome})
+					  .eq('id', idUsuario)
 					  .select()
 					  .maybeSingle();
 				  if (error) {
