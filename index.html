@@ -1712,6 +1712,27 @@ if (!idUsuario) return;
 				  amigosid = data.map(amizade => amizade.amigo_id);
 			  }
 		  }
+		  async function carregarpessoasseguidas() {
+			  const container = document.getElementById('pessoasadicionadas');
+			  const idUsuario = localStorage.getItem("idUsuario");
+	container.innerHTML = '';
+			  if (!id) {
+				  container.innerHTML = '<p>Crie uma conta primeiro</p>';
+				return;
+			  }
+			  const {data: amizades} = await ClientUsuarios.from('amizades').select('amigo_id').eq('usuario_id', idUsuario);
+			  if (!amizades || amizades.length === 0) {
+	container.innerHTML = '<p>Você não está seguindo nenhuma pessoa neste momento</p>';
+				  return;
+			  }
+			  const {data: usuarios} = ClientUsuarios.from('usuarios').select('id, nome').in('id', amizades.map(a => a.amigo_id);
+			  usuarios.forEach(u => {
+				 const p = document.createElement('p');
+				  p.style.color = '#FFFFFF';
+	p.style.display = 'flex';
+				  container.appendChild(p);
+		  });
+		  }
 			  window.onload = async function() {
 			  const nomesalvo = localStorage.getItem("nomeUsuario");
 			  const nomedacomunidadesalvo = localStorage.getItem("comunidade");
