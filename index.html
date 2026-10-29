@@ -1243,6 +1243,7 @@
 		  }
 		  abrirjanelaimagemperfil.onclick = function() {
 			  janelaimagemperfil.classList.add('aberta');
+			  document.body.style.overflow = 'hidden';
 			  abrirjanelaimagemperfil.style.display = 'none';
 		  }
 		  document.addEventListener('click', (e) => {
@@ -1257,6 +1258,7 @@
 		  janelaimagemperfil.addEventListener('click', (e) => {
 			  if (!botaocolocarfoto.contains(e.target) && !imgdajanelaimagemperfil.contains(e.target)) {
 				  janelaimagemperfil.classList.remove('aberta');
+				  document.body.style.overflow = '';
 			  }
 		  });
 		  const imgPerfilSalva = localStorage.getItem("URLimagemconta");
