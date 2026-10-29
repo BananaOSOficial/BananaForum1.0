@@ -1468,7 +1468,7 @@
 			  let idUsuario = localStorage.getItem("idUsuario");
 			  
 			  if (nomeantigo) {
-			  const {data: deletarnomeantigo, error} = await ClientUsuarios
+			  const {data: deletarnomeantigo} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
 				  .delete()
 				  .eq('nome', nomeantigo);
