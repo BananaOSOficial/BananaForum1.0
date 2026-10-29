@@ -610,6 +610,11 @@
 			top: 0;
 			display: none;
 			z-index: 100;
+			transform: translateX(-100%);
+			transition: transform 0.35s ease;
+		}
+		#janelaimagem.aberta {
+			transform: translateX(0);
 		}
 		#janelaimagem button {
 			position: fixed;
@@ -1439,14 +1444,14 @@
 				  const janelaimagem = document.getElementById('janelaimagem');
 				  const imagemdajanela = janelaimagem.querySelector('img');
 		          imagemdajanela.src = e.target.src;
-		          janelaimagem.style.display = 'block';
+		          janelaimagem.classList.add('aberta');
 				  document.body.style.overflow = 'hidden';
 		  }
 		  });
 		  const janelaimagem = document.getElementById('janelaimagem');
 		  const img = janelaimagem.querySelector('img');
 		  janelaimagem.onclick = function() {
-		  janelaimagem.style.display = 'none';
+		  janelaimagem.classList.remove('aberta');
 		  };
 		  img.onclick = function(event) {
 			  event.stopPropagation();
