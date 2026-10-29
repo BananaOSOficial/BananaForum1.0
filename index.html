@@ -1468,11 +1468,11 @@
 			  let idUsuario = localStorage.getItem("idUsuario");
 			  
 			  if (nomeantigo) {
-			  const {data, error} = await ClientUsuarios
+			  const {data: deletarnomeantigo, error} = await ClientUsuarios
 				  .from('usuarios', {schema: 'public'})
 				  .delete()
 				  .eq('nome', nomeantigo);
-			  const {data, error} = await ClientUsuarios
+			  const {data: inserirnomenovo, error} = await ClientUsuarios
 			  .from('usuarios')
 			  .insert({nome: novonome})
 			  .select()
@@ -1487,7 +1487,7 @@
 				  return;
 			  }
 			  }
-			  if (data) {
+			  if (inserirnomenovo) {
 				  localStorage.setItem("nomeUsuario", novonome);
 				  localStorage.setItem("idUsuario", data.id);
 			  }
