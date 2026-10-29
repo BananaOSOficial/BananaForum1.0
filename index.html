@@ -749,7 +749,6 @@
 			height: 48px;
 		}
 		.janelaimagemperfil {
-			display: none;
 			position: fixed;
 			top: 0;
 			background: transparent;
@@ -760,6 +759,11 @@
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
+			transform: translateY(-100%);
+			transition: transform 0.35s ease;
+		}
+		.janelaimagemperfil.aberta {
+			transform: translateY(0);
 		}
 		.janelaimagemperfil img {
 			border-radius: 999px;
@@ -1237,7 +1241,7 @@
 			  abrirjanelaimagemperfil.style.display = 'block';
 		  }
 		  abrirjanelaimagemperfil.onclick = function() {
-			  janelaimagemperfil.style.display = 'flex';
+			  janelaimagemperfil.classList.add('aberta');
 			  abrirjanelaimagemperfil.style.display = 'none';
 		  }
 		  document.addEventListener('click', (e) => {
@@ -1251,7 +1255,7 @@
 		  const imgdajanelaimagemperfil = document.querySelector('.imagemdajanelaimagemperfil');
 		  janelaimagemperfil.addEventListener('click', (e) => {
 			  if (!botaocolocarfoto.contains(e.target) && !imgdajanelaimagemperfil.contains(e.target)) {
-				  janelaimagemperfil.style.display = 'none';
+				  janelaimagemperfil.classList.remove('aberta');
 			  }
 		  });
 		  const imgPerfilSalva = localStorage.getItem("URLimagemconta");
