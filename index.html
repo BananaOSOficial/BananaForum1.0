@@ -1615,6 +1615,7 @@
 			  div.style.marginTop = '10px';
 	          p.style.color = '#FFFFFF';
 			  p.textContent = usuario.nome;
+			  const iddousuario = localStorage.getItem("idUsuario");
 			  if (String(usuario.id) === String(iddousuario)) {
 				  p.style.display = 'none';
 			  }
