@@ -1346,7 +1346,8 @@
 			  return;
 		  };
 			  if (nomeusuariotext !== nomedousuario) {
-				  alert("Crie uma conta primeiro");
+				  alert("Crie uma conta antes de criar uma comunidade");
+				  Nomecomunidade = '';
 				  return;
 			  }
 		const {data, error} = await Clientesupabase 
@@ -1441,11 +1442,12 @@
 		  alert('Espera a imagem está sendo enviada');
 		  return;
 		  }
+			  const texto = chat.value.trim();
 			  if (nomeusuariotext !== nomedousuario) {
-				  alert("Crie uma conta primeiro");
+				  alert("Crie uma conta antes de mandar mensagens nessa comunidade");
+				  texto = '';
 				  return;
 			  }
-		  const texto = chat.value.trim();
 		  if (texto === "" && !URLimagempendente) {
 		  alert('Escreva algo primeiro');
 		  return;
