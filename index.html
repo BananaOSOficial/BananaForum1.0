@@ -131,11 +131,13 @@
 		}
 		#janelacriarcomunidade {
 			display: flex;
-			top: 0;
-			width: 100vw;
-			height: 100vh;
+			top: -100%;
+			left: 50%;
+			width: 90dvw;
+			height: 90dvh;
 			background-color: rgba(0,0,0,0.9);
 			z-index: 100;
+			border-radius: 30px;
 			position: fixed;
 			backdrop-filter: blur(10px);
 			-webkit-backdrop-filter: blur(10px);
@@ -148,11 +150,11 @@
 			background-size: 150px 150px, 200px 200px;
 			background-position:  0 0, 0 0;
 			animation: moverEstrelascriarcomunidade 60s linear infinite;
-			transform: translateX(-100%);
-			transition: transform 0.35s ease;
+			transform: translate(-50%,-50%);
+			transition: top 0.35s ease;
 		}
 		#janelacriarcomunidade.aberta {
-			transform: translateX(0);
+			top: 50%;
 		}
 		@keyframes moverEstrelascriarcomunidade {
 			from {
