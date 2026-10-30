@@ -411,24 +411,25 @@
 		}
 		#janelacriarconta {
 			display: flex;
-			width: 100vw;
-			height: 100vh;
+			width: 90dvw;
+			height: 90dvh;
+			left: 50%;
 			background-color: rgba(0,0,0,0.9);
 			position: fixed;
 			flex-direction: column;
 			justify-content: center;
 			z-index: 100;
 			align-items: center;
-			top: 0;
+			top: -150%;
 			backdrop-filter: blur(10px);
 			background-image:
 			radial-gradient(1px 1px at 25px 25px, #fff, transparent),
 			radial-gradient(1.5px 1.5px at 50px 70px, #fff, transparent);
 			background-position: 0 0, 0 0;
 			background-size: 150px 150px, 200px 200px;
-		    transform: translateX(-100%);
+		    transform: translate(-50%, -50%);
 			animation: moverEstrelascriarconta 60s linear infinite;
-			transition: transform 0.35s ease;
+			transition: top 0.35s ease;
 		  }
 		@keyframes moverEstrelascriarconta {
 			from {
@@ -439,7 +440,7 @@
 			}
 		}
 		#janelacriarconta.aberta {
-			transform: translateX(0);
+			top: 50%;
 		}
 		#janelacriarconta button {
 			background-color: #303134;
