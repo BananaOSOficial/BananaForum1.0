@@ -1347,6 +1347,7 @@
 		  };
 			  if (nomeusuariotext !== nomedousuario) {
 				  alert("Crie uma conta primeiro");
+				  return;
 			  }
 		const {data, error} = await Clientesupabase 
 			.from('comunidades')
@@ -1442,6 +1443,7 @@
 		  }
 			  if (nomeusuariotext !== nomedousuario) {
 				  alert("Crie uma conta primeiro");
+				  return;
 			  }
 		  const texto = chat.value.trim();
 		  if (texto === "" && !URLimagempendente) {
