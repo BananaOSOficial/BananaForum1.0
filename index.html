@@ -1338,14 +1338,14 @@
 		  const modelo = document.querySelector('.modelo-comunidade');
           const janeladascomunidades = document.getElementById('janeladascomunidades');
 		  const nomedousuario = localStorage.getItem("nomeUsuario");
-		  const nomeusuario = document.querySelector('.nomeusuario').textContent;
+		  const nomeusuariotext = document.querySelector('.nomeusuario').textContent;
 		  botaocriarcomunidade.addEventListener('click', async () => {
 			  const Nomecomunidade = inputNomedacomunidade.value.trim();
 			    if (Nomecomunidade === '') {
 			  alert('Digite o nome da comunidade');
 			  return;
 		  };
-			  if (nomeusuario !== nomedousuario) {
+			  if (nomeusuariotext !== nomedousuario) {
 				  alert("Crie uma conta primeiro");
 			  }
 		const {data, error} = await Clientesupabase 
@@ -1440,7 +1440,7 @@
 		  alert('Espera a imagem está sendo enviada');
 		  return;
 		  }
-			  if (nomeusuario !== nomedousuario) {
+			  if (nomeusuariotext !== nomedousuario) {
 				  alert("Crie uma conta primeiro");
 			  }
 		  const texto = chat.value.trim();
