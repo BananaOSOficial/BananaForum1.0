@@ -831,20 +831,20 @@
 		.janelaamizades {
 			background-color: rgba(0,0,0,0.9);
 			position: fixed;
+			top: -100%;
+			left: 50%;
 			width: 90dvw;
 			height: 90dvh;
 			border-radius: 30px;
 			backdrop-filter: blur(10px);
 			-webkit-backdrop-filter: blur(10px);
 			display: flex;
-			transform: translate(-50%, -150%);
+			transform: translate(-50%, -50%);
 			transition: transform 0.35s ease;
 			z-index: 101;
 		}
 		.janelaamizades.aberta {
-			left: 50%;
 			top: 50%;
-			transform: translate(-50%, -50%);
 		}
 		#container-pessoas {
 		margin-top: 20px;
