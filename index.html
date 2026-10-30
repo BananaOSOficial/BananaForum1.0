@@ -832,19 +832,19 @@
 			background-color: rgba(0,0,0,0.9);
 			position: fixed;
 			top: 0;
-			left: 50%;
+			left: 0;
 			width: 90dvw;
 			height: 90dvh;
 			border-radius: 30px;
 			backdrop-filter: blur(10px);
 			-webkit-backdrop-filter: blur(10px);
 			display: flex;
-			transform: translateY(-50%);
 			transform: translateX(-100%);
 			transition: transform 0.35s ease;
 			z-index: 101;
 		}
 		.janelaamizades.aberta {
+			left: 50%;
 			transform: translateX(0);
 		}
 		#container-pessoas {
