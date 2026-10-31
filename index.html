@@ -22,11 +22,13 @@
 		 -webkit-tap-highlight-color: transparent;
 		}
 		header {
-			background-color: transparent;
+			background-color: #010409;
 			width: 100vw;
 			display: flex;
 			z-index: 100;
+			border-bottom: 2px solid #30363D;
 			align-items: center;
+			transition: background-color 0.35s ease, border-bottom 0.35s ease;
 		}
 		img[src=""]  {
 			display: none;
@@ -1216,12 +1218,16 @@
 				  abrirjanelaimagemperfil.style.left = '155px';
 				  menucriarconta.style.left = '175px';
 				  abrirmenucombotoes.classList.add('selecionado');
+				  document.header.style.backgroundColor = 'transparent';
+				  document.header.style.borderBottom = 'none';
 			  } else {
 				  abrirmenucombotoes.style.left = '5px';
 				  olaenomeusuarioeimg.style.marginLeft = '40px';
 				  abrirjanelaimagemperfil.style.left = '60px';
 				  menucriarconta.style.left = '90px';
 				  abrirmenucombotoes.classList.remove('selecionado');
+				  document.header.style.backgroundColor = '#010409';
+				  document.header.style.borderBottom = '2px solid #30363D';
 			  }
 		  }
 		  fecharjanelaamigo.onclick = function() {
