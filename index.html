@@ -1200,13 +1200,13 @@
 		  const iddoUsuario = localStorage.getItem("idUsuario");
 		  window.addEventListener('scroll', () => {
 			  if (window.scrollY > 0) {
-				  if (!iddoUsuario) {
+				  if (iddoUsuario) {
 				  dica.style.display = 'none';
 				  }
 				  abrirjanelaimagemperfil.style.display = '';
 			  } else {
 				  abrirjanelaimagemperfil.style.display = 'none';
-				  if (iddoUsuario) {
+				  if (!iddoUsuario) {
 				  dica.style.display = '';
 				  }
 				  imgconta.style.filter = 'blur(0)';
