@@ -30,6 +30,10 @@
 			align-items: center;
 			transition: background-color 0.35s ease, border-bottom 0.35s ease;
 		}
+		header.menuaberto {
+			background-color: transparent;
+			border-bottom: none;
+		}
 		img[src=""]  {
 			display: none;
 		}
@@ -1218,16 +1222,14 @@
 				  abrirjanelaimagemperfil.style.left = '155px';
 				  menucriarconta.style.left = '175px';
 				  abrirmenucombotoes.classList.add('selecionado');
-				  document.header.style.backgroundColor = 'transparent';
-				  document.header.style.borderBottom = 'none';
+				  document.header.classList.add('menuaberto');
 			  } else {
 				  abrirmenucombotoes.style.left = '5px';
 				  olaenomeusuarioeimg.style.marginLeft = '40px';
 				  abrirjanelaimagemperfil.style.left = '60px';
 				  menucriarconta.style.left = '90px';
 				  abrirmenucombotoes.classList.remove('selecionado');
-				  document.header.style.backgroundColor = '#010409';
-				  document.header.style.borderBottom = '2px solid #30363D';
+				  document.header.classList.remove('menuaberto');
 			  }
 		  }
 		  fecharjanelaamigo.onclick = function() {
