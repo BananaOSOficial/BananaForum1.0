@@ -1199,9 +1199,11 @@
 		  const imgconta = document.querySelector('.imgconta');
 		  window.addEventListener('scroll', () => {
 			  if (window.scrollY > 0) {
+				  dica.style.display = 'flex';
 				  abrirjanelaimagemperfil.style.display = '';
 			  } else {
 				  abrirjanelaimagemperfil.style.display = 'none';
+				  dica.style.display = 'none';
 				  imgconta.style.filter = 'blur(0)';
 			  }
 		  });
