@@ -1306,6 +1306,8 @@
 		  const fecharjanelaentrarconta = document.querySelector('.fecharjanelaentrarconta');
 		  if (!iddoUsuario) {
 			  entrarconta.style.display = 'block';
+		  } else {
+			  entrarconta.style.display = 'none';
 		  }
 		  entrarconta.onclick = function() {
 			  janelaentrarconta.classList.add('aberta');
