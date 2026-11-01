@@ -1748,7 +1748,7 @@
 	return;
 	}
 				  const salt = bcrypt.genSalt(10);
-	const hash = bcrypt.hash(senhadigita, salt);
+	const hash = bcrypt.hash(senhadigitada, salt);
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
 			  .insert({nome: novonome,
