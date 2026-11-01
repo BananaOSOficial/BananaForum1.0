@@ -1102,6 +1102,14 @@
 			transform: scale(1.1);
 			box-shadow: 0 0 10px #F7D117;
 		}
+		.inputsenhaebtnentrar {
+			display: flex;
+			flex-direction: row;
+		}
+		.inputsenhabtncriarconta {
+			display: flex;
+			flex-direction: row;
+		}
     </style>
   </head>
   <body>
@@ -1201,8 +1209,10 @@
 		  <div id="inputsjanelaentrarconta">
 		  <h2>Entrar em conta existente</h2>
 		  <input id="inputnomedacontaexistente" placeholder="Nome">
+		  <div class="inputsenhaebtnentrar">
 		  <input id="inputsenhadacontaexistente" placeholder="Senha" type="password">
 		  <button class="botaoentrarconta">Entrar</button>
+		  </div>
 		  </div>
 	  </div>
 	  <div class="janelaamigo">
@@ -1284,9 +1294,11 @@
 	  <div id="conteudocriarconta">
 	  <div id="inputsjanelacriarconta">
       <h2 class="criarcontatxt">Crie sua conta</h2>
-	  <input class="inputnomedousuario" placeholder="Digite um nome">  
+	  <input class="inputnomedousuario" placeholder="Digite um nome">
+		  <div class="inputsenhaebtncriarconta">
 		  <input class="inputsenhadousuario" placeholder="Senha" type="password">
 		  <button class="criarcontabtn">Criar</button>
+		  </div>
 	  </div>
 	  </div>
 	  </div>
