@@ -1307,6 +1307,9 @@
 		  const inputnomedacontaexistente = document.getElementById('inputnomedacontaexistente');
 		  const inputsenhadacontaexistente = document.getElementById('inputsenhadacontaexistente');
 		  const inputsenhadousuario = document.querySelector('.inputsenhadousuario');
+		  const SUPABASEURL2 = 'https://gxhpugwnsxrcnqpciqpn.supabase.co';
+			  const SUPABASE_ANON_KEY_2 = 'sb_publishable_53UTGTptBzBsUre_tAahXQ_XyMu13jM';
+			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 		  botaoentrarconta.onclick = async function() {
 			  const senha = inputsenhadacontaexistente.value.trim();
 			  const nome = inputnomedacontaexistente.value.trim();
@@ -1703,9 +1706,6 @@
 		  }
 		  const nomeusuario = document.querySelector('.nomeusuario');
 		  const criarcontatxt = document.querySelector('.criarcontatxt');
-		  const SUPABASEURL2 = 'https://gxhpugwnsxrcnqpciqpn.supabase.co';
-			  const SUPABASE_ANON_KEY_2 = 'sb_publishable_53UTGTptBzBsUre_tAahXQ_XyMu13jM';
-			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const idUsuario = localStorage.getItem("idUsuario");
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
@@ -1750,7 +1750,7 @@
 				  criarcontabtn.textContent = "Criando...";
 				  criarcontabtn.disabled = true;
 				  const salt = await bcrypt.genSalt(10);
-	const hash = bcrypt.hash(senhadigitada, salt);
+	const hash = await bcrypt.hash(senhadigitada, salt);
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
 			  .insert({nome: novonome,
