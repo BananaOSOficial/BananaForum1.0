@@ -1043,8 +1043,7 @@
 			border-radius: 999px;
 		}
 		.janelaentrarconta input:focus {
-			background-color: #F7D117;
-			border: 2px solid #F7D117;
+			border-color: 2px solid #F7D117;
 			box-shadow: 0 0 10px #F7D117;
 		}
 		#inputsjanelaentrarconta {
@@ -1078,7 +1077,7 @@
 			left: 50%;
 			transform: translate(-50%, -50%);
 		}
-		#fecharjanelaentrarconta {
+		.fecharjanelaentrarconta {
 			position: fixed;
 			top: 10px;
 			left: 10px;
@@ -1091,7 +1090,7 @@
 			transition: transform 0.5s ease, box-shadow 0.5s ease;
 			color: #FFFFFF;
 		}
-		#fecharjanelaentrarconta:hover {
+		.fecharjanelaentrarconta:hover {
 			border-color: yellow;
 			background-color: #F7D117;
 			transform: scale(1.1);
@@ -1306,7 +1305,7 @@
 		  const janelaentrarconta = document.querySelector('.janelaentrarconta');
 		  const fecharjanelaentrarconta = document.querySelector('.fecharjanelaentrarconta');
 		  if (!iddoUsuario) {
-			  entrarconta.style.display = 'none';
+			  entrarconta.style.display = 'block';
 		  }
 		  entrarconta.onclick = function() {
 			  janelaentrarconta.classList.add('aberta');
