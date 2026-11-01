@@ -535,24 +535,16 @@
 			box-shadow: 0 0 10px yellow !important;
 			transform: scale(1.1);
 		}
-		#janelacriarconta #inputnomeecriarcontabtn {
-			display: flex;
-			flex-direction: row;
+		#janelacriarconta input {
 			background-color: #010409;
 			border-radius: 999px;
 			border: 2px solid #30363D;
-			box-shadow: 0 0 10px rgba(255,255,255,0.08);
+			box-shadow: 0 0 10px #30363D;
 			transition: border-color 0.5s ease, box-shadow 0.5s ease;
 		}
-		#janelacriarconta #inputnomeecriarcontabtn:focus-within {
+		#janelacriarconta input:focus {
 			border-color: #F7D117;
 			box-shadow: 0 0 10px #F7D117;
-		}
-		#janelacriarconta #inputnomeecriarcontabtn:focus-within .criarcontabtn {
-			border-color: #F7D117 !important;
-		}
-		#janelacriarconta input {
-			background: transparent;
 		}
 		#enviar {
 			background-color: #F7D117 !important;
@@ -580,9 +572,12 @@
 			fill: #FFFFFF !important;
 		}
 		.criarcontabtn {
-			border: none !important;
+			position: fixed;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
 			background-color: transparent !important;
-			border-left: 2px solid #30363D !important;
+			border: 2px solid #30363D !important;
 			border-radius: 0 999px 999px 0 !important;
 		}
 		#criarcomunidadebtn {
@@ -728,7 +723,7 @@
 			transform: translateX(-50%);
 			background: #000000;
 			flex-direction: column;
-			border: 2px solid rgba(255,255,255,0.2);
+			border: 2px solid #30363D;
 			z-index: 101;
 			transition: display 0.35s ease;
 			}
@@ -736,8 +731,18 @@
 			background: transparent;
 		    border: none;
 			border-radius: 5px !important;
-			border-bottom: 2px solid rgba(255,255,255,0.1) !important;
+			border-bottom: 2px solid #30363D!important;
 			color: #FFFFFF;
+		}
+		#entrarconta {
+			background: transparent;
+			border: none;
+			border-radius: 5px;
+			border-bottom: 2px solid #30363D;
+			color: #FFFFFF;
+		}
+		#entrarconta:hover {
+			background: #444548;
 		}
 		#trocarnomeecriarconta:hover {
 			background: #444548;
@@ -1014,6 +1019,84 @@
 			left: 50%;
 			transform: translate(-50%, -50%);
 		}
+		.janelaentrarconta {
+			display: flex;
+			flex-direction: column;
+			position: fixed;
+			top: -100%;
+			left: 50%;
+			height: 90dvh;
+			width: 90dvw;
+			backdrop-filter: blur(10px);
+			transform: translate(-50%, -50%);
+			background-color: rgba(0,0,0,0.9);
+			border-radius: 30px;
+			transition: top 0.35s ease;
+		}
+		.janelaentrarconta.aberta {
+			top: 50%;
+		}
+		.janelaentrarconta input {
+			background-color: #010409;
+			border: 2px solid #30363D;
+			box-shadow: 0 0 10px #30363D;
+			border-radius: 999px;
+		}
+		.janelaentrarconta input:focus {
+			background-color: #F7D117;
+			border: 2px solid #F7D117;
+			box-shadow: 0 0 10px #F7D117;
+		}
+		#inputsjanelaentrarconta {
+			position: fixed;
+			transform: translate(-50%, -50%);
+			top: 50%;
+			left: 50%;
+		}
+		.botaoentrarconta {
+			position: fixed;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: #010409;
+			border: 2px solid #30363D;
+			box-shadow: 0 0 10px #30363D;
+			border-radius: 999px;
+			color: #FFFFFF;
+			transition: transform 0.5s ease;
+		}
+		.botaoentrarconta:hover {
+			border-color: #F7D117;
+			box-shadow: 0 0 10px #F7D117;
+			transform: scale(1.1);
+		}
+		#inputsjanelacriarconta {
+			display: flex;
+			flex-direction: column;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		#fecharjanelaentrarconta {
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			width: 32px;
+			height: 32px;
+			border: 2px solid rgba(255,255,255,0.08);
+			border-radius: 999px;
+			box-shadow: 0 0 10px rgba(255,255,255,0.08);
+			background-color: #303134;
+			transition: transform 0.5s ease, box-shadow 0.5s ease;
+			color: #FFFFFF;
+		}
+		#fecharjanelaentrarconta:hover {
+			border-color: yellow;
+			background-color: #F7D117;
+			transform: scale(1.1);
+			box-shadow: 0 0 10px #F7D117;
+		}
     </style>
   </head>
   <body>
@@ -1046,6 +1129,7 @@
 	<p class="nomeusuario">Usuario</p>
 	<div id="menu">
 		<button id="trocarnomeecriarconta"></button>
+		<button id="entrarconta">Entrar na conta</button>
 		<button id="sairconta">Sair da conta</button>
 	</div>
 	</div>
@@ -1107,6 +1191,17 @@
 	  </div>
 		<div id="container-comunidade"></div>
     </main>
+	  <div class="janelaentrarconta">
+		  <button class="fecharjanelaentrarconta">X</button>
+		  <h2>Entrar em conta existente</h2>
+		  <div id="inputsjanelaentrarconta">
+		  <p>Nome da sua conta</p>
+		  <input id="inputnomedacontaexistente" placeholder="Nome">
+		  <p>Senha da conta</p>
+		  <input id="inputsenhadacontaexistente" placeholder="Senha">
+		  </div>
+		  <button class="botaoentrarconta">Entrar</button>
+	  </div>
 	  <div class="janelaamigo">
 		  <button class="fecharjanelaamigo">X</button>
 		  <img class="fotopessoa">
@@ -1185,10 +1280,13 @@
 	  <button class="fecharjanelacriarconta">X</button>
 	  <div id="conteudocriarconta">
       <h2 class="criarcontatxt">Crie sua conta</h2>
-	  <div id="inputnomeecriarcontabtn">
+	  <div id="inputsjanelacriarconta">
+	  <p>Seu nome:</p>
 	  <input class="inputnomedousuario" placeholder="Digite um nome">  
-	  <button class="criarcontabtn">Criar</button>
+		  <p>Senha:</p>
+		  <input class="inputsenhadousuario" placeholder="Senha">
 	  </div>
+		  <button class="criarcontabtn">Criar</button>
 	  </div>
 	  </div>
 	  <script>
@@ -1204,6 +1302,18 @@
 		  const abrirjanelaimagemperfil = document.querySelector('.abrirjanelaimagemperfil');
 		  const imgconta = document.querySelector('.imgconta');
 		  const iddoUsuario = localStorage.getItem("idUsuario");
+		  const entrarconta = document.getElementById('entrarconta');
+		  const janelaentrarconta = document.querySelector('.janelaentrarconta');
+		  const fecharjanelaentrarconta = document.querySelector('.fecharjanelaentrarconta');
+		  if (!iddoUsuario) {
+			  entrarconta.style.display = 'none';
+		  }
+		  entrarconta.onclick = function() {
+			  janelaentrarconta.classList.add('aberta');
+		  }
+		  fecharjanelaentrarconta.onclick = function() {
+			  janelaentrarconta.classList.remove('aberta');
+		  }
 		  window.addEventListener('scroll', () => {
 			  if (window.scrollY > 0) {
 				  if (!iddoUsuario) {
