@@ -573,12 +573,11 @@
 		}
 		.criarcontabtn {
 			position: fixed;
-			bottom: 10px;
 			left: 50%;
 			transform: translateX(-50%);
 			background-color: transparent !important;
 			border: 2px solid #30363D !important;
-			border-radius: 0 999px 999px 0 !important;
+			border-radius: 999px!important;
 		}
 		#criarcomunidadebtn {
 		margin-top: 10px;
@@ -1192,11 +1191,9 @@
     </main>
 	  <div class="janelaentrarconta">
 		  <button class="fecharjanelaentrarconta">X</button>
-		  <h2>Entrar em conta existente</h2>
 		  <div id="inputsjanelaentrarconta">
-		  <p>Nome da sua conta</p>
+		  <h2>Entrar em conta existente</h2>
 		  <input id="inputnomedacontaexistente" placeholder="Nome">
-		  <p>Senha da conta</p>
 		  <input id="inputsenhadacontaexistente" placeholder="Senha">
 		  </div>
 		  <button class="botaoentrarconta">Entrar</button>
@@ -1278,11 +1275,9 @@
 	  <div id="janelacriarconta">
 	  <button class="fecharjanelacriarconta">X</button>
 	  <div id="conteudocriarconta">
-      <h2 class="criarcontatxt">Crie sua conta</h2>
 	  <div id="inputsjanelacriarconta">
-	  <p>Seu nome:</p>
+      <h2 class="criarcontatxt">Crie sua conta</h2>
 	  <input class="inputnomedousuario" placeholder="Digite um nome">  
-		  <p>Senha:</p>
 		  <input class="inputsenhadousuario" placeholder="Senha">
 	  </div>
 		  <button class="criarcontabtn">Criar</button>
@@ -1304,10 +1299,13 @@
 		  const entrarconta = document.getElementById('entrarconta');
 		  const janelaentrarconta = document.querySelector('.janelaentrarconta');
 		  const fecharjanelaentrarconta = document.querySelector('.fecharjanelaentrarconta');
+		  const inputsenhadousuario = document.querySelector('.inputsenhadousuario');
 		  if (!iddoUsuario) {
 			  entrarconta.style.display = 'block';
+			  inputsenhadousuario.style.display = 'block';
 		  } else {
 			  entrarconta.style.display = 'none';
+			  inputsenhadousuario.style.display = 'none';
 		  }
 		  entrarconta.onclick = function() {
 			  janelaentrarconta.classList.add('aberta');
