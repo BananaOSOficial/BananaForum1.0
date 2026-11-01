@@ -1747,7 +1747,7 @@
 		  alert('Coloque uma senha primeiro');
 	return;
 	}
-				  const salt = bcrypt.genSalt(10);
+				  const salt = await bcrypt.genSalt(10);
 	const hash = bcrypt.hash(senhadigitada, salt);
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
