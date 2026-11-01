@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="bananaforumlogo2.png">
 	  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
 	  <title>Banana Forum</title>
     <style>
       * {
@@ -1303,6 +1304,50 @@
 		  const janelaentrarconta = document.querySelector('.janelaentrarconta');
 		  const fecharjanelaentrarconta = document.querySelector('.fecharjanelaentrarconta');
 		  const inputsenhadousuario = document.querySelector('.inputsenhadousuario');
+		  const botaoentrarconta = document.querySelector('.botaoentrarconta');
+		  const inputnomedacontaexistente = document.getElementById('inputnomedacontaexistente');
+		  const inputsenhadacontaexistente = document.getElementById('inputsenhadacontaexistente');
+		  botaoentrarconta.onclick = async function() {
+			  const senha = inputsenhadacontaexistente.value.trim();
+			  const nome = inputnomedacontaexistente.value.trim();
+
+			  if (senha === '' || nome === '') {
+		  alert('Preencha tudo');
+			  return;
+			  }
+			  botaoentrarconta.textContent = 'Entrando...';
+			  botaoentrarconta.disabled = true;
+			  const {data: usuario, error} = await ClientUsuarios
+			  .from('usuarios')
+			  .select('id, nome, senha')
+			  .eq('nome', nome)
+			  .maybeSingle();
+
+			  if (error) {
+		  alert('Erro ao tentar entrar na conta: ' + error.message);
+				  botaoentrarconta.textContent = 'Entrar';
+				  botaoentrarconta.disabled = false;
+				  return;
+		  }
+			  if (!usuario) {
+		  alert('Usuário invalido, senha ou nome está errado');
+				  botaoentrarconta.textContent = 'Entrar';
+		  botaoentrarconta.disabled = false;
+				  return;
+			  }
+			  const senhacorreta = await bcrypt.compare(senha, usuario.senha);
+		  if (!senhacorreta) {
+		  alert('Usuário invalido, senha ou nome está errado');
+			  botaoentrarconta.textContent = 'Entrar';
+		  botaoentrarconta.disabled = false;
+			  return;
+		  }
+			  localStorage.setItem("idUsuario", usuario.id);
+			  localStorage.setItem("nomeUsuario", usuario.nome);
+			  inputnomedacontaexistente.value = '';
+			  inputsenhadacontaexistente.value = '';
+			  location.reload();
+		  }
 		  if (!iddoUsuario) {
 			  entrarconta.style.display = 'block';
 			  inputsenhadousuario.style.display = 'block';
@@ -1316,6 +1361,7 @@
 		  fecharjanelaentrarconta.onclick = function() {
 			  janelaentrarconta.classList.remove('aberta');
 		  }
+		  
 		  window.addEventListener('scroll', () => {
 			  if (window.scrollY > 0) {
 				  if (!iddoUsuario) {
@@ -1663,6 +1709,7 @@
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const idUsuario = localStorage.getItem("idUsuario");
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
+		  const inputsenhadousuario = document.querySelector('.inputsenhadousuario');
 		  criarcontabtn.addEventListener('click', async () => {
 			  const novonome = inputnomedousuario.value.trim();
 			  if (novonome === "") {
@@ -1696,9 +1743,18 @@
 				  localStorage.setItem("idUsuario", inserirnomenovo.id);
 			  }
 		  } else {
+				  const senhadigitada = inputsenhadousuario.value.trim();
+				  if (inputsenhadousuario.value.trim() === '') {
+		  alert('Coloque uma senha primeiro');
+	return;
+	}
+				  const salt = bcrypt.genSalt(10);
+	const hash = bcrypt.hash(senhadigita, salt);
 			  const {data, error} = await ClientUsuarios
 			  .from('usuarios', {schema: 'public'})
-			  .insert({nome: novonome})
+			  .insert({nome: novonome,
+					  senha: hash
+				})
 			  .select()
 			  .maybeSingle();
 			  if (error) {
