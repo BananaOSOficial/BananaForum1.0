@@ -1747,6 +1747,8 @@
 		  alert('Coloque uma senha primeiro');
 	return;
 	}
+				  criarcontabtn.textContent = "Criando...";
+				  criarcontabtn.disabled = true;
 				  const salt = await bcrypt.genSalt(10);
 	const hash = bcrypt.hash(senhadigitada, salt);
 			  const {data, error} = await ClientUsuarios
@@ -1776,6 +1778,7 @@
 			  nomeusuario.textContent = novonome;
 			  const nomedapessoanochat = document.querySelector('.nomedapessoanochat');
 			  nomedapessoanochat.textContent = novonome + ":";
+			  criarcontabtn.disabled = false;
 			  await carregaramizades();
 			  await carregarpessoasseguidas();
 			  location.reload();
