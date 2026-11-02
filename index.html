@@ -1362,6 +1362,43 @@
 		  window.addEventListener('scroll', atualizarscroll);
 		  window.addEventListener('resize', atualizarscroll);
 		  atualizarscroll();
+		  let arrastando = false;
+		  let iniciodascrollbar = 0;
+		  let scrollInicial = 0;
+
+		  thumb.addEventListener('pointerdown', (e) => {
+			  arrastando = true;
+			  iniciodascrollbar = e.clientY;
+			  scrollInicial = window.scrollY;
+			  thumb.setPointerCapture(e.pointerId);
+			  thumb.style.transition = 'none';
+			  track.style.width = '10px';
+		  });
+		  thumb.addEventListener('pointermove', (e) => {
+			  if (!arrastando) return;
+		  const deltaY = e.clientY - iniciodascrollbar;
+		  const alturaTotal = document.documentElement.scrollHeight;
+			  const janela = window.innerHeight;
+			  const scrollmaximo = alturaTotal - janela;
+
+			  const alturaThumb = thumb.offsetHeight;
+			  const espacodathumb = alturaThumb - janela;
+		  if (espacodathumb <= 0) return;
+		  const scrollDelta = (deltaY / espacodathumb) * scrollmaximo;
+			  window.scrollTo(0, scrollInicial + scrollDelta);
+		  })
+		  thumb.addEventListener('pointerup', (e) => {
+		  arrastando = false;
+		  thumb.style.transition = '';
+		  thumb.releasePointerCapture(e.pointerId);
+		  track.style.width = '6px';
+		  })
+		  thumb.addEventListener('pointercancel', (e) => {
+		  arrastando = false;
+		  thumb.style.transition = '';
+			  thumb.releasePointerCapture(e.pointerId);
+			  track.style.width = '6px';
+		  }
 		  botaoentrarconta.onclick = async function() {
 			  const senha = inputsenhadacontaexistente.value.trim();
 			  const nome = inputnomedacontaexistente.value.trim();
