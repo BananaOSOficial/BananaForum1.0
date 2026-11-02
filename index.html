@@ -1506,13 +1506,13 @@
 			  iniciobtn.classList.add('selecionado');
 			  abrirjanelaamizades.classList.remove('selecionado');
 			  janelaamizades.classList.remove('aberta');
-			  document.body.style.overflow = '';
+			  track.style.display = 'block';
 		  }
 		  abrirjanelaamizades.onclick = function() {
 			  iniciobtn.classList.remove('selecionado');
 			  abrirjanelaamizades.classList.add('selecionado');
 			  janelaamizades.classList.add('aberta');
-			  document.body.style.overflow = 'hidden';
+			  track.style.display = 'none';
 		  }
 		  if (nomeusuarioconta) {
 			  dica.style.display = 'none';
@@ -1556,7 +1556,7 @@
 		  }
 		  abrirjanelaimagemperfil.onclick = function() {
 			  janelaimagemperfil.classList.add('aberta');
-			  document.body.style.overflow = 'hidden';
+			  track.style.display = 'none';
 			  abrirjanelaimagemperfil.style.display = 'none';
 		  }
 		  document.addEventListener('click', (e) => {
@@ -1571,7 +1571,7 @@
 		  janelaimagemperfil.addEventListener('click', (e) => {
 			  if (!botaocolocarfoto.contains(e.target) && !imgdajanelaimagemperfil.contains(e.target)) {
 				  janelaimagemperfil.classList.remove('aberta');
-				  document.body.style.overflow = '';
+				  track.style.display = 'block';
 			  }
 		  });
 		  const imgPerfilSalva = localStorage.getItem("URLimagemconta");
@@ -1601,7 +1601,7 @@
 		  trocarnomeecriarconta.addEventListener('click', () => {
 			  janelacriarconta.classList.add('aberta');
 			  menu.style.display = 'none';
-			  document.body.style.overflow = 'hidden';
+			  track.style.display = 'none';
 		  })
 		  sairconta.addEventListener('click', () => {
 			  localStorage.removeItem('idUsuario');
@@ -1618,13 +1618,13 @@
 			  janelacriarcomunidade.classList.add('aberta');
 			  menu.style.display = 'none';
 			  criarcomunidadebtn.classList.add('selecionado');
-			  document.body.style.overflow = 'hidden';
+			  track.style.display = 'none';
 		  }
 		  fecharjanelacomunidadebtn.onclick = function() {
 			  iniciobtn.classList.add('selecionado');
 			  janelacriarcomunidade.classList.remove('aberta');
 			  criarcomunidadebtn.classList.remove('selecionado');
-			  document.body.style.overflow = '';
+			  track.style.display = 'block';
 		  }
 		  const inputNomedacomunidade = document.getElementById('inputNomedacomunidade');
 		  const container = document.getElementById('container-comunidade');
@@ -1658,7 +1658,7 @@
 			  janelacriarcomunidade.classList.remove('aberta');;
 			  iniciobtn.classList.add('selecionado');
 			  criarcomunidadebtn.classList.remove('selecionado');
-			  document.body.style.overflow = '';
+			  track.style.display = 'block';
 		  });
 		  function criarElementocomunidade(comunidade) {
 			  const novomodelo = modelo.cloneNode(true);
@@ -1690,7 +1690,7 @@
 					return;
 		  }
 			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem, m.avatar));
-			    document.body.style.overflow = 'hidden';
+			    track.style.display = 'none';
 					}
 		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar) {
 			  const novacaixa = caixaconversa.cloneNode(true);
@@ -1792,7 +1792,7 @@
 		  fecharjaneladascomunidades.onclick = function() {
 		  janeladascomunidades.classList.remove('aberta');
 		  iniciobtn.classList.add('selecionado');
-		  document.body.style.overflow = '';
+		  track.style.display = 'block';
 		  }
 		  const nomeusuario = document.querySelector('.nomeusuario');
 		  const criarcontatxt = document.querySelector('.criarcontatxt');
@@ -2163,7 +2163,7 @@ if (!idUsuario) return;
 		  const fecharjanelacriarconta = document.querySelector('.fecharjanelacriarconta');
 		  fecharjanelacriarconta.onclick = function() {
 			  janelacriarconta.classList.remove('aberta');
-			  document.body.style.overflow = '';
+			  track.style.display = 'block';
 		  }
 	  </script>
   </body>
