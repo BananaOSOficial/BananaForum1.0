@@ -1382,7 +1382,7 @@
 			  const scrollmaximo = alturaTotal - janela;
 
 			  const alturaThumb = thumb.offsetHeight;
-			  const espacodathumb = alturaThumb - janela;
+			  const espacodathumb = janela - alturaThumb;
 		  if (espacodathumb <= 0) return;
 		  const scrollDelta = (deltaY / espacodathumb) * scrollmaximo;
 			  window.scrollTo(0, scrollInicial + scrollDelta);
