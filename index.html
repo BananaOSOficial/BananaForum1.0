@@ -1350,7 +1350,7 @@
 
 			  const tamanho = (janela / altura) * janela;
               thumb.style.height = tamanho + "px";
-			  const posicao = window.scrollY / (janela - altura);
+			  const posicao = window.scrollY / (altura - janela);
 			  thumb.style.top = posicao * (janela - tamanho) + "px";
 		  }
 		  window.addEventListener('scroll', atualizarscroll);
