@@ -1448,6 +1448,7 @@
 			  entrarconta.style.display = 'none';
 			  inputsenhadousuario.style.display = 'none';
 		  }
+		  const menu = document.getElementById('menu');
 		  entrarconta.onclick = function() {
 			  janelaentrarconta.classList.add('aberta');
 			  track.style.display = 'none';
@@ -1530,7 +1531,6 @@
 			  sairconta.style.display = 'none';
 		  }
 		  const nomeconta = document.querySelector('.nomeusuario');
-		  const menu = document.getElementById('menu');
 		  window.addEventListener('scroll', () => {
 			  if (window.scrollY > 0) {
 				  menu.style.display = '';
