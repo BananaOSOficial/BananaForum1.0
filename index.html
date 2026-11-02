@@ -1117,6 +1117,27 @@
 			transform: scale(1.1);
 			box-shadow: 0 0 10px #F7D117;
 		}
+		.scrollbar-track {
+			background: #121212;
+			position: fixed;
+			top: 0;
+			right: 0;
+			height: 100vh;
+			width: 6px;
+			transition: width 0.3s ease;
+		}
+		.scrollbar-track:hover {
+			width: 10px;
+		}
+		.scrollbar-thumb {
+			position: absolute;
+			width: 100%;
+			background: #F7D117;
+			border-radius: 999px;
+			height: 30px;
+			top: 0;
+			transition: height 0.3s ease;
+		}
     </style>
   </head>
   <body>
@@ -1156,6 +1177,10 @@
 	</div>
 	</div>
 	</header>
+	<div class="scrollbar-track">
+		<div class="scrollbar-thumb">
+		</div>
+	</div>
     <div id="menucominicioecriarcomunidade">
 		<img class="bananalogo" src="Bananaforumlogo.png">
       <button id="iniciobtn" title="Ínicio"><svg fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -1328,6 +1353,17 @@
 		  const SUPABASEURL2 = 'https://gxhpugwnsxrcnqpciqpn.supabase.co';
 			  const SUPABASE_ANON_KEY_2 = 'sb_publishable_53UTGTptBzBsUre_tAahXQ_XyMu13jM';
 			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
+		  const thumb = document.querySelector('.scrollbar-thumb');
+		  const track = document.querySelector('.scrollbar-track');
+		  function atualizarscroll() {
+			  const altura = document.documentElement.scrollHeight;
+			  const janela = window.innerHeight;
+
+			  const tamanho = (janela / altura) * janela;
+              thumb.style.height = tamanho + "px";
+			  const posicao = window.scrolly / (janela - altura);
+			  thumb.style.top = posicao * (janela - tamanho) + "px";
+		  }
 		  botaoentrarconta.onclick = async function() {
 			  const senha = inputsenhadacontaexistente.value.trim();
 			  const nome = inputnomedacontaexistente.value.trim();
