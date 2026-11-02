@@ -1450,9 +1450,11 @@
 		  }
 		  entrarconta.onclick = function() {
 			  janelaentrarconta.classList.add('aberta');
+			  track.style.diplay = 'none';
 		  }
 		  fecharjanelaentrarconta.onclick = function() {
 			  janelaentrarconta.classList.remove('aberta');
+			  track.style.display = 'block';
 		  }
 		  
 		  window.addEventListener('scroll', () => {
