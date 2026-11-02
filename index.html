@@ -1364,6 +1364,9 @@
 			  const posicao = window.scrolly / (janela - altura);
 			  thumb.style.top = posicao * (janela - tamanho) + "px";
 		  }
+		  window.addEventListener('scroll', atualizarscroll());
+		  window.addEventListener('resize', atualizarscroll());
+		  atualizarscroll();
 		  botaoentrarconta.onclick = async function() {
 			  const senha = inputsenhadacontaexistente.value.trim();
 			  const nome = inputnomedacontaexistente.value.trim();
