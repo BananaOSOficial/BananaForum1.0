@@ -1362,6 +1362,7 @@
 		  window.addEventListener('scroll', atualizarscroll);
 		  window.addEventListener('resize', atualizarscroll);
 		  atualizarscroll();
+		  new ResizeObserver(atualizarscroll).observe(document.body);
 		  let arrastando = false;
 		  let iniciodascrollbar = 0;
 		  let scrollInicial = 0;
