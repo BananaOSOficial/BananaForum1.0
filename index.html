@@ -132,6 +132,7 @@
 		display: flex;
 		transform: translateX(-110%);
 		transition: transform 0.35s ease, width 0.35s ease;
+		z-index: 101;
       }
 		#menucominicioecriarcomunidade.aberto {
 			transform: translateX(0);
@@ -146,6 +147,7 @@
         color: #FFFFFF;
 		align-items: center;
 		width: 95%;
+		  height: 45px;
 		  gap: 5px;
 		  padding: 10px 0;
 		  padding-left: 10px;
@@ -1497,8 +1499,8 @@
 			  const aberto = menucominicioecriarcomunidade.classList.toggle('aberto');
 			  if (aberto) {
 				  abrirmenucombotoes.style.left = '145px';
-				  olaenomeusuarioeimg.style.marginLeft = '135px';
-				  abrirjanelaimagemperfil.style.left = '155px';
+				  olaenomeusuarioeimg.style.marginLeft = '155px';
+				  abrirjanelaimagemperfil.style.left = '165px';
 				  menucriarconta.style.left = '175px';
 				  abrirmenucombotoes.classList.add('selecionado');
 				  document.querySelector('header').classList.add('menuaberto');
