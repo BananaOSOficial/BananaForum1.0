@@ -1519,6 +1519,14 @@
 				  document.querySelector('header').classList.remove('menuaberto');
 			  }
 		  }
+		  function fecharmenuaoabrirjanela() {
+			  abrirmenucombotoes.style.left = '5px';
+			  olaenomeusuarioeimg.marginLeft = '40px';
+			  abrirjanelaimagemperfil.style.left = '60px';
+			  menucriarvonta.style.left = '90px';
+			  abrirmenucombotoes.classList.remove('selecionado');
+			  document.querySelector('header').classList.remove('menuaberto');
+		  }
 		  fecharjanelaamigo.onclick = function() {
 			  janelaamigo.style.display = 'none';
 			  document.body.style.overflow = 'hidden';
@@ -1531,7 +1539,7 @@
 			  track.style.display = 'block';
 		  }
 		  abrirjanelaamizades.onclick = function() {
-			  menucominicioecriarcomunidade.classList.remove('aberto');
+			  fecharmenuaoabrirjanela();
 			  iniciobtn.classList.remove('selecionado');
 			  abrirjanelaamizades.classList.add('selecionado');
 			  janelaamizades.classList.add('aberta');
@@ -1577,7 +1585,7 @@
 			  abrirjanelaimagemperfil.style.display = 'block';
 		  }
 		  abrirjanelaimagemperfil.onclick = function() {
-			  menucominicioecriarcomunidade.classList.remove('aberto');
+			  fecharmenuaoabrirjanela();
 			  janelaimagemperfil.classList.add('aberta');
 			  track.style.display = 'none';
 			  abrirjanelaimagemperfil.style.display = 'none';
@@ -1622,7 +1630,7 @@
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
 		  trocarnomeecriarconta.addEventListener('click', () => {
-			  menucominicioecriarcomunidade.classList.remove('aberto');
+			  fecharmenuaoabrirjanela();
 			  janelacriarconta.classList.add('aberta');
 			  menu.style.display = 'none';
 			  track.style.display = 'none';
@@ -1640,7 +1648,7 @@
 		  criarcomunidadebtn.onclick = function() {
 			  iniciobtn.classList.remove('selecionado');
 			  janelacriarcomunidade.classList.add('aberta');
-			  menucominicioecriarcomunidade.classList.remove('aberto');
+			  fecharmenuaoabrirjanela();
 			  menu.style.display = 'none';
 			  criarcomunidadebtn.classList.add('selecionado');
 			  track.style.display = 'none';
@@ -1703,7 +1711,7 @@
 		  async function abrirComunidade(comunidade) {
 				comunidadeAtualId = comunidade.id;
 			  janeladascomunidades.classList.add('aberta');
-			  menucominicioecriarcomunidade.classList.remove('aberto');
+			  fecharmenuaoabrirjanela();
 			    menu.style.display = 'none';
 			    containerconversa.innerHTML = '';
 			    const {data: mensagens, error} = await Clientesupabase
