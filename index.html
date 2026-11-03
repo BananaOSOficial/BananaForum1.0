@@ -128,10 +128,11 @@
 		  box-shadow: 0 0  10px #30363D;
 		display: block;
 		transform: translateX(-110%);
-		transition: transform 0.35s ease;
+		transition: transform 0.35s ease, width 0.35s ease;
       }
 		#menucominicioecriarcomunidade.aberto {
 			transform: translateX(0);
+			width: 140px;
 		}
       #menucominicioecriarcomunidade button {
         display: flex;
@@ -1491,7 +1492,7 @@
 		  abrirmenucombotoes.onclick = function() {
 			  const aberto = menucominicioecriarcomunidade.classList.toggle('aberto');
 			  if (aberto) {
-				  abrirmenucombotoes.style.left = '95px';
+				  abrirmenucombotoes.style.left = '145px';
 				  olaenomeusuarioeimg.style.marginLeft = '135px';
 				  abrirjanelaimagemperfil.style.left = '155px';
 				  menucriarconta.style.left = '175px';
