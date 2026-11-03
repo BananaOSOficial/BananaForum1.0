@@ -1368,6 +1368,7 @@
 			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 		  const thumb = document.querySelector('.scrollbar-thumb');
 		  const track = document.querySelector('.scrollbar-track');
+		  const menucominicioecriarcomunidade = document.getElementById('menucominicioecriarcomunidade');
 		  function atualizarscroll() {
 			  const altura = document.documentElement.scrollHeight;
 			  const janela = window.innerHeight;
@@ -1421,7 +1422,6 @@
 		  botaoentrarconta.onclick = async function() {
 			  const senha = inputsenhadacontaexistente.value.trim();
 			  const nome = inputnomedacontaexistente.value.trim();
-
 			  if (senha === '' || nome === '') {
 		  alert('Preencha tudo');
 			  return;
@@ -1468,6 +1468,7 @@
 		  }
 		  const menu = document.getElementById('menu');
 		  entrarconta.onclick = function() {
+			  menucominicioecriarcomunidade.classList.remove('aberto');
 			  janelaentrarconta.classList.add('aberta');
 			  track.style.display = 'none';
 			  menu.style.display = 'none';
@@ -1505,8 +1506,8 @@
 			  const aberto = menucominicioecriarcomunidade.classList.toggle('aberto');
 			  if (aberto) {
 				  abrirmenucombotoes.style.left = '145px';
-				  olaenomeusuarioeimg.style.marginLeft = '155px';
-				  abrirjanelaimagemperfil.style.left = '165px';
+				  olaenomeusuarioeimg.style.marginLeft = '165px';
+				  abrirjanelaimagemperfil.style.left = '185px';
 				  menucriarconta.style.left = '175px';
 				  abrirmenucombotoes.classList.add('selecionado');
 				  document.querySelector('header').classList.add('menuaberto');
@@ -1531,6 +1532,7 @@
 			  track.style.display = 'block';
 		  }
 		  abrirjanelaamizades.onclick = function() {
+			  menucominicioecriarcomunidade.classList.remove('aberto');
 			  iniciobtn.classList.remove('selecionado');
 			  abrirjanelaamizades.classList.add('selecionado');
 			  janelaamizades.classList.add('aberta');
@@ -1576,6 +1578,7 @@
 			  abrirjanelaimagemperfil.style.display = 'block';
 		  }
 		  abrirjanelaimagemperfil.onclick = function() {
+			  menucominicioecriarcomunidade.classList.remove('aberto');
 			  janelaimagemperfil.classList.add('aberta');
 			  track.style.display = 'none';
 			  abrirjanelaimagemperfil.style.display = 'none';
@@ -1620,6 +1623,7 @@
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
 		  trocarnomeecriarconta.addEventListener('click', () => {
+			  menucominicioecriarcomunidade.classList.remove('aberto');
 			  janelacriarconta.classList.add('aberta');
 			  menu.style.display = 'none';
 			  track.style.display = 'none';
@@ -1637,6 +1641,7 @@
 		  criarcomunidadebtn.onclick = function() {
 			  iniciobtn.classList.remove('selecionado');
 			  janelacriarcomunidade.classList.add('aberta');
+			  menucominicioecriarcomunidade.classList.remove('aberto');
 			  menu.style.display = 'none';
 			  criarcomunidadebtn.classList.add('selecionado');
 			  track.style.display = 'none';
@@ -1699,6 +1704,7 @@
 		  async function abrirComunidade(comunidade) {
 				comunidadeAtualId = comunidade.id;
 			  janeladascomunidades.classList.add('aberta');
+			  menucominicioecriarcomunidade.classList.remove('aberto');
 			    menu.style.display = 'none';
 			    containerconversa.innerHTML = '';
 			    const {data: mensagens, error} = await Clientesupabase
