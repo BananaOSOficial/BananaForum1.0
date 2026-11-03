@@ -12,7 +12,7 @@
     <style>
 		@media (max-width: 768px), (pointer: coarse) {
 			.scrollbar-track {
-				display: none;
+				display: none !important;
 			}
 		}
       * {
@@ -122,6 +122,7 @@
 		position: fixed;
 		  border-radius: 0 20px 20px 0;
 		  border-right: 2px solid #30363D;
+		  box-shadow: 0 0  10px #30363D;
 		display: block;
 		  backdrop-filter: blur(12px);
 		transform: translateX(-110%);
