@@ -1024,6 +1024,7 @@
 			border-radius: 999px;
 			background-color: #303134;
 			border: 2px solid #30363D;
+			box-shadow: none;
 		}
 		.abrirmenucombotoes {
 			background-color: transparent;
@@ -1167,14 +1168,20 @@
 			transition: height 0.3s ease;
 			cursor: pointer;
 		}
-		.botoes {
+		.botoesmenu {
 			display: flex;
 			position: fixed;
 			left: 50%;
 			top: 50%;
+			background-color: #303134;
 	transform: translate(-50%, -50%);
 			width: 90%;
+			flex-direction: column;
 			}
+		.botoesmenu button {
+			width: 100%;
+		    background: #3d3e42;
+		}
     </style>
   </head>
   <body>
@@ -1220,7 +1227,7 @@
 	</div>
     <div id="menucominicioecriarcomunidade">
 		<img class="bananalogo" src="Bananaforumlogo.png">
-		<div class='botoes'>
+		<div class='botoesmenu'>
       <button id="iniciobtn" title="Ínicio"><svg fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 width="16px" height="16px" viewBox="0 0 441.556 441.555"
 	 xml:space="preserve">
