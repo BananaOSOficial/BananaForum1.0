@@ -1885,7 +1885,7 @@
 		  return;
 		  }
 			  const texto = chat.value.trim();
-			  if (nomeusuariotext !== nomedousuario) {
+			  if (!idUsuario) {
 				  alert("Crie uma conta antes de mandar mensagens nessa comunidade");
 				  chat.value = '';
 				  return;
