@@ -137,7 +137,6 @@
 		position: fixed;
 		  border-radius: 0 10px 10px 0;
 		  border-right: 2px solid transparent;
-		  box-shadow: 0 0  10px #8b949e;
 		display: flex;
 		transform: translateX(-110%);
 		transition: transform 0.35s ease, width 0.35s ease;
@@ -317,7 +316,7 @@
 			}
 	.botoes {
 		border-radius: 30px;
-		border: 2px solid #30363D;
+		border: 2px solid transparent;
 	}
 		#criar:hover {
 			background-color: #F7D117;
@@ -472,6 +471,17 @@
             #FFD54F,
             #FFFF00) border-box;
 		}
+		.botoes #chatebtn:focus-within {
+			background: linear-gradient(#FFF9C4,
+            #FFF176,
+            #FFEE58,
+            #FFEB3B,
+            #FDD835,
+            #FBC02D,
+            #F9A825,
+            #F7D117,
+            #FFD54F,
+            #FFFF00) border-box;
 		.fecharjaneladascomunidades {
 			width: 32px;
 			height: 32px;
@@ -1050,8 +1060,17 @@
 			border-radius: 999px;
 			background-color: #303134;
 			border: none;
-			border: 1px solid #8b949e !important;
-			box-shadow: 0 0 10px #8b949e;
+			border: 1px solid transparent;
+			background: linear-gradient(#303134, #303134) padding-box, linear-gradient(#FFF9C4,
+            #FFF176,
+            #FFEE58,
+            #FFEB3B,
+            #FDD835,
+            #FBC02D,
+            #F9A825,
+            #F7D117,
+            #FFD54F,
+            #FFFF00) border-box;
 		}
 		.abrirmenucombotoes {
 			background-color: transparent;
