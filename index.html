@@ -32,13 +32,21 @@
 			width: 100vw;
 			display: flex;
 			z-index: 100;
-			border-bottom: 2px solid #8b949e;
+			border-bottom: 2px solid transparent;
 			align-items: center;
-			box-shadow: 0 0 10px #8b949e;
-			transition: background-color 0.35s ease, border-bottom 0.35s ease, box-shadow 1s ease;
+			background: linear-gradient(#010409, #010409) padding-box, linear-gradient(90deg, #FFF9C4,
+            #FFF176,
+            #FFEE58,
+            #FFEB3B,
+            #FDD835,
+            #FBC02D,
+            #F9A825,
+            #F7D117,
+            #FFD54F,
+            #FFFF00) border-box;
+			transition: background-color 0.35s ease, border-bottom 0.35s ease;
 		}
 		header.menuaberto {
-			box-shadow: none;
 			background-color: transparent;
 			border-bottom: none;
 		}
@@ -483,7 +491,6 @@
             #F7D117,
             #FFD54F,
             #FFFF00) !important;
-			box-shadow: 0 0 10px #F7D117;
 		}
 		#chatebtn:focus-within .botoes button {
 			background-color: transparent !important;
