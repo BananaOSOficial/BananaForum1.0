@@ -342,10 +342,13 @@
 			border-radius: 30px;
 			padding-bottom: 5px;
 		}
+		#comunidades svg {
+		fill: #5b8def !important;
+		}
 		#comunidades::after {
 			content: "";
 			width: 50%;
-			background-color: #F7D117;
+			background-color: #5b8def;
 			height: 2px;
 			position: absolute;
 			bottom: 0;
@@ -1894,8 +1897,8 @@
 			  novonome.textContent = nome + ":";
 			  const nomeatual = localStorage.getItem("nomeUsuario");
 			  if (nome && nome === nomeatual) {
-				  novacaixa.style.backgroundColor = '#F7D117';
-				  novacaixa.style.boxShadow = '0 0 10px #F7D117';
+				  novacaixa.style.backgroundColor = '#5b8def';
+				  novacaixa.style.boxShadow = '0 0 10px #5b8def';
 				  novacaixa.style.alignSelf = 'flex-end';
 			  } else {
 				  novacaixa.style.alignSelf = 'flex-start';
