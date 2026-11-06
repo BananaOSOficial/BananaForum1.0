@@ -397,7 +397,7 @@
 			box-shadow: 0 0 5px rgba(255,255,255,0.08);
 		}
 		#janeladascomunidades button:hover {
-			background: linear-gradient(#5b8def, blue);
+			background: linear-gradient(transparent, transparent) padding-box, linear-gradient(#5b8def, blue) border-box;
 			border: none;
 			cursor: pointer;
 		}
@@ -469,10 +469,10 @@
 		#chatebtn:focus-within {
 			border: 2px solid transparent;
 			background: linear-gradient(#010409, #010409) padding-box, linear-gradient(90deg, #5b8def, blue) border-box;
-			box-shadow: 0 0 10px #F7D117;
+			box-shadow: 0 0 10px #5b8def;
 		}
 		#chatebtn:focus-within button {
-			background: linear-gradient(#5b8def, blue);
+			background: linear-gradient(transparent, transparent) padding-box, linear-gradient(#5b8def, blue) border-box;
 		}
 		#chatebtn:focus-within .botoes button:hover svg path {
 			fill: #000000 !important;
