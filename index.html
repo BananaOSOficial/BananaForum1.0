@@ -34,16 +34,7 @@
 			z-index: 100;
 			border-bottom: 2px solid transparent;
 			align-items: center;
-			background: linear-gradient(#010409, #010409) padding-box, linear-gradient(90deg, #FFF9C4,
-            #FFF176,
-            #FFEE58,
-            #FFEB3B,
-            #FDD835,
-            #FBC02D,
-            #F9A825,
-            #F7D117,
-            #FFD54F,
-            #FFFF00) border-box;
+			background: linear-gradient(#010409, #010409) padding-box, linear-gradient(90deg, #5b8def, blue) border-box;
 			transition: background-color 0.35s ease, border-bottom 0.35s ease;
 		}
 		header.menuaberto {
@@ -172,6 +163,7 @@
 		}
 		#menucominicioecriarcomunidade button:hover {
 			transform: scale(1.1);
+			box-shadow: 0 0 10px #5b8def;
 		}
 		#janelacriarcomunidade {
 			display: flex;
@@ -568,7 +560,7 @@
 			from {
 				background-position: auto, auto, 0 0, 0 0;
 			}
-			to {
+			to {a
 				background-position: auto, auto, 200px 120px, 200px 200px;
 			}
 		}
@@ -1297,7 +1289,7 @@
 		.scrollbar-thumb {
 			position: absolute;
 			width: 100%;
-			background: #F7D117;
+			background: linear-gradient(transparent, transparent) padding-box, linear-gradient(#5b8def, blue) border-box;
 			border-radius: 999px;
 			height: 30px;
 			top: 0;
