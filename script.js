@@ -26,11 +26,13 @@
 		  function atualizarscroll() {
 			  const altura = document.documentElement.scrollHeight;
 			  const janela = window.innerHeight;
-
-			  const tamanho = (janela / altura) * janela;
-              thumb.style.height = tamanho + "px";
 			  const posicao = window.scrollY / (altura - janela);
-			  thumb.style.top = posicao * (janela - tamanho) + "px";
+			  const alturaThumb = thumb.offsetHeight;
+			  const espacothumb = janela - alturaThumb;
+              if (espacothumb <= 0) {
+				  return;
+			  }
+			  thumb.style.top = posicao * espacothumb + 'px';
 		  }
 		  window.addEventListener('scroll', atualizarscroll);
 		  window.addEventListener('resize', atualizarscroll);
