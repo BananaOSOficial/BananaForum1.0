@@ -408,6 +408,7 @@
 			  if (nome && nome === nomeatual) {
 				  novacaixa.style.backgroundColor = '#5b8def';
 				  novacaixa.style.boxShadow = '0 0 10px #5b8def';
+				  novacaixa.document.querySelector('.nomedapessoanochat').style.color = 'blue';
 				  novacaixa.style.alignSelf = 'flex-end';
 			  } else {
 				  novacaixa.style.alignSelf = 'flex-start';
