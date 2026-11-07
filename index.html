@@ -1935,13 +1935,10 @@
 			  const nomeantigo = localStorage.getItem("nomeUsuario");
 			  
 			  if (nomeantigo) {
-			  await ClientUsuarios
-				  .from('usuarios', {schema: 'public'})
-				  .delete()
-				  .eq('nome', nomeantigo);
 			  const {data: inserirnomenovo, error} = await ClientUsuarios
 			  .from('usuarios')
-			  .insert({nome: novonome})
+			  .update({nome: novonome})
+			  .eq('id', idUsuario)
 			  .select()
 			  .maybeSingle();
 			  if (error) {
@@ -1956,7 +1953,6 @@
 			  }
 			  if (inserirnomenovo) {
 				  localStorage.setItem("nomeUsuario", novonome);
-				  localStorage.setItem("idUsuario", inserirnomenovo.id);
 			  }
 		  } else {
 				  const senhadigitada = inputsenhadousuario.value.trim();
