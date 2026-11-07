@@ -2290,6 +2290,7 @@ if (!idUsuario) return;
 		  const fecharjanelacriarconta = document.querySelector('.fecharjanelacriarconta');
 		  fecharjanelacriarconta.onclick = function() {
 			  janelacriarconta.classList.remove('aberta');
+			  document.body.style.overflow = '';
 			  track.style.display = 'block';
 		  }
 	  </script>
