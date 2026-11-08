@@ -17,9 +17,6 @@
 		  const inputnomedacontaexistente = document.getElementById('inputnomedacontaexistente');
 		  const inputsenhadacontaexistente = document.getElementById('inputsenhadacontaexistente');
 		  const inputsenhadousuario = document.querySelector('.inputsenhadousuario');
-		  const SUPABASEURL2 = 'https://gxhpugwnsxrcnqpciqpn.supabase.co';
-			  const SUPABASE_ANON_KEY_2 = 'sb_publishable_53UTGTptBzBsUre_tAahXQ_XyMu13jM';
-			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 		  const thumb = document.querySelector('.scrollbar-thumb');
 		  const track = document.querySelector('.scrollbar-track');
 const errorwindow = document.querySelector('.errorwindow');
@@ -530,7 +527,7 @@ let erroaconteceu = false;
 			  const nomeantigo = localStorage.getItem("nomeUsuario");
 			  
 			  if (nomeantigo) {
-			  const {data: inserirnomenovo, error} = await ClientUsuarios
+			  const {data: inserirnomenovo, error} = await Clientesupabase
 			  .from('usuarios')
 			  .update({nome: novonome})
 			  .eq('id', idUsuario)
@@ -564,7 +561,7 @@ let erroaconteceu = false;
 				  criarcontabtn.disabled = true;
 				  const salt = await bcrypt.genSalt(10);
 	const hash = await bcrypt.hash(senhadigitada, salt);
-			  const {data, error} = await ClientUsuarios
+			  const {data, error} = await ClienteSupabase
 			  .from('usuarios', {schema: 'public'})
 			  .insert({nome: novonome,
 					  senha: hash
@@ -620,7 +617,7 @@ let erroaconteceu = false;
 			  containerpessoas.innerHTML = '<p>Pesquisando...</p>';
 			  const containerpessoasadicionadas = document.getElementById('pessoasadicionadas');
 			  containerpessoasadicionadas.innerHTML = '';
-			  const {data, error} = await ClientUsuarios
+			  const {data, error} = await ClientSupabase
 			  .from('usuarios')
 		      .select('id, nome')
 	          .ilike('nome', `%${textodotextarea}%`)
