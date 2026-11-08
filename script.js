@@ -412,7 +412,7 @@ const deletarmsgbtn = document.querySelector('.deletarmsgbtn');
 			  novacaixa.style.display = 'flex';
 			  novacaixaebtndeletar.style.display = 'flex';
               if (deletarmsgbtn) {
-			  if (String(idMensagem) === String(idUsuario)) {
+			  if (String(iddaMensagem) === String(idUsuario)) {
 				  deletarmsgbtn.style.display = 'block';
 				  deletarmsgbtn.onclick = async function() {
 				  await deletarmensagem(iddaMensagem, novacaixa);
