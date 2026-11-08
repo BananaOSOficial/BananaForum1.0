@@ -507,6 +507,7 @@ fecharerrorwindow.onclick = function() {
 		  const criarcontabtn = document.querySelector('.criarcontabtn');
 		  const idUsuario = localStorage.getItem("idUsuario");
 		  const inputnomedousuario = document.querySelector('.inputnomedousuario');
+let erroaconteceu = false;
 		  criarcontabtn.addEventListener('click', async () => {
 			  const novonome = inputnomedousuario.value.trim();
 			  if (novonome === "") {
@@ -527,6 +528,7 @@ fecharerrorwindow.onclick = function() {
 			  .select()
 			  .maybeSingle();
 			  if (error) {
+				  erroaconteceu = true;
 				  janelacriarconta.classList.add('aberta');
 				  if (error.code === '23505') {
 					  errorwindow.style.display = 'block';
@@ -561,7 +563,8 @@ fecharerrorwindow.onclick = function() {
 			  .select()
 			  .maybeSingle();
 			  if (error) {
-				  janelacriarconta.style.display = 'flex';
+				  erroaconteceu = true;
+				  janelacriarconta.classList.add('aberta');
 				  if (error.code === '23505') {
 					  errorwindow.style.display = 'block';
 					  const p = errorwindow.querySelector('p');
@@ -577,6 +580,7 @@ fecharerrorwindow.onclick = function() {
 			  localStorage.setItem("nomeUsuario", novonome);
 		  }
 			  }
+			  if (erroaconteceu) return;
 			  janelacriarconta.classList.remove('aberta');
 			  inputnomedousuario.value = '';
 			  nomeusuario.textContent = novonome;
