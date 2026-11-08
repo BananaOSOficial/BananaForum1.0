@@ -775,9 +775,9 @@
 			align-items: center;
 			border-radius: 10px;
 			transform: translateX(-50%);
+			border: 2px solid transparent;
 			background: linear-gradient(#303134, #010409) padding-box, linear-gradient(90deg, #5b8def, blue) border-box;
 			flex-direction: column;
-			border: 2px solid #30363D;
 			z-index: 101;
 			transition: display 0.35s ease;
 			}
@@ -785,20 +785,16 @@
 			width: 100%;
 		}
 		#trocarnomeecriarconta {
-			background: transparent;
 		    border: none;
 			border-radius: 5px !important;
-			border-bottom: 2px solid #30363D !important;
+			border-bottom: 2px solid transparent !important;
+			background: linear-gradient(rgba(20,20,20,0.5), rgba(20,20,20,0.5)) padding-box, linear-gradient(#5b8def, blue) border-box;
 			color: #FFFFFF;
 		}
-		#trocarnomeecriarconta:hover {
-			background: rgba(20,20,20,0.5);
-		}
 		#entrarconta {
-			background: transparent;
+			background: rgba(20,20,20,0.5);
 			border: none;
 			border-radius: 5px;
-			border-bottom: 2px solid #30363D;
 			color: #FFFFFF;
 		}
 		#entrarconta:hover {
@@ -807,7 +803,7 @@
 		#sairconta {
 			border-radius: 5px !important;
 			border: none;
-			background: transparent;
+			background: rgba(20,20,20,0.5);
 			color: #FFFFFF;
 			}
 		#sairconta:hover {
