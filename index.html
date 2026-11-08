@@ -566,7 +566,11 @@
 			margin-top: 10px;
 		}
 		.nomeusuario:hover {
-			color: #5b8def;
+			color: transparent;
+			background: linear-gradient(#5b8def, blue);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
 		}
 		.nomeusuario {
 			cursor: pointer;
@@ -797,18 +801,12 @@
 			border-radius: 5px;
 			color: #FFFFFF;
 		}
-		#entrarconta:hover {
-			background: rgba(20,20,20,0.5);
-		}
 		#sairconta {
 			border-radius: 5px !important;
 			border: none;
 			background: transparent;
 			color: #FFFFFF;
 			}
-		#sairconta:hover {
-			background: rgba(20,20,20,0.5);
-		}
 		#menuenomeusuario {
 				display: flex;
 			flex-direction: column;
