@@ -463,6 +463,7 @@ let ocorreuumerro = false;
 		  
 		  const imagemperfilnaconversa = document.getElementById('imagemperfilnaconversa');
 		  const nomeatual = localStorage.getItem("nomeUsuario") || "Usuario";
+		  const { data: { user }, error: autherror} = await Clientesupabase.auth.getUser();
 		  enviandoMensagem = true;
 		  const {error} = await Clientesupabase
 		  .from('mensagens')
@@ -471,7 +472,8 @@ let ocorreuumerro = false;
 			texto: texto,
 			nome: nomeatual,
 		    imagem: URLimagempendente,
-			avatar: imagemperfil || null
+			avatar: imagemperfil || null,
+			id_usuario: user.id
 	        });
 			enviandoMensagem = false;
 		  if (error) {
