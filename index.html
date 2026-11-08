@@ -1277,6 +1277,18 @@
 			box-shadow: none;
 			border: none;
 		}
+		.caixaebtndeletar {
+	display: none;
+	flex-direction: column;
+		}
+	.deletarmsgbtn {
+			background: #303134;
+		border-radius: 999px;
+		color: #FFFFFF;
+			}
+	.deletarmsgbtn:hover {
+			background: red;
+			}
     </style>
   </head>
   <body>
@@ -1417,12 +1429,15 @@
 	  <p class="copyright">© 2026 Luiz Fernando. Todos os direitos reservados.</p>
 	  <div id="janeladascomunidades">
 		  <button class="fecharjaneladascomunidades">X</button>
+		  <div class="caixaebtndeletar">
 		  <div class="caixa-conversa">
 			  <div id="textosdacaixaconversa">
 			  <img class="imagemperfilnaconversa" src="">
 			  <p class="nomedapessoanochat">nome</p>
 			  <p class="texto-conversa"></p>
 			  </div>
+		  </div>
+			  <button class="deletarmsgbtn">Deletar</button>
 		  </div>
 		  <div class="container-conversa"></div>
 		  <div id="chatebtn">
