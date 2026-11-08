@@ -1242,14 +1242,18 @@
 		.errorwindow {
 			display: none;
 			position: fixed;
-			background: linear-gradient(#010409, #010409) padding-box, linear-gradient(red, #FF2400) border-box;
+			background: linear-gradient(#010409, #010409) padding-box, linear-gradient(90deg, red, #FF2400) border-box;
 			color: #FFFFFF;
 			left: 50%;
 			top: 50%;
-			width: 50vw;
-			height: 25vh;
+			border: 2px solid transparent;
+			width: 70vw;
+			height: 20vh;
 			transform: translate(-50%, -50%);
 			border-radius: 30px;
+		}
+		.errorwindow p {
+			margin-top: 10px;
 		}
 		.errorwindow h2 {
 			color: transparent;
@@ -1261,7 +1265,7 @@
 		}
 		.fecharerrorwindow {
 			position: fixed;
-			left: 10px;
+			left: 5px;
 			top: 5px;
 			width: 32px;
 			height: 32px;
