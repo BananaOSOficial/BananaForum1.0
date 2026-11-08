@@ -291,9 +291,8 @@ fecharerrorwindow.onclick = function() {
 		  nomeconta.onclick = function() {
 			  if (menu.style.display === '') {
 			  menu.style.display = 'flex';
-			  }
 			  verificarseousuariojacriouconta();
-			  if (menu.style.display === 'flex') {
+			  } else {
 				  menu.style.display = 'none';
 			  }
 		  }
