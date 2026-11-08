@@ -291,6 +291,9 @@ fecharerrorwindow.onclick = function() {
 		  nomeconta.onclick = function() {
 			  menu.style.display = 'flex';
 			  verificarseousuariojacriouconta();
+			  if (menu.style.display === 'flex') {
+				  menu.style.display = 'none';
+			  }
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
 		  trocarnomeecriarconta.addEventListener('click', () => {
