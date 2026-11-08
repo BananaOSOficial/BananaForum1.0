@@ -289,7 +289,7 @@ fecharerrorwindow.onclick = function() {
 			  }
 		  })
 		  nomeconta.onclick = function() {
-			  if (menu.style.display === 'none') {
+			  if (menu.style.display === '') {
 			  menu.style.display = 'flex';
 			  }
 			  verificarseousuariojacriouconta();
