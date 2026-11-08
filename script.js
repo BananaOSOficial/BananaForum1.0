@@ -661,7 +661,7 @@ let erroaconteceu = false;
 				}
 			    button.textContent = 'Adicionando...';
 				button.disabled = true;
-				const {data: inserido, error: errorinsert} = await ClientUsuarios
+				const {data: inserido, error: errorinsert} = await Clientesupabase
 				  .from('amizades')
 				  .insert({ 
 					  usuario_id: iddousuario,
