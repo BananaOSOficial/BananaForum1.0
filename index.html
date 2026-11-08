@@ -1243,11 +1243,35 @@
 			display: none;
 			background: linear-gradient(#010409, #010409) padding-box, linear-gradient(red, #FF2400) border-box;
 			color: #FFFFFF;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
 			border-radius: 30px;
 		}
 		.errorwindow h2 {
+			color: transparent;
+			background: linear-gradient(red, #FF2400);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			padding-bottom: 10px;
+		}
+		.fecharerrorwindow {
+			position: fixed;
+			left: 10px;
+			top: 5px;
+			width: 32px;
+			height: 32px;
+			border-radius: 999px;
 			background-color: #303134;
-			color: red;
+			color: #FFFFFF;
+			border: 2px solid rgba(255,255,255,0.08);
+			box-shadow: 0 0 10px rgba(255,255,255,0.08);
+		}
+		.fecharerrorwindow:hover {
+			background: linear-gradient(red, #FF2400) padding-box;
+			box-shadow: none;
+			border: none;
 		}
     </style>
   </head>
@@ -1289,6 +1313,7 @@
 	</div>
 	</header>
 	<div class="errorwindow">
+		<button class="fecharerrorwindow">X</button>
 		<h2>Erro:</h2>
 		<p></p>
 	</div>
