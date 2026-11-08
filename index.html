@@ -1252,6 +1252,7 @@
 			height: 20vh;
 			transform: translate(-50%, -50%);
 			border-radius: 30px;
+			z-index: 105;
 		}
 		.errorwindow p {
 			margin-top: 10px;
@@ -1259,7 +1260,7 @@
 		.errorwindow h2 {
 			margin-top: 5px;
 			color: #FFFFFF;
-			background-color: #303134;
+			background-color: transparent;
 		}
 		.fecharerrorwindow {
 			position: fixed;
@@ -1274,7 +1275,7 @@
 			box-shadow: 0 0 10px rgba(255,255,255,0.08);
 		}
 		.fecharerrorwindow:hover {
-			background: linear-gradient(red, #FF2400) padding-box;
+			background: linear-gradient(90deg, red, #FF2400) padding-box;
 			box-shadow: none;
 			border: none;
 		}
