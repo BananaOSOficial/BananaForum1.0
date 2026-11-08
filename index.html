@@ -824,7 +824,11 @@
 			flex-direction: column;
 		}
 		.copyright {
-			color: #5b8def;
+			color: transparent;
+			background: linear-gradient(#5b8def, blue);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
 			font-size: x-small;
 			position: fixed;
 			right: 10px;
