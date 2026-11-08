@@ -86,7 +86,7 @@ fecharerrorwindow.onclick = function() {
 			  }
 			  botaoentrarconta.textContent = 'Entrando...';
 			  botaoentrarconta.disabled = true;
-			  const {data: usuario, error} = await ClientUsuarios
+			  const {data: usuario, error} = await Clientesupabase
 			  .from('usuarios')
 			  .select('id, nome, senha')
 			  .eq('nome', nome)
