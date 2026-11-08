@@ -22,6 +22,11 @@
 			  const ClientUsuarios = window.supabase.createClient(SUPABASEURL2, SUPABASE_ANON_KEY_2);
 		  const thumb = document.querySelector('.scrollbar-thumb');
 		  const track = document.querySelector('.scrollbar-track');
+const errorwindow = document.querySelector('.errorwindow');
+const fecharerrorwindow = document.querySelector('.fecharerrorwindow');
+fecharerrorwindow.onclick = function() {
+	errorwindow.style.display = 'none';
+}
 		  const menucominicioecriarcomunidade = document.getElementById('menucominicioecriarcomunidade');
 		  function atualizarscroll() {
 			  const altura = document.documentElement.scrollHeight;
@@ -328,7 +333,6 @@
           const janeladascomunidades = document.getElementById('janeladascomunidades');
 		  const nomedousuario = localStorage.getItem("nomeUsuario");
 		  const nomeusuariotext = document.querySelector('.nomeusuario').textContent;
-          const errorwindow = document.querySelector('.errorwindow');
 		  botaocriarcomunidade.addEventListener('click', async () => {
 			  const Nomecomunidade = inputNomedacomunidade.value.trim();
 			    if (Nomecomunidade === '') {
