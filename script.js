@@ -400,13 +400,26 @@ let ocorreuumerro = false;
 						p.textContent = 'Erro ao carregar mensagens:' + error.message;
 		  }
 			  if (ocorreuumerro) return;
-			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem, m.avatar));
+			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem, m.avatar, m.id, m.id_usuario));
 			    track.style.display = 'none';
 			  document.body.style.overflow = 'hidden';
 					}
-		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar) {
-			  const novacaixa = caixaconversa.cloneNode(true);
+const caixaebtndeletar = document.querySelector('.caixaebtndeletar');
+const deletarmsgbtn = document.querySelector('.deletarmsgbtn');
+		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar, id, iddaMensagem, iddapessoaquemandou) {
+			  const novacaixaebtndeletar = caixaebtndeletar.cloneNode(true);
+			  const novacaixa = novacaixaebtndeletar.querySelector('.caixa-conversa');
 			  novacaixa.style.display = 'flex';
+			  novacaixaebtndeletar.style.display = 'flex';
+              if (deletarmsgbtn) {
+			  if (String(idMensagem) === String(idUsuario)) {
+				  deletarmsgbtn.style.display = 'block';
+				  deletarmsgbtn.onclick = async function() {
+				  await deletarmensagem(iddaMensagem, novacaixa);
+				  }; } else {
+				  deletarmsgbtn.style.display = 'none';
+			  }
+			  }
 			  const imgPerfil = novacaixa.querySelector('.imagemperfilnaconversa');
 			  if (imgPerfil) {
 				  if (urlAvatar) {
@@ -423,9 +436,9 @@ let ocorreuumerro = false;
 				  novacaixa.style.backgroundColor = '#5b8def';
 				  novacaixa.style.boxShadow = '0 0 10px #5b8def';
 				  novacaixa.querySelector('.nomedapessoanochat').style.color = 'blue';
-				  novacaixa.style.alignSelf = 'flex-end';
+				  novacaixaebtndeletar.style.alignSelf = 'flex-end';
 			  } else {
-				  novacaixa.style.alignSelf = 'flex-start';
+				  novacaixaebtndeletar.style.alignSelf = 'flex-start';
 			  }
 			  if (urlImagem) {
 				  const img = document.createElement('img');
@@ -438,9 +451,23 @@ let ocorreuumerro = false;
 		  };
 			  const novotexto = novacaixa.querySelector('.texto-conversa');
 			  novotexto.textContent = texto;
-			  containerconversa.appendChild(novacaixa);
+			  containerconversa.appendChild(novacaixaebtndeletar);
 			  return novacaixa;
 		  }
+
+async function deletarmensagem(iddamensagem, elementoMensagem) {
+	const {error} = await Clientesupabase
+	.from('mensagens')
+    .delete()
+	.eq('id', iddamensagem);
+
+	if (error) {
+		alert('Erro ao remover mensagem: ' + error.message);
+		return;
+	}
+		
+	elementoMensagem.remove();
+}
 		  let enviandoMensagem = false;
 		  const enviarbtn = document.getElementById('enviar');
 		  enviarbtn.addEventListener('click', async () => {
