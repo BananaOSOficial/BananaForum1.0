@@ -857,7 +857,7 @@ if (!idUsuario) return;
 				  const nomeSalvo = localStorage.getItem("nomeUsuario");
 				  const idSalvo = localStorage.getItem("idUsuario");
 				  if (nomeSalvo && !idSalvo) {
-					  const {data, error} = await ClientUsuarios
+					  const {data, error} = await Clientsupabase
 					  .from('usuarios')
 					  .select('id')
 					  .eq('nome', nomeSalvo)
