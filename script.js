@@ -328,6 +328,7 @@
           const janeladascomunidades = document.getElementById('janeladascomunidades');
 		  const nomedousuario = localStorage.getItem("nomeUsuario");
 		  const nomeusuariotext = document.querySelector('.nomeusuario').textContent;
+          const errorwindow = document.querySelector('.errorwindow');
 		  botaocriarcomunidade.addEventListener('click', async () => {
 			  const Nomecomunidade = inputNomedacomunidade.value.trim();
 			    if (Nomecomunidade === '') {
@@ -345,8 +346,9 @@
 			.select()
 			.single();
 			  if (error) {
-				  alert('Erro:' + error.message);
-				  return;
+				  errorwindow.style.display = 'block';
+				  const p = errorwindow.querySelector('p');
+				  p.textContent = error.message;
 		  }
 			   criarElementocomunidade({id: data.id, nome: data.nome});
 			  inputNomedacomunidade.value = '';
@@ -384,8 +386,9 @@
 			    .eq('comunidade_id', comunidade.id)
 		         .order('criado_em', {ascending: true});
 			    if (error) {
-					alert('Erro ao carregar mensagens' + error.message);
-					return;
+					errorwindow.style.display = 'block';
+					const p = errorwindow.querySelector('p')
+						p.textContent = 'Erro ao carregar mensagens:' + error.message;
 		  }
 			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem, m.avatar));
 			    track.style.display = 'none';
@@ -521,11 +524,13 @@
 			  if (error) {
 				  janelacriarconta.classList.add('aberta');
 				  if (error.code === '23505') {
-					  alert('Coloque um nome que uma pessoa não está usando');
-					  return;
+					  errorwindow.style.display = 'block';
+					  const p = errorwindow.querySelector('p');
+					  p.textContent = 'Coloque um nome que uma pessoa não está usando';
 				  } else {
-				  alert('Erro ao trocar nome:' + error.message);
-				  return;
+				  errorwindow.style.display = 'block';
+				  const p = errorwindow.querySelector('p');
+				  p.textContent = 'Erro ao trocar nome:' + error.message;
 			  }
 			  }
 			  if (inserirnomenovo) {
@@ -551,11 +556,13 @@
 			  if (error) {
 				  janelacriarconta.style.display = 'flex';
 				  if (error.code === '23505') {
-					  alert('Coloque um nome que ninguém usou');
-					  return;
+					  errorwindow.style.display = 'block';
+					  const p = errorwindow.querySelector('p');
+					  p.textContent = 'Coloque um nome que ninguém usou';
 				  } else {
-				  alert('Erro ao criar conta: ' + error.message);
-				  return;
+				  errorwindow.style.display = 'block';
+				  const p = errorwindow.querySelector('p');
+				  p.textContent = 'Erro ao criar conta: ' + error.message;
 				  }
 			  }
 			  if (data) {
