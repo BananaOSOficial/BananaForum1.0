@@ -803,7 +803,7 @@ if (!idUsuario) return;
 		  async function carregaramizades() {
 			  const idUsuario = localStorage.getItem("idUsuario");
 			  if (!idUsuario) return;
-			  const {data, error} = await ClientUsuarios
+			  const {data, error} = await Clientesupabase
 			  .from('amizades')
 			  .select('amigo_id')
 			  .eq('usuario_id', idUsuario);
@@ -819,12 +819,12 @@ if (!idUsuario) return;
 				  container.innerHTML = '<p>Crie uma conta primeiro</p>';
 				return;
 			  }
-			  const {data: amizades} = await ClientUsuarios.from('amizades').select('amigo_id').eq('usuario_id', idUsuario);
+			  const {data: amizades} = await Clientesupabase.from('amizades').select('amigo_id').eq('usuario_id', idUsuario);
 			  if (!amizades || amizades.length === 0) {
 	container.innerHTML = '<p>Você não está seguindo nenhuma pessoa neste momento</p>';
 				  return;
 			  }
-			  const {data: usuarios} = await ClientUsuarios.from('usuarios').select('id, nome').in('id', amizades.map(a => a.amigo_id));
+			  const {data: usuarios} = await Clientesupabase.from('usuarios').select('id, nome').in('id', amizades.map(a => a.amigo_id));
 			  usuarios.forEach(u => {
 				  const p1 = document.createElement('p');
 				 const p2 = document.createElement('p');
