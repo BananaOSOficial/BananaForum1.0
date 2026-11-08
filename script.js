@@ -333,6 +333,7 @@ fecharerrorwindow.onclick = function() {
           const janeladascomunidades = document.getElementById('janeladascomunidades');
 		  const nomedousuario = localStorage.getItem("nomeUsuario");
 		  const nomeusuariotext = document.querySelector('.nomeusuario').textContent;
+let ocorreuumerro = false;
 		  botaocriarcomunidade.addEventListener('click', async () => {
 			  const Nomecomunidade = inputNomedacomunidade.value.trim();
 			    if (Nomecomunidade === '') {
@@ -350,11 +351,12 @@ fecharerrorwindow.onclick = function() {
 			.select()
 			.single();
 			  if (error) {
+				  ocorreuumerro = true;
 				  errorwindow.style.display = 'block';
 				  const p = errorwindow.querySelector('p');
-				  p.textContent = error.message;
-				  return;
+				  p.textContent = 'Erro ao criar comunidade: ' + error.message;
 		  }
+			  if (ocorreuumerro) return;
 			   criarElementocomunidade({id: data.id, nome: data.nome});
 			  inputNomedacomunidade.value = '';
 			  janelacriarcomunidade.classList.remove('aberta');
@@ -391,12 +393,15 @@ fecharerrorwindow.onclick = function() {
 			    .eq('comunidade_id', comunidade.id)
 		         .order('criado_em', {ascending: true});
 			    if (error) {
+					ocorreuumerro = true;
 					errorwindow.style.display = 'block';
 					const p = errorwindow.querySelector('p')
 						p.textContent = 'Erro ao carregar mensagens:' + error.message;
 		  }
+			  if (ocorreuumerro) return;
 			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem, m.avatar));
 			    track.style.display = 'none';
+			  document.body.style.overflow = 'hidden';
 					}
 		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar) {
 			  const novacaixa = caixaconversa.cloneNode(true);
