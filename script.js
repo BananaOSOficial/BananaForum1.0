@@ -349,6 +349,7 @@
 				  errorwindow.style.display = 'block';
 				  const p = errorwindow.querySelector('p');
 				  p.textContent = error.message;
+				  return;
 		  }
 			   criarElementocomunidade({id: data.id, nome: data.nome});
 			  inputNomedacomunidade.value = '';
@@ -527,10 +528,12 @@
 					  errorwindow.style.display = 'block';
 					  const p = errorwindow.querySelector('p');
 					  p.textContent = 'Coloque um nome que uma pessoa não está usando';
+					  return;
 				  } else {
 				  errorwindow.style.display = 'block';
 				  const p = errorwindow.querySelector('p');
 				  p.textContent = 'Erro ao trocar nome:' + error.message;
+				  return;
 			  }
 			  }
 			  if (inserirnomenovo) {
