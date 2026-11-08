@@ -562,7 +562,7 @@ let erroaconteceu = false;
 				  criarcontabtn.disabled = true;
 				  const salt = await bcrypt.genSalt(10);
 	const hash = await bcrypt.hash(senhadigitada, salt);
-			  const {data, error} = await ClienteSupabase
+			  const {data, error} = await Clientesupabase
 			  .from('usuarios', {schema: 'public'})
 			  .insert({nome: novonome,
 					  senha: hash
@@ -618,7 +618,7 @@ let erroaconteceu = false;
 			  containerpessoas.innerHTML = '<p>Pesquisando...</p>';
 			  const containerpessoasadicionadas = document.getElementById('pessoasadicionadas');
 			  containerpessoasadicionadas.innerHTML = '';
-			  const {data, error} = await ClientSupabase
+			  const {data, error} = await Clientsupabase
 			  .from('usuarios')
 		      .select('id, nome')
 	          .ilike('nome', `%${textodotextarea}%`)
