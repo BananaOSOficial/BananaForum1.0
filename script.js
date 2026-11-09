@@ -405,7 +405,7 @@ let ocorreuumerro = false;
 			  document.body.style.overflow = 'hidden';
 					}
 const caixaebtndeletar = document.querySelector('.caixaebtndeletar');
-const iddousuario = localStorage.getItem('iddousuario');
+const iddousuario = localStorage.getItem('idUsuario');
 		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar,iddaMensagem, iddapessoaquemandou) {
 			  const novacaixaebtndeletar = caixaebtndeletar.cloneNode(true);
 			  const novacaixa = novacaixaebtndeletar.querySelector('.caixa-conversa');
