@@ -1285,7 +1285,10 @@
 			align-self: flex-end;
 		}
 	.deletarmsgbtn {
-		display: flex;
+		display: none;
+		position: fixed;
+		left: 50%;
+		top: 50%;
 			background: transparent !important;
 		border-radius: 999px;
 		color: #FFFFFF;
@@ -1294,6 +1297,7 @@
 		width: 32px;
 		border: 2px solid rgba(255,255,255,0.1) !important;
 		transform: scale(1);
+		transform: translate(-50%, -50%);
 		transition: transform 0.5s ease;
 			}
 	.deletarmsgbtn:hover {
