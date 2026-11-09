@@ -1284,7 +1284,7 @@
 		.caixaebtndeletar button {
 			align-self: flex-end;
 		}
-	.deletarmsgbtn {
+	.caixaebtndeletar .deletarmsgbtn {
 		display: none;
 		position: fixed;
 		left: 50%;
@@ -1292,16 +1292,11 @@
 			background: transparent !important;
 		border-radius: 999px;
 		color: #FFFFFF;
-		margin-top: 10px;
-		height: 32px;
-		width: 32px;
+		flex-direction: row;
 		border: 2px solid rgba(255,255,255,0.1) !important;
-		transform: scale(1);
 		transform: translate(-50%, -50%);
-		transition: transform 0.5s ease;
 			}
 	.deletarmsgbtn:hover {
-		transform: scale(1.1);
 		border-color: red !important;
 			background: transparent !important;
 		box-shadow: 0 0 10px #3c3d41;
@@ -1310,8 +1305,8 @@
 			fill: red;
 		}
 		.deletarmsgbtn svg {
-			width: 16px;
-			height: 16px;
+			width: 32px;
+			height: 32px;
 		}
     </style>
   </head>
@@ -1472,7 +1467,7 @@
 		s1.5,0.672,1.5,1.5V35.67z M25.168,5.668h-9V3h9V5.668z M30.168,35.67c0,0.828-0.672,1.5-1.5,1.5s-1.5-0.672-1.5-1.5v-21
 		c0-0.828,0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5V35.67z"/>
 </g>
-			  </svg></button>
+			  </svg>Deletar</button>
 		  </div>
 		  <div class="container-conversa"></div>
 		  <div id="chatebtn">
