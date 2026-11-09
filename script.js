@@ -422,13 +422,8 @@ const iddousuario = localStorage.getItem('idUsuario');
 				  }
 			  }
               if (deletarmsgbtn) {
-			  if (String(iddapessoaquemandou) === String(iddousuario)) {
-				  deletarmsgbtn.style.display = 'block';
 				  deletarmsgbtn.onclick = async function() {
 				  await deletarmensagem(iddaMensagem, novacaixaebtndeletar);
-				  novacaixaebtndeletar.style.display = 'none';
-				  }; } else {
-				  deletarmsgbtn.style.display = 'none';
 			  }
 			  }
 			  const imgPerfil = novacaixa.querySelector('.imagemperfilnaconversa');
