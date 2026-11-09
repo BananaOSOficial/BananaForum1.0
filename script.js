@@ -416,6 +416,7 @@ const deletarmsgbtn = document.querySelector('.deletarmsgbtn');
 				  deletarmsgbtn.style.display = 'block';
 				  deletarmsgbtn.onclick = async function() {
 				  await deletarmensagem(iddaMensagem, novacaixaebtndeletar);
+				  novacaixaebtndeletar.style.display = 'none';
 				  }; } else {
 				  deletarmsgbtn.style.display = 'none';
 			  }
