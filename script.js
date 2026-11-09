@@ -405,6 +405,7 @@ let ocorreuumerro = false;
 			  document.body.style.overflow = 'hidden';
 					}
 const caixaebtndeletar = document.querySelector('.caixaebtndeletar');
+const iddousuario = localStorage.getItem('iddousuario');
 		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar,iddaMensagem, iddapessoaquemandou) {
 			  const novacaixaebtndeletar = caixaebtndeletar.cloneNode(true);
 			  const novacaixa = novacaixaebtndeletar.querySelector('.caixa-conversa');
@@ -412,7 +413,7 @@ const caixaebtndeletar = document.querySelector('.caixaebtndeletar');
 			  novacaixaebtndeletar.style.display = 'flex';
 			  const deletarmsgbtn = novacaixaebtndeletar.querySelector('.deletarmsgbtn');
               if (deletarmsgbtn) {
-			  if (String(iddapessoaquemandou) === String(idUsuario)) {
+			  if (String(iddapessoaquemandou) === String(iddousuario)) {
 				  deletarmsgbtn.style.display = 'block';
 				  deletarmsgbtn.onclick = async function() {
 				  await deletarmensagem(iddaMensagem, novacaixaebtndeletar);
