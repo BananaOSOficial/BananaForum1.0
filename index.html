@@ -1286,18 +1286,19 @@
 		}
 	.deletarmsgbtn {
 		display: flex;
-			background: #303134;
+			background: transparent;
 		border-radius: 999px;
 		color: #FFFFFF;
 		margin-top: 10px;
 		height: 32px;
 		width: 32px;
-		border: none;
+		border: 2px solid rgba(255,255,255,0.1) !important;
 		transform: scale(1);
 		transition: transform 0.5s ease;
 			}
 	.deletarmsgbtn:hover {
 		transform: scale(1.1);
+		border-color: red;
 			background: #3c3d41 !important;
 		box-shadow: 0 0 10px #3c3d41;
 			}
