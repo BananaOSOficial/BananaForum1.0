@@ -405,12 +405,12 @@ let ocorreuumerro = false;
 			  document.body.style.overflow = 'hidden';
 					}
 const caixaebtndeletar = document.querySelector('.caixaebtndeletar');
-const deletarmsgbtn = document.querySelector('.deletarmsgbtn');
 		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar,iddaMensagem, iddapessoaquemandou) {
 			  const novacaixaebtndeletar = caixaebtndeletar.cloneNode(true);
 			  const novacaixa = novacaixaebtndeletar.querySelector('.caixa-conversa');
 			  novacaixa.style.display = 'flex';
 			  novacaixaebtndeletar.style.display = 'flex';
+			  const deletarmsgbtn = novacaixaebtndeletar.querySelector('.deletarmsgbtn');
               if (deletarmsgbtn) {
 			  if (String(iddapessoaquemandou) === String(idUsuario)) {
 				  deletarmsgbtn.style.display = 'block';
