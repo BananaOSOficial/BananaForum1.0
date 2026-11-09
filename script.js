@@ -422,6 +422,7 @@ const iddousuario = localStorage.getItem('idUsuario');
 				  }
 			  }
               if (deletarmsgbtn) {
+				  deletarmsgbtn.style.display = 'none';
 				  deletarmsgbtn.onclick = async function() {
 				  await deletarmensagem(iddaMensagem, novacaixaebtndeletar);
 			  }
