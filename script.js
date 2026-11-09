@@ -421,9 +421,11 @@ const iddousuario = localStorage.getItem('idUsuario');
 				  }
 				  }
 			  }
+			  const svgdobtndeletar = deletarmsgbtn.querySelector('svg');
               if (deletarmsgbtn) {
 				  deletarmsgbtn.style.display = 'none';
-				  deletarmsgbtn.onclick = async function() {
+				  svgdobtndeletar.onclick = async function() {
+				  const resposta = window.confirm('Você deseja apagar mesmo? se não cancele');
 				  await deletarmensagem(iddaMensagem, novacaixaebtndeletar);
 			  }
 			  }
