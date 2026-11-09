@@ -413,11 +413,8 @@ const iddousuario = localStorage.getItem('idUsuario');
 			  novacaixaebtndeletar.style.display = 'flex';
 			  const deletarmsgbtn = novacaixaebtndeletar.querySelector('.deletarmsgbtn');
 			  novacaixa.onclick = function() {
-				  if (String(iddapessoaquemandou) === String(!iddousuario)) {
-					  deletarmsgbtn.style.display === 'none';
-				  }
-				  if (deletarmsgbtn.style.display === 'none') {
-				  deletarmsgbtn.style.display = 'flex';
+				  if (String(iddapessoaquemandou) === String(iddousuario)) {
+					  deletarmsgbtn.style.display = 'flex';
 				  } else {
 					  deletarmsgbtn.style.display = 'none';
 				  }
