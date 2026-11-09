@@ -400,22 +400,22 @@ let ocorreuumerro = false;
 						p.textContent = 'Erro ao carregar mensagens:' + error.message;
 		  }
 			  if (ocorreuumerro) return;
-			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem, m.avatar, m.id, m.id_usuario));
+			    mensagens.forEach(m => renderizarMensagem(m.nome, m.texto, m.imagem, m.avatar,m.id, m.id_usuario));
 			    track.style.display = 'none';
 			  document.body.style.overflow = 'hidden';
 					}
 const caixaebtndeletar = document.querySelector('.caixaebtndeletar');
 const deletarmsgbtn = document.querySelector('.deletarmsgbtn');
-		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar, id, iddaMensagem, iddapessoaquemandou) {
+		  function renderizarMensagem(nome, texto, urlImagem, urlAvatar,iddaMensagem, iddapessoaquemandou) {
 			  const novacaixaebtndeletar = caixaebtndeletar.cloneNode(true);
 			  const novacaixa = novacaixaebtndeletar.querySelector('.caixa-conversa');
 			  novacaixa.style.display = 'flex';
 			  novacaixaebtndeletar.style.display = 'flex';
               if (deletarmsgbtn) {
-			  if (String(iddaMensagem) === String(idUsuario)) {
+			  if (String(id) === String(idUsuario)) {
 				  deletarmsgbtn.style.display = 'block';
 				  deletarmsgbtn.onclick = async function() {
-				  await deletarmensagem(iddaMensagem, novacaixa);
+				  await deletarmensagem(iddaMensagem, novacaixaebtndeletar);
 				  }; } else {
 				  deletarmsgbtn.style.display = 'none';
 			  }
@@ -491,7 +491,7 @@ async function deletarmensagem(iddamensagem, elementoMensagem) {
 		  const imagemperfilnaconversa = document.getElementById('imagemperfilnaconversa');
 		  const nomeatual = localStorage.getItem("nomeUsuario") || "Usuario";
 		  enviandoMensagem = true;
-		  const {error} = await Clientesupabase
+		  const {data: mensagem, error} = await Clientesupabase
 		  .from('mensagens')
 		  .insert({
 			comunidade_id: comunidadeAtualId,
@@ -507,7 +507,7 @@ async function deletarmensagem(iddamensagem, elementoMensagem) {
 		  return;
 		  }
 		  const containerimagemchat = document.getElementById('container-imagemchat');
-		  const novacaixa = renderizarMensagem(nomeatual, texto, URLimagempendente, imagemperfil);
+		  const novacaixa = renderizarMensagem(nomeatual, texto, URLimagempendente, imagemperfil, mensagem.id, idUsuario);
 		  containerimagemchat.innerHTML = '';
 		  URLimagempendente = null;
 		  chat.value = "";
