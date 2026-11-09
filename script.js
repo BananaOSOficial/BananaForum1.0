@@ -425,7 +425,8 @@ const iddousuario = localStorage.getItem('idUsuario');
               if (deletarmsgbtn) {
 				  deletarmsgbtn.style.display = 'none';
 				  svgdobtndeletar.onclick = async function() {
-				  const resposta = confirm('Você deseja apagar mesmo? se não cancele');
+				  const confirm = confirm('Você deseja apagar mesmo? se não cancele');
+					  if (!confirm) return;
 				  await deletarmensagem(iddaMensagem, novacaixaebtndeletar);
 			  }
 			  }
