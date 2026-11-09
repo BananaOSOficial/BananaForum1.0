@@ -341,7 +341,7 @@ let ocorreuumerro = false;
 			  alert('Digite o nome da comunidade');
 			  return;
 		  };
-			  if (!idUsuario) {
+			  if (!iddoUsuario) {
 				  alert("Crie uma conta antes de criar uma comunidade");
 				  inputNomedacomunidade.value = '';
 				  return;
