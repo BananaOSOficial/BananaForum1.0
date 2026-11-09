@@ -412,6 +412,13 @@ const iddousuario = localStorage.getItem('idUsuario');
 			  novacaixa.style.display = 'flex';
 			  novacaixaebtndeletar.style.display = 'flex';
 			  const deletarmsgbtn = novacaixaebtndeletar.querySelector('.deletarmsgbtn');
+			  novacaixa.onclick = function() {
+				  if (deletarmsgbtn.style.display === 'none') {
+				  deletarmsgbtn.style.display = 'block';
+				  } else {
+					  deletarmsgbtn.style.display = 'none';
+				  }
+			  }
               if (deletarmsgbtn) {
 			  if (String(iddapessoaquemandou) === String(iddousuario)) {
 				  deletarmsgbtn.style.display = 'block';
