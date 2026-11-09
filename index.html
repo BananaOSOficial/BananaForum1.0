@@ -1287,22 +1287,19 @@
 		}
 	.caixaebtndeletar .deletarmsgbtn {
 		display: none;
-			background: rgba(0,0,0,0.7) !important;
+			background: transparent !important;
 		border-radius: 5px !important;
 		align-items: center;
 		margin-left: 5px;
 		width: fit-content;
-		border: 2px solid rgba(255,255,255,0.1) !important;
+		border: none !important;
 		transform: scale(1.0);
 		transition: transform 0.5s ease;
 			}
-	.deletarmsgbtn:hover {
-		border-color: red !important;
-			background: transparent !important;
-		box-shadow: 0 0 10px red;
+	.deletarmsgbtn svg:hover {
 		transform: scale(1.1);
 			}
-		.deletarmsgbtn:hover svg path {
+		.deletarmsgbtn svg:hover path {
 			fill: red;
 		}
 		.deletarmsgbtn svg {
