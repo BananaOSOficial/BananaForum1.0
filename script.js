@@ -421,13 +421,15 @@ const iddousuario = localStorage.getItem('idUsuario');
 				  }
 				  }
 			  }
-			  const svgdobtndeletar = deletarmsgbtn.querySelector('svg');
               if (deletarmsgbtn) {
 				  deletarmsgbtn.style.display = 'none';
+				  const svgdobtndeletar = deletarmsgbtn.querySelector('svg');
+				  if (svgdobtndeletar) {
 				  svgdobtndeletar.onclick = async function() {
 				  const confirmaroucancelar = confirm('Você deseja apagar mesmo? se não cancele');
 					  if (!confirmaroucancelar) return;
 				  await deletarmensagem(iddaMensagem, novacaixaebtndeletar);
+				  }
 			  }
 			  }
 			  const imgPerfil = novacaixa.querySelector('.imagemperfilnaconversa');
