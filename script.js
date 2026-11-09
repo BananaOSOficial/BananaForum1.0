@@ -417,7 +417,7 @@ const iddousuario = localStorage.getItem('idUsuario');
 					  deletarmsgbtn.style.display === 'none';
 				  }
 				  if (deletarmsgbtn.style.display === 'none') {
-				  deletarmsgbtn.style.display = 'block';
+				  deletarmsgbtn.style.display = 'flex';
 				  } else {
 					  deletarmsgbtn.style.display = 'none';
 				  }
