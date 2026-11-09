@@ -500,7 +500,9 @@ async function deletarmensagem(iddamensagem, elementoMensagem) {
 		    imagem: URLimagempendente,
 			avatar: imagemperfil || null,
 			id_usuario: idUsuario
-	        });
+	        })
+			.select()
+			  .single();
 			enviandoMensagem = false;
 		  if (error) {
 		  alert('Erro ao enviar: ' + error.message);
