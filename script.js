@@ -230,7 +230,7 @@ fecharerrorwindow.onclick = function() {
 		  document.addEventListener('click', (e) => {
 			  if (!menu.contains(e.target) && e.target !== nomeconta) {
 				  menu.style.display = 'none';
-				  nomeconta.style.background = 'transparent';
+				  nomeconta.style.background = '';
 				  nomeconta.style.color = '#FFFFFF';
 			  }
 		  })
