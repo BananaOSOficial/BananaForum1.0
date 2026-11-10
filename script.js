@@ -296,7 +296,7 @@ fecharerrorwindow.onclick = function() {
 			  verificarseousuariojacriouconta();
 			  } else {
 				  menu.style.display = 'none';
-				  nomeconta.style.background = 'transparent';
+				  nomeconta.style.background = '';
 				  nomeconta.style.backgroundClip = 'none';
 				  nomeconta.style.color = '#FFFFFF';
 			  }
