@@ -31,6 +31,12 @@ fecharerrorwindow.onclick = function() {
 			  const posicao = window.scrollY / (altura - janela);
 			  const alturaThumb = thumb.offsetHeight;
 			  const espacothumb = janela - alturaThumb;
+			  if (altura > janela) {
+				  track.style.display = 'block';
+			  } else {
+				  track.style.display = 'none';
+				  return;
+			  }
               if (espacothumb <= 0) {
 				  return;
 			  }
