@@ -288,12 +288,14 @@ fecharerrorwindow.onclick = function() {
 		  nomeconta.onclick = function() {
 			  if (menu.style.display === 'none' || menu.style.display === '') {
 			  menu.style.display = 'flex';
+			  nomeconta.style.color = 'transparent';
 			  nomeconta.style.background = 'linear-gradient(90deg, #5b8def, blue)';
 				  nomeconta.style.backgroundClip = 'text';
 			  verificarseousuariojacriouconta();
 			  } else {
 				  menu.style.display = 'none';
 				  nomeconta.style.background = 'none';
+				  nomeconta.style.color = '#FFFFFF';
 			  }
 		  }
 		  const janelacriarconta = document.getElementById('janelacriarconta');
