@@ -230,6 +230,8 @@ fecharerrorwindow.onclick = function() {
 		  document.addEventListener('click', (e) => {
 			  if (!menu.contains(e.target) && e.target !== nomeconta) {
 				  menu.style.display = 'none';
+				  nomeconta.style.background = 'transparent';
+				  nomeconta.style.color = '#FFFFFF';
 			  }
 		  })
 		  const botaocolocarfoto = document.querySelector('.botaocolocarfoto');
@@ -294,7 +296,7 @@ fecharerrorwindow.onclick = function() {
 			  verificarseousuariojacriouconta();
 			  } else {
 				  menu.style.display = 'none';
-				  nomeconta.style.background = 'none';
+				  nomeconta.style.background = 'transparent';
 				  nomeconta.style.color = '#FFFFFF';
 			  }
 		  }
