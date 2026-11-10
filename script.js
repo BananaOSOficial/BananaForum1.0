@@ -28,15 +28,15 @@ fecharerrorwindow.onclick = function() {
 		  function atualizarscroll() {
 			  const altura = document.documentElement.scrollHeight;
 			  const janela = window.innerHeight;
-			  const posicao = window.scrollY / (altura - janela);
-			  const alturaThumb = thumb.offsetHeight;
-			  const espacothumb = janela - alturaThumb;
 			  if (altura > janela) {
 				  track.style.display = 'block';
 			  } else {
 				  track.style.display = 'none';
 				  return;
 			  }
+			  const posicao = window.scrollY / (altura - janela);
+			  const alturaThumb = thumb.offsetHeight;
+			  const espacothumb = janela - alturaThumb;
               if (espacothumb <= 0) {
 				  return;
 			  }
