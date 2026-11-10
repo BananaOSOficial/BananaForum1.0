@@ -1309,12 +1309,17 @@
 		}
 		.nomeforum {
 			margin-top: 110px;
-			width: fit-content;
-			border-bottom: 2px solid #5b8def;
 			color: transparent;
 			background: linear-gradient(90deg, #5b8def, blue);
+			padding-bottom: 10px;
 			background-clip: text;
 		    -webkit-text-fill-color: transparent;
+		}
+		.nomeforum:after {
+			content: "";
+			background: linear-gradient(90deg, #5b8def, blue);
+			width: 50%;
+			border-radius: 999px;
 		}
     </style>
   </head>
