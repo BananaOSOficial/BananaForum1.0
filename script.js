@@ -231,6 +231,7 @@ fecharerrorwindow.onclick = function() {
 			  if (!menu.contains(e.target) && e.target !== nomeconta) {
 				  menu.style.display = 'none';
 				  nomeconta.style.background = '';
+				  nomeconta.style.backgroundClip = 'none';
 				  nomeconta.style.color = '#FFFFFF';
 			  }
 		  })
