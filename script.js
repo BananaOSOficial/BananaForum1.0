@@ -297,6 +297,7 @@ fecharerrorwindow.onclick = function() {
 			  } else {
 				  menu.style.display = 'none';
 				  nomeconta.style.background = 'transparent';
+				  nomeconta.style.backgroundClip = 'none';
 				  nomeconta.style.color = '#FFFFFF';
 			  }
 		  }
