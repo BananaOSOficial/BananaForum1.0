@@ -438,7 +438,7 @@
 		}
 		#chatebtn {
 			flex-direction: row;
-			align-items: flex-end;
+			align-items: center;
 			display: flex;
 			gap: 15px;
 			width: 80vw;
@@ -447,7 +447,7 @@
 			background: #010409;
 			border: 2px solid #30363D;
 			box-shadow: 0 0 10px #30363D;
-			border-radius: 6px;
+			border-radius: 8px;
 			align-self: center;
 			height: auto;
 			transition: border 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
@@ -467,6 +467,10 @@
 		}
 		#chatebtn:focus-within .botoes button:hover {
 			box-shadow: 0 0 10px #5b8def !important;
+		}
+		.botoes {
+			display: flex;
+			align-items: flex-end;
 		}
 		.botoes button {
 			background: linear-gradient(transparent, transparent) padding-box, linear-gradient(#5b8def, blue) border-box;
@@ -671,7 +675,6 @@
 		}
 		#chatebtn textarea {
 			flex-shrink: 0;
-			width: 100%;
 			max-height: 150px;
 			caret-color: #5b8def;
 			margin-left: 0;
