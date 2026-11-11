@@ -450,11 +450,9 @@
 			transition: border 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
 		}
 		#chatebtn:focus-within {
-			border: none;
+			border-color: #5b8def;
 			background: linear-gradient(rgba(48,49,52,1), #010409) padding-box;
-			box-shadow: 1px -1px 5px #5b8def,
-				2px -2px 5px blue, 
-			5px -3px 5px #5b8def;
+			box-shadow: 0 0 5px #5b8def;
 		}
 		#chatebtn:focus-within button {
 			background: linear-gradient(transparent, transparent) padding-box, linear-gradient(#5b8def, blue) border-box;
@@ -714,13 +712,17 @@
 		  transition: background 0.5s ease, box-shadow 0.5s ease;
 		}
 		#container-imagemchat {
+			position: absolute;
+			bottom: 100%;
 			align-self: stretch;
 			max-height: 100px;
 			z-index: 2;
 		}
 		#container-imagemchat img {
-			width: 32px;
-			height: 32px;
+			width: 64px;
+			border: 2px solid transparent;
+			background: linear-gradient(#010409, #010409) padding-box, linear-gradient(#5b8def, blue) border-box;
+			height: 64px;
 			margin-bottom: 4px;
 		}
 		#janelaimagem {
