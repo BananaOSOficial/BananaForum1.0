@@ -447,7 +447,7 @@
 			background: #010409;
 			border: 2px solid #30363D;
 			box-shadow: 0 0 10px #30363D;
-			border-radius: 8px;
+			border-radius: 10px;
 			align-self: center;
 			height: auto;
 			transition: border 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
@@ -1344,6 +1344,10 @@
 			margin-top: 5px;
 			transform: translateX(-50%);
 		}
+		#textareaeimagemchat {
+			display: flex;
+			flex-direction: column;
+		}
     </style>
   </head>
   <body>
@@ -1508,9 +1512,11 @@
 		  </div>
 		  <div class="container-conversa"></div>
 		  <div id="chatebtn">
+		  <div id="textareaeimagemchat">
 		  <div id="container-imagemchat">
 		  </div>
 		  <textarea id="chat" rows="1" placeholder="Converse com outros dessa comunidade"></textarea>
+		  </div>
 		  <div class="botoes">
 		  <input type="file" id="input-foto" accept="image/*" style="display: none;">
 		  <button id="anexar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
