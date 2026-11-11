@@ -672,7 +672,7 @@ let erroaconteceu = false;
 			  containerpessoas.innerHTML = '<p>Pesquisando...</p>';
 			  const containerpessoasadicionadas = document.getElementById('pessoasadicionadas');
 			  containerpessoasadicionadas.innerHTML = '';
-			  const {data, error} = await Clientsupabase
+			  const {data, error} = await Clientesupabase
 			  .from('usuarios')
 		      .select('id, nome')
 	          .ilike('nome', `%${textodotextarea}%`)
