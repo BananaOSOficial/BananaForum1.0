@@ -715,12 +715,16 @@
 		}
 		#container-imagemchat {
 			align-self: stretch;
+			position: absolute;
+			bottom: 100%;
+			left: 3px;
 			max-height: 100px;
+			z-index: 2;
 		}
 		#container-imagemchat img {
 			width: 32px;
 			height: 32px;
-			margin-bottom: 20px;
+			margin-bottom: 4px;
 		}
 		#janelaimagem {
 			position: fixed;
@@ -1348,9 +1352,10 @@
 		#textareaeimagemchat {
 			display: flex;
 			flex-direction: column;
+			position: relative;
 		}
 		#textareaeimagemchat textarea {
-			margin-top: 5px;
+			margin-top: 2px;
 		}
     </style>
   </head>
