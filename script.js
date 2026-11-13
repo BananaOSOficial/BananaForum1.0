@@ -847,7 +847,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		      image.style.borderRadius = '10px';
 			  image.onclick = function() {
 				  const jaVisivel = tirarimagem.classList.contains('visivel');
-				  if (tirarimagem.classList.toggle('visivel', !jaVisivel) {
+				  if (tirarimagem.classList.toggle('visivel', !jaVisivel)) {
 					  containerimagemchat.style.paddingLeft = '10px';
 				  tirarimagem.classList.add('visivel');
 				  } else {
