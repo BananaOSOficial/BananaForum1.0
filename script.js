@@ -536,10 +536,13 @@ async function deletarmensagem(iddamensagem, elementoMensagem) {
 		  const containerimagemchat = document.getElementById('container-imagemchat');
 		  const novacaixa = renderizarMensagem(nomeatual, texto, URLimagempendente, imagemperfil, mensagem.id, idUsuario);
 		  const img = containerimagemchat.querySelector('img');
+		  const button = containerimagemchat.querySelector('.tirarimagem');
 		  try {
 		  containerimagemchat.removeChild(img);
 		  } finally {
 		  containerimagemchat.classList.remove('comimg');
+			  button.classList.remove('visivel');
+			  containerimagemchat.style.paddingLeft = '';
 		  }
 		  URLimagempendente = null;
 		  chat.value = "";
@@ -843,13 +846,14 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		      image.style.maxHeight = '100px';
 		      image.style.borderRadius = '10px';
 			  image.onclick = function() {
-				  if (tirarimagem.classList.contains('visivel')) {
-					  containerimagemchat.style.paddingLeft = '';
-				  tirarimagem.classList.remove('visivel');
-				  } else {
+				  const jaVisivel = tirarimagem.classList.contains('visivel');
+				  if (tirarimagem.classList.toggle('visivel', !jaVisivel) {
 					  containerimagemchat.style.paddingLeft = '10px';
-					  tirarimagem.classList.add('visivel');
-				  }
+				  tirarimagem.classList.add('visivel');
+				  } else {
+					  containerimagemchat.style.paddingLeft = '';
+					  tirarimagem.classList.remove('visivel');
+			  }
 			  }
 			  containerimagemchat.classList.add('comimg');
 		      containerimagemchat.appendChild(image);
@@ -871,7 +875,9 @@ const tirarimagem = document.querySelector('.tirarimagem');
 			  }
 			  } catch (e) {
 				  alert("Erro ao enviar mensagem ao cloudinary: " + e.message);
+				  if (image.parentNode === containerimagemchat) {
 				  containerimagemchat.removeChild(image);
+				  }
 				  containerimagemchat.classList.remove('comimg');
 				  tirarimagem.classList.remove('visivel');
 			  } finally {
