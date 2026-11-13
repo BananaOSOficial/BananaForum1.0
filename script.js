@@ -862,15 +862,23 @@ const tirarimagem = document.querySelector('.tirarimagem');
 				  tirarimagem.classList.remove('visivel');
 				  containerimagemchat.style.paddingLeft = '';
 			  }
-			  enviandoimagem = true
+			  enviandoimagem = true;
+			  try {
 			  URLimagempendente = await enviarparacloudinary(arquivo);
-			  enviandoimagem = false;
 			  if (cancelouimg) {
 				  URLimagempendente = null;
 				  return;
 			  }
+			  } catch (e) {
+				  alert("Erro ao enviar mensagem ao cloudinary: " + e.message);
+				  containerimagemchat.removeChild(imagem);
+				  containerimagemchat.classList.remove('comimg');
+				  tirarimagem.classList.remove('visivel');
+			  } finally {
+				  enviandoimagem = false;
 			  URL.revokeObjectURL(urlTemporaria);
 			  inputfoto.value = '';
+			  }
 		  });
 		  async function enviarparacloudinary(arquivo) {
 		  const formData = new FormData();
