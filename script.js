@@ -848,7 +848,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		      image.style.maxHeight = '100px';
 		      image.style.borderRadius = '10px';
 			  image.onclick = function() {
-				  const visivel = tirarimagem.classList.contains('visivel');
+				  const visivel = tirarimagem.classList.toggle('visivel');
 				 containerimagemchat.style.paddingLeft = visivel ? '10px' : '';
 			  }
 			  containerimagemchat.classList.add('comimg');
