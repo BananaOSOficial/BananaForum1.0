@@ -535,7 +535,12 @@ async function deletarmensagem(iddamensagem, elementoMensagem) {
 		  }
 		  const containerimagemchat = document.getElementById('container-imagemchat');
 		  const novacaixa = renderizarMensagem(nomeatual, texto, URLimagempendente, imagemperfil, mensagem.id, idUsuario);
-		  containerimagemchat.style.display = 'none';
+		  const img = containerimagemchat.querySelector('img');
+		  try {
+		  containerimagemchat.removeChild(img);
+		  } finally {
+		  containerimagemchat.classList.remove('comimg');
+		  }
 		  URLimagempendente = null;
 		  chat.value = "";
 		  })
@@ -825,7 +830,6 @@ if (!idUsuario) return;
 let cancelouimg = false;
 const tirarimagem = document.querySelector('.tirarimagem');
 		  inputfoto.addEventListener('change', async () => {
-			  containerimagemchat.style.display = 'flex';
 			  const arquivo = inputfoto.files[0];
 			  if (!arquivo) {
 				  return;
