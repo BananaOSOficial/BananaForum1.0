@@ -535,7 +535,7 @@ async function deletarmensagem(iddamensagem, elementoMensagem) {
 		  }
 		  const containerimagemchat = document.getElementById('container-imagemchat');
 		  const novacaixa = renderizarMensagem(nomeatual, texto, URLimagempendente, imagemperfil, mensagem.id, idUsuario);
-		  containerimagemchat.innerHTML = '';
+		  containerimagemchat.style.display = 'none';
 		  URLimagempendente = null;
 		  chat.value = "";
 		  })
@@ -825,6 +825,7 @@ if (!idUsuario) return;
 let cancelouimg = false;
 const tirarimagem = document.querySelector('.tirarimagem');
 		  inputfoto.addEventListener('change', async () => {
+			  containerimagemchat.style.display = 'flex';
 			  const arquivo = inputfoto.files[0];
 			  if (!arquivo) {
 				  return;
@@ -878,6 +879,9 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		  }
 		  );
 		  const dados = await resposta.json();
+		  if (!resposta.ok || !dados.secure_url) {
+			  throw new Error(dados?.error?.message || "Falha no Upload da imagem para o cloudinary");
+		  }
 		  return dados.secure_url;
 		  }
 		  async function carregaramizades() {
