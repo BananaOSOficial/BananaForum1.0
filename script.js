@@ -538,7 +538,9 @@ async function deletarmensagem(iddamensagem, elementoMensagem) {
 		  const img = containerimagemchat.querySelector('img');
 		  const button = containerimagemchat.querySelector('.tirarimagem');
 		  try {
+			  if (img.parentNode === containerimagemchat) {
 		  containerimagemchat.removeChild(img);
+			  }
 		  } finally {
 		  containerimagemchat.classList.remove('comimg');
 			  button.classList.remove('visivel');
