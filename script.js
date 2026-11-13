@@ -838,12 +838,12 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		      image.style.maxHeight = '100px';
 		      image.style.borderRadius = '10px';
 			  image.onclick = function() {
-				  if (tirarimagem.style.display === 'none') {
-					  containerimagemchat.style.paddingLeft = '10px';
-				  tirarimagem.classList.add('visivel');
-				  } else {
+				  if (tirarimagem.classList.contains('visivel')) {
 					  containerimagemchat.style.paddingLeft = '0';
-					  tirarimagem.classList.remove('visivel');
+				  tirarimagem.classList.remove('visivel');
+				  } else {
+					  containerimagemchat.style.paddingLeft = '10px';
+					  tirarimagem.classList.add('visivel');
 				  }
 			  }
 			  containerimagemchat.classList.add('comimg');
