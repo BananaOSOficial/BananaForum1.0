@@ -880,6 +880,8 @@ const tirarimagem = document.querySelector('.tirarimagem');
 				  }
 				  containerimagemchat.classList.remove('comimg');
 				  tirarimagem.classList.remove('visivel');
+				  containerimagemchat.style.paddingLeft = '';
+				  URLimagempendente = null;
 			  } finally {
 				  enviandoimagem = false;
 			  URL.revokeObjectURL(urlTemporaria);
