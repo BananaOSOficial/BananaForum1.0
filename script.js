@@ -839,6 +839,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 			  tirarimagem.onclick = function() {
 			  containerimagemchat.removeChild(image);
 			  containerimagemchat.classList.remove('comimg');
+			  inputfoto.value = '';
 			  }
 		      containerimagemchat.appendChild(image);
 			  enviandoimagem = true;
