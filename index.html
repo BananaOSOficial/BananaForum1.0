@@ -1380,8 +1380,16 @@
 			border-radius: 999px;
 			align-self: center;
 			width: 32px;
+			transform: translateX(-150%);
+			transition: transform 0.5s ease, opacity 0.5s ease;
+			opacity: 0;
+			will-change: transform, opacity;
 			height: 32px;
 			background: #30363D !important;
+		}
+		.tirarimagem.visivel {
+			opacity: 1;
+			transform: translateX(0);
 		}
 		.tirarimagem:hover {
 			background: linear-gradient(#30363D, rgba(0,0,0,0.7)) !important;
