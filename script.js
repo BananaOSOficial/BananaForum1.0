@@ -840,10 +840,10 @@ const tirarimagem = document.querySelector('.tirarimagem');
 			  image.onclick = function() {
 				  if (tirarimagem.style.display === 'none') {
 					  containerimagemchat.style.paddingLeft = '10px';
-				  tirarimagem.style.display = 'block';
+				  tirarimagem.classList.add('visivel');
 				  } else {
 					  containerimagemchat.style.paddingLeft = '0';
-					  tirarimagem.style.display = 'none';
+					  tirarimagem.classList.remove('visivel');
 				  }
 			  }
 			  containerimagemchat.classList.add('comimg');
