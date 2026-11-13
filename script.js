@@ -848,17 +848,15 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		      image.style.maxHeight = '100px';
 		      image.style.borderRadius = '10px';
 			  image.onclick = function() {
-				  const jaVisivel = tirarimagem.classList.contains('visivel');
-				  if (tirarimagem.classList.toggle('visivel', !jaVisivel)) {
-					  containerimagemchat.style.paddingLeft = '10px';
-				  } else {
-					  containerimagemchat.style.paddingLeft = '';
-			  }
+				  const visivel = tirarimagem.classList.contains('visivel');
+				 containerimagemchat.style.paddingLeft = visivel ? '10px' : '';
 			  }
 			  containerimagemchat.classList.add('comimg');
 		      containerimagemchat.appendChild(image);
 			  tirarimagem.onclick = function() {
+				  if (image.parentNode === containerimagemchat) {
 				  containerimagemchat.removeChild(image);
+				  }
 				  containerimagemchat.classList.remove('comimg');
 				  inputfoto.value = '';
 				  URLimagempendente = null;
