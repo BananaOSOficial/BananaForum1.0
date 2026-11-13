@@ -1383,6 +1383,7 @@
 			transform: translateX(-150%);
 			transition: transform 0.5s ease, opacity 0.5s ease;
 			opacity: 0;
+			pointer-events: none;
 			will-change: transform, opacity;
 			height: 32px;
 			background: #30363D !important;
@@ -1390,6 +1391,7 @@
 		.tirarimagem.visivel {
 			opacity: 1;
 			transform: translateX(0);
+			pointer-events: auto;
 		}
 		.tirarimagem:hover {
 			background: linear-gradient(#30363D, rgba(0,0,0,0.7)) !important;
