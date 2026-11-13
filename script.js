@@ -852,6 +852,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 				  inputfoto.value = '';
 				  URLimagempendente = null;
 				  cancelouimg = true;
+				  tirarimagem.style.display = 'none';
 			  }
 			  enviandoimagem = true
 			  URLimagempendente = await enviarparacloudinary(arquivo);
