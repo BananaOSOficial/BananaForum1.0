@@ -842,6 +842,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 					  containerimagemchat.style.paddingLeft = '10px';
 				  tirarimagem.style.display = 'block';
 				  } else {
+					  containerimagemchat.style.paddingLeft = '0';
 					  tirarimagem.style.display = 'none';
 				  }
 			  }
