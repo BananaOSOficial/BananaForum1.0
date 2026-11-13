@@ -829,7 +829,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 			  if (!arquivo) {
 				  return;
 		  }
-			  const containerimagemchat = document.getElementById('containerimagemchat');
+			  const containerimagemchat = document.getElementById('container-imagemchat');
 			  cancelouimg = false;
 			  const urlTemporaria = URL.createObjectURL(arquivo);
 			  const image = document.createElement('img');
