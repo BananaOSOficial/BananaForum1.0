@@ -713,19 +713,23 @@
 		}
 		#container-imagemchat {
 			position: absolute;
-			bottom: 120%;
+			bottom: 130%;
 			align-self: stretch;
 			max-height: 100px;
 			z-index: 2;
+			justify-content: center;
 		}
 		#container-imagemchat.comimg {
-		background: #303134;
+		background: transparent;
 		padding-right: 50px;
 			border-radius: 14px;
+			transition: background 0.5s ease;
+		}
+		#container-imagemchat.comimg:hover {
+			background: #303134;
 		}
 		#container-imagemchat.comimg img {
 			width: 64px;
-			border: 2px solid transparent;
 			height: 64px;
 		}
 		#janelaimagem {
@@ -1366,6 +1370,12 @@
 			height: fit-content;
 			padding: 10px;
 		}
+		.tirarimagem {
+			border-radius: 999px;
+			width: 16px;
+			height: 16px;
+			background-color: rgba(0,0,0,0.7);
+		}
     </style>
   </head>
   <body>
@@ -1534,6 +1544,7 @@
 		  <div id="chatebtn">
 		  <div id="textareaeimagemchat">
 		  <div id="container-imagemchat">
+			  <button class="tirarimagem">X</button>
 		  </div>
 		  <textarea id="chat" rows="1" placeholder="Mensagem..."></textarea>
 		  </div>
