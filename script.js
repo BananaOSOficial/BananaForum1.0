@@ -829,6 +829,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 			  if (!arquivo) {
 				  return;
 		  }
+			  const containerimagemchat = document.getElementById('containerimagemchat');
 			  cancelouimg = false;
 			  const urlTemporaria = URL.createObjectURL(arquivo);
 			  const image = document.createElement('img');
@@ -838,12 +839,12 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		      image.style.borderRadius = '10px';
 			  image.onclick = function() {
 				  if (tirarimagem.style.display === 'none') {
+					  containerimagemchat.style.paddingLeft = '10px';
 				  tirarimagem.style.display = 'block';
 				  } else {
 					  tirarimagem.style.display = 'none';
 				  }
 			  }
-			  const containerimagemchat = document.getElementById('container-imagemchat');
 			  containerimagemchat.classList.add('comimg');
 		      containerimagemchat.appendChild(image);
 			  tirarimagem.onclick = function() {
