@@ -836,14 +836,15 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		      image.style.borderRadius = '10px';
 			  const containerimagemchat = document.getElementById('container-imagemchat');
 			  containerimagemchat.classList.add('comimg');
-			  tirarimagem.onclick = function() {
-			  containerimagemchat.removeChild(image);
-			  containerimagemchat.classList.remove('comimg');
-			  inputfoto.value = '';
-			  }
 		      containerimagemchat.appendChild(image);
 			  enviandoimagem = true;
 			  URLimagempendente = await enviarparacloudinary(arquivo);
+			  tirarimagem.onclick = function() {
+				  containerimagemchat.removeChild(image);
+				  containerimagemchat.classList.remove('comimg');
+				  inputfoto.value '';
+				  URLimagempendente = null;
+			  }
 			  enviandoimagem = false;
 			  URL.revokeObjectURL(urlTemporaria);
 			  inputfoto.value = '';
