@@ -849,10 +849,8 @@ const tirarimagem = document.querySelector('.tirarimagem');
 				  const jaVisivel = tirarimagem.classList.contains('visivel');
 				  if (tirarimagem.classList.toggle('visivel', !jaVisivel)) {
 					  containerimagemchat.style.paddingLeft = '10px';
-				  tirarimagem.classList.add('visivel');
 				  } else {
 					  containerimagemchat.style.paddingLeft = '';
-					  tirarimagem.classList.remove('visivel');
 			  }
 			  }
 			  containerimagemchat.classList.add('comimg');
