@@ -844,7 +844,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		      image.style.borderRadius = '10px';
 			  image.onclick = function() {
 				  if (tirarimagem.classList.contains('visivel')) {
-					  containerimagemchat.style.paddingLeft = '0';
+					  containerimagemchat.style.paddingLeft = '';
 				  tirarimagem.classList.remove('visivel');
 				  } else {
 					  containerimagemchat.style.paddingLeft = '10px';
@@ -871,7 +871,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 			  }
 			  } catch (e) {
 				  alert("Erro ao enviar mensagem ao cloudinary: " + e.message);
-				  containerimagemchat.removeChild(imagem);
+				  containerimagemchat.removeChild(image);
 				  containerimagemchat.classList.remove('comimg');
 				  tirarimagem.classList.remove('visivel');
 			  } finally {
