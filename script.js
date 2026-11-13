@@ -836,6 +836,9 @@ const tirarimagem = document.querySelector('.tirarimagem');
 			  image.style.maxWidth = '100px';
 		      image.style.maxHeight = '100px';
 		      image.style.borderRadius = '10px';
+			  image.onclick = function() {
+				  tirarimagem.style.display = 'block';
+			  }
 			  const containerimagemchat = document.getElementById('container-imagemchat');
 			  containerimagemchat.classList.add('comimg');
 		      containerimagemchat.appendChild(image);
