@@ -834,6 +834,7 @@ if (!idUsuario) return;
 		      image.style.maxHeight = '100px';
 		      image.style.borderRadius = '10px';
 			  const containerimagemchat = document.getElementById('container-imagemchat');
+			  containerimagemchat.classList.add('comimg');
 		      containerimagemchat.appendChild(image);
 			  enviandoimagem = true;
 			  URLimagempendente = await enviarparacloudinary(arquivo);
