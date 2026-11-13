@@ -855,7 +855,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 				  URLimagempendente = null;
 				  cancelouimg = true;
 				  tirarimagem.style.display = 'none';
-				  containerimagemchat.style.paddingLeft = '0';
+				  containerimagemchat.style.paddingLeft = '';
 			  }
 			  enviandoimagem = true
 			  URLimagempendente = await enviarparacloudinary(arquivo);
