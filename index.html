@@ -1373,6 +1373,7 @@
 			padding: 10px;
 		}
 		.tirarimagem {
+			display: none;
 			border-radius: 999px;
 			align-self: center;
 			width: 32px;
@@ -1384,9 +1385,16 @@
 			background: #30363D !important;
 		}
 		.tirarimagem.visivel {
+			display: block;
 			opacity: 1;
 			transform: translateX(0);
 			pointer-events: auto;
+		}
+		@starting-style {
+			tirarimagem.visivel {
+				opacity: 0;
+				transform: translateX(-150%);
+			}
 		}
 		.tirarimagem:hover {
 			background: linear-gradient(#30363D, rgba(0,0,0,0.7)) !important;
