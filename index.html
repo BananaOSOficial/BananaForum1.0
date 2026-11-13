@@ -713,11 +713,14 @@
 		}
 		#container-imagemchat {
 			position: absolute;
+			display: flex;
+			flex-direction: row;
 			bottom: 130%;
 			align-self: stretch;
 			max-height: 100px;
 			z-index: 2;
-			justify-content: center;
+			align-items: center;
+			gap: 5px;
 		}
 		#container-imagemchat.comimg {
 		background: transparent;
@@ -1374,7 +1377,7 @@
 			border-radius: 999px;
 			width: 16px;
 			height: 16px;
-			background-color: rgba(0,0,0,0.7);
+			background: rgba(0,0,0,0.7);
 		}
     </style>
   </head>
