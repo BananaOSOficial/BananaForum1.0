@@ -822,6 +822,7 @@ if (!idUsuario) return;
 		  anexarbtn.addEventListener('click', () => {
 			  inputfoto.click();
 		  });
+const tirarimagem = document.querySelector('.tirarimagem');
 		  inputfoto.addEventListener('change', async () => {
 			  const arquivo = inputfoto.files[0];
 			  if (!arquivo) {
@@ -835,6 +836,10 @@ if (!idUsuario) return;
 		      image.style.borderRadius = '10px';
 			  const containerimagemchat = document.getElementById('container-imagemchat');
 			  containerimagemchat.classList.add('comimg');
+			  tirarimagem.onclick = function() {
+			  containerimagemchat.removeChild(image);
+			  containerimagemchat.classList.remove('comimg');
+			  }
 		      containerimagemchat.appendChild(image);
 			  enviandoimagem = true;
 			  URLimagempendente = await enviarparacloudinary(arquivo);
