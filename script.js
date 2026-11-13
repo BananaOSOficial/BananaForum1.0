@@ -854,7 +854,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 				  inputfoto.value = '';
 				  URLimagempendente = null;
 				  cancelouimg = true;
-				  tirarimagem.style.display = 'none';
+				  tirarimagem.classList.remove('visivel');
 				  containerimagemchat.style.paddingLeft = '';
 			  }
 			  enviandoimagem = true
