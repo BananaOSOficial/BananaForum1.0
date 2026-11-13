@@ -822,12 +822,14 @@ if (!idUsuario) return;
 		  anexarbtn.addEventListener('click', () => {
 			  inputfoto.click();
 		  });
+let cancelouimg = false;
 const tirarimagem = document.querySelector('.tirarimagem');
 		  inputfoto.addEventListener('change', async () => {
 			  const arquivo = inputfoto.files[0];
 			  if (!arquivo) {
 				  return;
 		  }
+			  cancelouimg = false;
 			  const urlTemporaria = URL.createObjectURL(arquivo);
 			  const image = document.createElement('img');
 			  image.src = urlTemporaria;
@@ -837,15 +839,20 @@ const tirarimagem = document.querySelector('.tirarimagem');
 			  const containerimagemchat = document.getElementById('container-imagemchat');
 			  containerimagemchat.classList.add('comimg');
 		      containerimagemchat.appendChild(image);
-			  enviandoimagem = true;
-			  URLimagempendente = await enviarparacloudinary(arquivo);
 			  tirarimagem.onclick = function() {
 				  containerimagemchat.removeChild(image);
 				  containerimagemchat.classList.remove('comimg');
-				  inputfoto.value '';
+				  inputfoto.value = '';
 				  URLimagempendente = null;
+				  cancelouimg = true;
 			  }
+			  enviandoimagem = true
+			  URLimagempendente = await enviarparacloudinary(arquivo);
 			  enviandoimagem = false;
+			  if (cancelouimg) {
+				  URLimagempendente = null;
+				  return;
+			  }
 			  URL.revokeObjectURL(urlTemporaria);
 			  inputfoto.value = '';
 		  });
