@@ -544,10 +544,9 @@ async function deletarmensagem(iddamensagem, elementoMensagem) {
 		  } finally {
 		  containerimagemchat.classList.remove('comimg');
 			  button.classList.remove('visivel');
-			  containerimagemchat.style.paddingLeft = '';
+		  }
 		  URLimagempendente = null;
 		  chat.value = "";
-		  }
 		  })
 		  containerconversa.addEventListener('click', (e) => {
 			  if (e.target.tagName === 'IMG') {
