@@ -1388,7 +1388,7 @@
 		}
 		.tirarimagem {
 			position: absolute;
-			display: flex;
+			display: none;
 			align-items: center;
 			left: 95%;
 			top: 2%;
@@ -1405,16 +1405,11 @@
 		}
 		.tirarimagem.visivel {
 			opacity: 1;
+			display: flex;
 			transform: translate(-50%, -50%);
 			top: 2%;
 			left: 95%;
 			pointer-events: auto;
-		}
-		@starting-style {
-			tirarimagem.visivel {
-				opacity: 0;
-				transform: translate(-50%, -50%);
-			}
 		}
 		.tirarimagem:hover {
 			background: linear-gradient(rgba(91,141,239,0.5), rgba(0,0,255,0.5)) !important;
