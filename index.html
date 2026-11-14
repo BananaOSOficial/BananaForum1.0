@@ -449,6 +449,15 @@
 			align-self: center;
 			height: auto;
 			transition: border 0.5s ease, box-shadow 0.5s ease, background 0.5s ease, padding-top 0.5s ease;
+			animation: piscar_caret_color 2s linear infinite;
+		}
+		@keyframes piscar_caret_color {
+			0%, 100% {
+				caret-color: #5b8def;
+			}
+			50% {
+				caret-color: blue;
+			}
 		}
 		#chatebtn.comimg {
 			padding-top: 100px;
