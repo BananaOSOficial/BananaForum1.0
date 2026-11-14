@@ -850,6 +850,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		      image.style.maxHeight = '100px';
 		      image.style.borderRadius = '10px';
 			  image.onclick = function() {
+				  tirarimagem.style.transition = 'opacity 0.35s ease, display 0.35s allow-discrete';
 				  const visivel = tirarimagem.classList.toggle('visivel');
 			  }
 			  containerimagemchat.classList.add('comimg');
@@ -862,7 +863,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 				  inputfoto.value = '';
 				  URLimagempendente = null;
 				  cancelouimg = true;
-				  tirarimagem.style.transition = '';
+				  tirarimagem.style.transition = 'none';
 				  tirarimagem.classList.remove('visivel');
 				  chatebtn.classList.remove('comimg');
 			  }
