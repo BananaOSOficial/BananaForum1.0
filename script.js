@@ -863,7 +863,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 				  URLimagempendente = null;
 				  cancelouimg = true;
 				  tirarimagem.classList.remove('visivel');
-				  containerimagemchat.style.paddingLeft = '';
+				  chatebtn.classList.remove('comimg');
 			  }
 			  enviandoimagem = true;
 			  try {
