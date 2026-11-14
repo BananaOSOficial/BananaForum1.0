@@ -494,6 +494,7 @@ async function deletarmensagem(iddamensagem, elementoMensagem) {
 	elementoMensagem.remove();
 }
 		  let enviandoMensagem = false;
+const chatebtn = document.getElementById('chatebtn');
 		  const enviarbtn = document.getElementById('enviar');
 		  enviarbtn.addEventListener('click', async () => {
 		  if (enviandoMensagem) return;
@@ -544,6 +545,7 @@ async function deletarmensagem(iddamensagem, elementoMensagem) {
 		  } finally {
 		  containerimagemchat.classList.remove('comimg');
 			  button.classList.remove('visivel');
+			  chatebtn.classList.remove('comimg');
 		  }
 		  URLimagempendente = null;
 		  chat.value = "";
