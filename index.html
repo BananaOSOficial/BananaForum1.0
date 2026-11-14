@@ -369,6 +369,10 @@
 		   resize: none;
 			border: none;
 		   flex: 1;
+		}
+		#janeladascomunidades textarea:focus {
+        border: none;
+			outline: none;
 			animation: piscar_caret_color 20s infinite steps(1);
 		}
 		@keyframes piscar_caret_color {
@@ -381,10 +385,6 @@
 			75% {
 				caret-color: green;
 			}
-		}
-		#janeladascomunidades textarea:focus {
-			border: none;
-			outline: none;
 		}
 		#janeladascomunidades button {
 			background-color: #303134;
