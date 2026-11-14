@@ -1374,10 +1374,13 @@
 		}
 		.tirarimagem {
 			display: none;
+			position: absolute;
+			left: 5px;
+			top: 50%;
 			border-radius: 999px;
 			align-self: center;
 			width: 32px;
-			transform: translateX(-150%);
+			transform: translate(-150%, -50%);
 			transition: transform 0.35s ease, opacity 0.35s ease, display 0.35s allow-discrete;
 			opacity: 0;
 			pointer-events: none;
@@ -1387,7 +1390,7 @@
 		.tirarimagem.visivel {
 			display: block;
 			opacity: 1;
-			transform: translateX(0);
+			transform: translate(0, -50%);
 			pointer-events: auto;
 		}
 		@starting-style {
