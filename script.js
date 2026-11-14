@@ -862,7 +862,7 @@ const tirarimagem = document.querySelector('.tirarimagem');
 				  inputfoto.value = '';
 				  URLimagempendente = null;
 				  cancelouimg = true;
-				  tirarimagem.style.transition = 'none';
+				  tirarimagem.style.transition = '';
 				  tirarimagem.classList.remove('visivel');
 				  chatebtn.classList.remove('comimg');
 			  }
