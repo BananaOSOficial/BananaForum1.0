@@ -835,10 +835,12 @@ if (!idUsuario) return;
 let cancelouimg = false;
 const tirarimagem = document.querySelector('.tirarimagem');
 		  inputfoto.addEventListener('change', async () => {
+			  const chatebtn = document.getElementById('chatebtn');
 			  const arquivo = inputfoto.files[0];
 			  if (!arquivo) {
 				  return;
 		  }
+			  chatebtn.classList.add('comimg');
 			  const containerimagemchat = document.getElementById('container-imagemchat');
 			  cancelouimg = false;
 			  const urlTemporaria = URL.createObjectURL(arquivo);
