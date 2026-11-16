@@ -298,7 +298,7 @@ fecharerrorwindow.onclick = function() {
 			  if (menu.style.display === 'none' || menu.style.display === '') {
 			  menu.style.display = 'flex';
 			  nomeconta.style.color = 'transparent';
-			  nomeconta.style.background = 'linear-gradient(90deg, #5b8def, blue)';
+			  nomeconta.style.background = 'linear-gradient(90deg, rgb(102,51,153), rgb(45,0,75))';
 				  nomeconta.style.backgroundClip = 'text';
 			  verificarseousuariojacriouconta();
 			  } else {
