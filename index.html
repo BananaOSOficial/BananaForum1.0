@@ -394,11 +394,9 @@
 			background-color: #303134;
 			color: #FFFFFF;
 				border-radius: 999px;
-				border: 2px solid rgba(255,255,255,0.08);
-			box-shadow: 0 0 5px rgba(255,255,255,0.08);
+			border: 2px solid rgba(255,255,255,0.05);
 		}
 		#janeladascomunidades button:hover {
-			background: linear-gradient(transparent, transparent) padding-box, linear-gradient(#5b8def, blue) border-box;
 			border: none;
 			cursor: pointer;
 		}
@@ -470,9 +468,9 @@
 			padding-top: 90px;
 		}
 		#chatebtn:focus-within {
-			border-color: #5b8def;
+			border-color: rgb(102,51,153);
 			background: linear-gradient(rgba(48,49,52,1), #010409) padding-box;
-			box-shadow: 0 0 5px #5b8def;
+			box-shadow: 0 0 5px rgb(102,51,153);
 		}
 		#chatebtn:focus-within .botoes button:hover svg path {
 			fill: #000000 !important;
@@ -484,7 +482,7 @@
 			margin-left: auto;
 		}
 		.botoes button {
-			background: linear-gradient(transparent, transparent) padding-box, linear-gradient(purple, rgba(102,51,153), rgb(45,0,75)) border-box;
+			background: linear-gradient(transparent, transparent) padding-box, linear-gradient(rgba(102,51,153), rgb(45,0,75)) border-box;
 		}
 		.botoes button:hover svg path {
 			fill: #000000 !important;
@@ -498,6 +496,9 @@
 			fill: none !important;
 		}
 		#chatebtn:focus-within .botoes #anexar:hover {
+			border: none;
+		}
+		#anexar {
 			border: none;
 		}
 		.fecharjaneladascomunidades {
