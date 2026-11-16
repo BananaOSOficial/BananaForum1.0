@@ -1395,14 +1395,14 @@
 				radial-gradient(1.5px at 8% 45%, purple, transparent),
 			radial-gradient(1px 1px at 90% 25%, purple, transparent),
 			radial-gradient(1.5px 1.5px at 93% 40%, purple, transparent),
-			radial-gradient(1px 1px at 87% 60%, purple, transparent),
+			radial-gradient(1px 1px at 87% 60%, purple, transparent);
 			background-repeat: no-repeat;
 			border-radius: 0 10px 0 0;
 			width: 100%;
 			height: fit-content;
 			padding: 10px;
 		}
-		.bananalogoenome:before {
+		.bananalogoenome::before {
 			content: "";
 			position: absolute;
 			inset: 0;
@@ -1411,7 +1411,7 @@
 			filter: blur(4px);
 			pointer-events: none;
 		}
-		.bananalogoenome:after {
+		.bananalogoenome::after {
 			content: "";
 			position: absolute;
 			top: 5px;
