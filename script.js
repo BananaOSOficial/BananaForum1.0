@@ -459,7 +459,7 @@ const iddousuario = localStorage.getItem('idUsuario');
 			  const nomeatual = localStorage.getItem("nomeUsuario");
 			  if (nome && nome === nomeatual) {
 				  novacaixa.style.backgroundColor = 'rgb(102,51,153)';
-				  novacaixa.style.boxShadow = '0 0 10px #5b8def';
+				  novacaixa.style.boxShadow = '0 0 10px rgb(102,51,153)';
 				  novacaixa.querySelector('.nomedapessoanochat').style.color = 'blue';
 				  novacaixaebtndeletar.style.alignSelf = 'flex-end';
 			  } else {
