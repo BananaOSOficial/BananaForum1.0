@@ -202,7 +202,12 @@ fecharerrorwindow.onclick = function() {
 			  abrirjanelaamizades.classList.remove('selecionado');
 			  janelaamizades.classList.remove('aberta');
 			  document.body.style.overflow = '';
+			  const scrollheight = document.documentElement.scrollHeight;
+			  const janela = window.innerHeight;
+			  if (scrollheight > janela) {
 			  track.style.display = 'block';
+			  atualizarscroll();
+			  }
 		  }
 		  abrirjanelaamizades.onclick = function() {
 			  fecharmenuaoabrirjanela();
@@ -211,6 +216,7 @@ fecharerrorwindow.onclick = function() {
 			  janelaamizades.classList.add('aberta');
 			  document.body.style.overflow = 'hidden';
 			  track.style.display = 'none';
+			  atualizarscroll();
 		  }
 		  if (nomeusuarioconta) {
 			  dica.style.display = 'none';
@@ -344,6 +350,7 @@ fecharerrorwindow.onclick = function() {
 			  const janela = window.innerHeight
 			  if (scrollheight > janela) {
 			  track.style.display = 'block';
+			  atualizarscroll();
 			  }
 		  }
 		  const inputNomedacomunidade = document.getElementById('inputNomedacomunidade');
@@ -384,6 +391,7 @@ let ocorreuumerro = false;
 			  iniciobtn.classList.add('selecionado');
 			  criarcomunidadebtn.classList.remove('selecionado');
 			  track.style.display = 'block';
+			  atualizarscroll();
 		  });
 		  function criarElementocomunidade(comunidade) {
 			  const novomodelo = modelo.cloneNode(true);
@@ -1006,5 +1014,6 @@ const tirarimagem = document.querySelector('.tirarimagem');
 			  const janela = window.innerHeight;
 			  if (scrollheight > janela) {
 			  track.style.display = 'block';
+			  atualizarscroll();
 			  }
 		  }
