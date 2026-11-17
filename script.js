@@ -340,7 +340,11 @@ fecharerrorwindow.onclick = function() {
 			  janelacriarcomunidade.classList.remove('aberta');
 			  document.body.style.overflow = '';
 			  criarcomunidadebtn.classList.remove('selecionado');
+			  const scrollheight = document.documentElement.scrollHeight;
+			  const janela = window.innerHeight
+			  if (scrollheight > janela) {
 			  track.style.display = 'block';
+			  }
 		  }
 		  const inputNomedacomunidade = document.getElementById('inputNomedacomunidade');
 		  const container = document.getElementById('container-comunidade');
@@ -998,5 +1002,9 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		  fecharjanelacriarconta.onclick = function() {
 			  janelacriarconta.classList.remove('aberta');
 			  document.body.style.overflow = '';
+			  const scrollheight = document.documentElement.scrollHeight;
+			  const janela = window.innerHeight;
+			  if (scrollheight > janela) {
 			  track.style.display = 'block';
+			  }
 		  }
