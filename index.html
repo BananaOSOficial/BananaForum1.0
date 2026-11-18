@@ -75,10 +75,10 @@
 		    url('World.png'),
 			url('moon.png'),
 			linear-gradient(rgb(15,8,25),#0F0F0F) padding-box;
-		background-repeat: no-repeat,no-repeat, repeat, repeat, no-repeat;
-		background-position: right 20px top 150px,right 75px top 170px, 0 0, 0 0, 0 0;
-		  background-size: 64px, 32px, 150px 150px, 200px 200px, 100% 100%;
-		  animation: moverEstrelasBody 60s linear infinite alternate;
+		background-repeat: no-repeat;
+		background-position: 0 0, 0 0, 0 0;
+		  background-size: 64px, 32px, 100% 100%;
+		  animation: moverluaeterraBody 60s linear infinite alternate;
 		  transition: overflow 0.35s ease;
       }
 		body:after {
@@ -91,18 +91,18 @@
 			align-items: center;
 			flex-direction: column;
 		}
-		@keyframes moverEstrelasBody {
+		@keyframes moverluaeterraBody {
 			0% {
-				background-position: right 20px top 150px,right 75px top 170px, 0 0, 0 0, 0 0;
+				background-position: right 20px top 150px,right 75px top 170px,0 0;
 			}
 			50% {
-				background-position: right 20px top 150px,right 20px top 140px, 0 120px, 0 200px, 0 0;
+				background-position: right 20px top 150px,right 20px top 140px,0 0;
 			}
 			75% {
-				background-position: right 20px top 150px, right 5px top 170px, 0 120px, 0 200px, 0 0;
+				background-position: right 20px top 150px, right 5px top 170px,0 0;
 			}
 			100% {
-				background-position: right 20px top 150px, right 30px top 200px, 0 120px, 0 200px, 0 0;
+				background-position: right 20px top 150px, right 30px top 200px,0 0;
 		}
 		}
 		button {
