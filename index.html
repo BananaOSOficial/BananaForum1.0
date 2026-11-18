@@ -125,12 +125,12 @@
 			font-weight: bold;
 		}
       #menucominicioecriarcomunidade {
-		bottom: 20%;
+		top: 0;
         left: 0;
 		align-items: center;
         background-color: rgba(1,4,9,1);
         width: 140px;
-        height: 70dvh;
+        height: 100dvh;
 		flex-direction: column;
 		background: linear-gradient(rgb(15,8,25), rgb(15,8,25), #010409) padding-box, linear-gradient(rgb(45, 0, 75),
             rgb(25,25,112)) border-box;
@@ -139,14 +139,11 @@
 		  border-radius: 0 10px 10px 0;
 		  border-right: 2px solid transparent;
 		display: flex;
-		  transform: translateY(-50%);
 		transform: translateX(-110%);
 		transition: transform 0.35s ease;
 		z-index: 101;
       }
 		#menucominicioecriarcomunidade.aberto {
-			transform: translateY(-50%);
-			bottom: 20%;
 			transform: translateX(0);
 			width: 140px;
 		}
