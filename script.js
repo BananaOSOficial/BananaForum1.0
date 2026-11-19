@@ -39,7 +39,7 @@ fecharerrorwindow.onclick = function() {
 			  document.getElementById("janelacriarconta"),
 			  document.querySelector('.janelaentrarconta'),
 			  document.querySelector('.janelaamizades'),
-			  document.getElementById('janeladascomunidades');
+			  document.getElementById('janeladascomunidades'),
 			  ].some(window => window && window.classList.contains('aberta'));
 			  if (janelasabertas) {
 				  track.style.display = 'none';
