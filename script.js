@@ -28,43 +28,22 @@ fecharerrorwindow.onclick = function() {
 		  function atualizarscroll() {
 			  const altura = document.documentElement.scrollHeight;
 			  const janela = window.innerHeight;
-			  if (altura > janela) {
-				  track.style.display = 'block';
-			  } else {
-				  track.style.display = 'none';
-				  return;
-			  }
 			  const janelasabertas = [
 			  document.getElementById("janelacriarcomunidade"),
 			  document.getElementById("janelacriarconta"),
 			  document.querySelector('.janelaentrarconta'),
 			  document.querySelector('.janelaamizades'),
 			  document.getElementById('janeladascomunidades'),
-			  ].some(window => window && window.classList.contains('aberta'));
+			  ].some(obj => obj && obj.classList.contains('aberta'));
 			  if (janelasabertas) {
 				  track.style.display = 'none';
 				  return;
 			  }
-			  const fecharjaneladascomunidades = document.querySelector('.fecharjaneladascomunidades');
-			  const fecharjanelaamizades = document.querySelector('.fecharjanelaamizades');
-			  const fecharjanelaentrarconta = document.querySelector('.fecharjanelaentrarconta');
-			  const fecharjanelacomunidade = document.querySelector('.fecharjanelacomunidade');
-			  const fecharjanelacriarconta = document.querySelector('.fecharjanelacriarconta');
-
-			  if (fecharjaneladascomunidades.onclick || fecharjanelaamizades.onclick) {
-				  if (altura > janela) {
+			  if (altura > janela) {
 				  track.style.display = 'block';
-				  }
-			  }
-			  if (fecharjanelaentrarconta.onclick || fecharjanelacomunidade.onclick) {
-				  if (altura > janela) {
-				  track.style.display = 'block';
-				  }
-			  }
-			  if (fecharjanelacriarconta.onclick) {
-				  if (altura > janela) {
-				  track.style.display = 'block';
-				  }
+			  } else {
+				  track.style.display = 'none';
+				  return;
 			  }
 			  const posicao = window.scrollY / (altura - janela);
 			  const alturaThumb = thumb.offsetHeight;
