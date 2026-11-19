@@ -34,32 +34,16 @@ fecharerrorwindow.onclick = function() {
 				  track.style.display = 'none';
 				  return;
 			  }
-			  const janelacriarcomunidade = document.getElementById("janelacriarcomunidade");
-			  const janelacriarconta = document.getElementById("janelacriarconta");
-			  const janelaentrarconta = document.querySelector('.janelaentrarconta');
-			  const janelaamizades = document.querySelector('.janelaamizades');
-			  
-			  const janeladascomunidades = document.getElementById('janeladascomunidades');
-			  if (janelacriarcomunidade.classList.contains('aberta') || janelacriarconta.classList.contains('aberta')) {
+			  const janelasabertas = [
+			  document.getElementById("janelacriarcomunidade"),
+			  document.getElementById("janelacriarconta"),
+			  document.querySelector('.janelaentrarconta'),
+			  document.querySelector('.janelaamizades'),
+			  document.getElementById('janeladascomunidades');
+			  ].some(window => window && window.classList.contains('aberta'));
+			  if (janelasabertas) {
 				  track.style.display = 'none';
-			  } else {
-				  if (altura > janela) {
-				  track.style.display = 'block';
-				  }
-			  }
-			  if (janelaentrarconta.classList.contains('abertas') || janelaamizades.classList.contains('aberta')) {
-				  track.style.display = 'none';
-			  } else {
-				  if (altura > janela) {
-				  track.style.display = 'block';
-				  }
-			  }
-			  if (janeladascomunidades.classList.contains('aberta')) {
-				  track.style.display = 'none';
-			  } else {
-				  if (altura > janela) {
-				  track.style.display = 'block';
-				  }
+				  return;
 			  }
 			  const fecharjaneladascomunidades = document.querySelector('.fecharjaneladascomunidades');
 			  const fecharjanelaamizades = document.querySelector('.fecharjanelaamizades');
