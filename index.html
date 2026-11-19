@@ -148,6 +148,8 @@
 			font-weight: bold;
 		}
       #menucominicioecriarcomunidade {
+		position: fixed;
+		  gap: 2px;
 		top: 0;
         left: 0;
 		align-items: center;
@@ -155,11 +157,21 @@
         width: 140px;
         height: 100dvh;
 		flex-direction: column;
-		background: linear-gradient(rgb(15,8,25), rgb(15,8,25), #010409) padding-box, linear-gradient(rgb(45, 0, 75),
-            rgb(25,25,112)) border-box;
-		gap: 2px;
-		position: fixed;
-		  background-image: radial-gradient(1.5px 1.5px at 50% 3%, rgb(102,51,153), transparent),
+		background: 
+			linear-gradient(rgb(15,8,25), rgb(15,8,25), #010409) padding-box, linear-gradient(rgb(45,0,75), rgb(25,25,112)) border-box;
+		  border-radius: 0 10px 10px 0;
+		  border-right: 2px solid transparent;
+		display: flex;
+		  background-repeat: no-repeat;
+		transform: translateX(-110%);
+		transition: transform 0.35s ease;
+		z-index: 101;
+      }
+		#menucominicioecriarcomunidade:after {
+			content: "";
+			position: fixed;
+			inset: 0;
+			background-image: radial-gradient(1.5px 1.5px at 50% 3%, rgb(102,51,153), transparent),
 			radial-gradient(1px 1px at 30% 4%, rgb(102,51,153), transparent),
 				radial-gradient(1px 1px at 70% 5%, rgb(102,51,153), transparent),
 				radial-gradient(1.5px 1.5px at 45% 2%, rgb(102,51,153), transparent),
@@ -179,15 +191,16 @@
 			radial-gradient(1px 1px at 90% 25%, rgb(102,51,153), transparent),
 			radial-gradient(1.5px 1.5px at 93% 40%, rgb(102,51,153), transparent),
 			radial-gradient(1px 1px at 87% 60%, rgb(102,51,153), transparent);
-		  border-radius: 0 10px 10px 0;
-		  filter: drop-shadow(0 0 2px blue);
-		  border-right: 2px solid transparent;
-		display: flex;
-		  background-repeat: no-repeat, repeat;
-		transform: translateX(-110%);
-		transition: transform 0.35s ease;
-		z-index: 101;
-      }
+			filter: drop-shadow(0 0 2px blue);
+			animation: piscarestrelasdomenucombtns 5s linear infinite alternate;
+		}
+		@keyframes piscarestrelasdomenucombtns {
+			0%, 50% {
+				opacity: 1;
+			} 100% {
+				opacity: 0;
+			}
+		}
 		#menucominicioecriarcomunidade.aberto {
 			transform: translateX(0);
 			width: 140px;
