@@ -80,27 +80,17 @@
 		  background-repeat: no-repeat;
 		  transition: overflow 0.35s ease;
       }
-		body:before {
-			content: "";
-			position: fixed;
-			inset: 0;
-			background-image: url("estrelas.svg");
-			background-repeat: repeat;
-			filter: drop-shadow(0 0 2px red) drop-shadow(0 0 2px blue);
-			pointer-events: none;
-			z-index: 0;
-		}
 		body:after {
 			content: "";
 			position: fixed;
 			inset: 0;
 			background-image: 
 				url("moon.png");
-			background-position: right 75px top 150px;
+			background-position: right 75px top 145px;
 			transform-origin: calc(100% - 52px) 172px;
 			background-repeat: no-repeat;
 			background-size: 32px;
-			animation: orbitalua 60s linear infinite alternate;
+			animation: orbitalua 60s linear infinite;
 		}
 		main {
 			display: flex;
