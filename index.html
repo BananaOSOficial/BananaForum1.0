@@ -167,13 +167,24 @@
 		transition: transform 0.35s ease;
 		z-index: 101;
       }
-		#menucominicioecriarcomunidade:after {
+		#menucominicioecriarcomunidade:before {
 			content: "";
 			position: absolute;
 			inset: 0;
 			background-image: url("estrelas.svg");
 			filter: drop-shadow(0 0 2px blue);
 			animation: piscarestrelasdomenucombtns 60s linear infinite alternate;
+		}
+		#menucominicioecriarcomunidade:after {
+			content: "";
+			position: absolute;
+			top: 115px;
+			right: 5px;
+			background-image: url("saturn.png");
+			background-size: cover;
+			background-repeat: no-repeat;
+			width: 64px;
+			height: 64px;
 		}
 		@keyframes piscarestrelasdomenucombtns {
 			0%, 50% {
@@ -1430,18 +1441,6 @@
 			width: 100%;
 			padding: 10px;
 			z-index: 100;
-			background-color: rgb(15,8,25);
-		}
-		.bananalogoenome::after {
-			content: "";
-			position: absolute;
-			top: 5px;
-			right: 2px;
-			width: 32px;
-			height: 32px;
-			background: url('saturn.png') no-repeat center / cover;
-			pointer-events: none;
-			filter: drop-shadow(0 0 5px purple);
 		}
 		.tirarimagem {
 			position: absolute;
