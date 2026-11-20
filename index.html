@@ -73,8 +73,6 @@
 		overflow-x: hidden;
 		  min-height: 100vh;
 		  background:
-		    url('World.png'),
-			url('moon.png'),
 			  linear-gradient(rgb(15,8,25), #010409) padding-box;
 		background-repeat: no-repeat;
 		background-position: 0 0, 0 0, 0 0;
@@ -91,14 +89,16 @@
 			filter: drop-shadow(0 0 2px red) drop-shadow(0 0 2px blue);
 			pointer-events: none;
 			z-index: 0;
-			animation: piscarestrelasbody 5s linear infinite alternate;
 		}
-		@keyframes piscarestrelasbody { 
-		0, 50% {
-			opacity: 1;
-		} 100% {
-			opacity: 0;
-		}
+		body:after {
+			content: "";
+			position: fixed;
+			inset: 0;
+			background-image: url("World.png"),
+				url("moon.png");
+			background-position: 0 0, 0 0;
+			background-size: 64px, 32px;
+			animation: moverluaeterrabody 60s linear infinite alternate;
 		}
 		main {
 			display: flex;
