@@ -80,6 +80,13 @@
 		  background-repeat: no-repeat;
 		  transition: overflow 0.35s ease;
       }
+		body::before {
+			content: "";
+			position: fixed;
+			inset: 0;
+			background-image: url("estrelas.svg");
+			z-index: -1;
+		}
 		body::after {
 			content: "";
 			position: absolute;
