@@ -73,19 +73,23 @@
 		overflow-x: hidden;
 		  min-height: 100vh;
 		  background:
-			  url("World.png"),
+			  url("estrelas.svg"),
 			  linear-gradient(rgb(15,8,25), #010409) padding-box;
-		  background-position: right 20px top 140px, 0 0;
-		  background-size: 64px, 100% 100%;
 		  background-repeat: no-repeat;
 		  transition: overflow 0.35s ease;
       }
 		body::before {
 			content: "";
-			position: fixed;
-			inset: 0;
-			background-image: url("estrelas.svg");
-			z-index: -1;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-image: url("World.png");
+			background-size: 64px;
+			background-position: right 20px top 140px;
+			background-repeat: no-repeat;
+			z-index: 1;
 		}
 		body::after {
 			content: "";
