@@ -73,6 +73,7 @@
 		-webkit-user-select: none;
 		overflow-x: hidden;
 		  min-height: 100vh;
+		  overflow-anchor: none;
 		  background:
 			  url("estrelas.svg"),
 			  linear-gradient(rgb(15,8,25), #010409) padding-box;
@@ -82,8 +83,8 @@
 		body::before {
 			content: "";
 			position: absolute;
-			width: 100dvw;
-			height: 100dvh;
+			width: 100%;
+			height: 100vh;
 			top: 0;
 			left: 0;
 			background-image: url("World.png");
@@ -92,15 +93,14 @@
 			background-repeat: no-repeat;
 			overflow: hidden;
 			contain: strict;
-			z-index: 1;
 		}
 		body::after {
 			content: "";
 			position: absolute;
 			left: 0;
 			top: 0;
-			width: 100dvw;
-			height: 100dvh;
+			width: 100%;
+			height: 100vh;
 			pointer-events: none;
 			background-image: 
 				url("moon.png");
