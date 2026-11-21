@@ -31,8 +31,10 @@
         margin: 0;
 		box-sizing: border-box;
 		-webkit-tap-highlight-color: transparent;
-		overflow-x: hidden;
       }
+		html, body {
+			overflow-x: hidden;
+		}
 		h2 {
 			font-size: large;
 			-webkit-tap-highlight-color: transparent;
@@ -75,13 +77,12 @@
 		font-family: "Playfair Display", serif;
 		user-select: none;
 		-webkit-user-select: none;
-		overflow-x: hidden !important;
 		  min-height: 100vh;
 		  background-color: #010409;
 		  background:
 			  url("estrelas.svg"),
 			  linear-gradient(rgb(15,8,25), #010409) padding-box;
-		  background-attachment: fixed;
+		  background-attachment: fixed, fixed;
 		  background-repeat: repeat, no-repeat;
 		  transition: overflow 0.35s ease;
       }
