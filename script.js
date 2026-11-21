@@ -167,9 +167,10 @@ fecharerrorwindow.onclick = function() {
 				  if (!iddoUsuario) {
 					  dica.style.display = 'none';
 			  }
-				  abrirjanelaimagemperfil.style.display = '';
-			  } else {
 				  abrirjanelaimagemperfil.style.display = 'none';
+				  imgconta.style.filter = 'blur(0)';
+			  } else {
+				  abrirjanelaimagemperfil.style.display = '';
 				  if (!iddoUsuario) {
 				  dica.style.display = '';
 				  }
