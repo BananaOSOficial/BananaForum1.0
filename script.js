@@ -37,6 +37,7 @@ fecharerrorwindow.onclick = function() {
 			  ].some(obj => obj && obj.classList.contains('aberta'));
 			  if (janelasabertas) {
 				  track.style.display = 'none';
+				  document.documentElement.style.overflow = 'hidden';
 				  document.body.style.overflow = 'hidden';
 				  return;
 			  }
