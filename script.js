@@ -34,12 +34,19 @@ fecharerrorwindow.onclick = function() {
 			  document.querySelector('.janelaentrarconta'),
 			  document.querySelector('.janelaamizades'),
 			  document.getElementById('janeladascomunidades'),
+			  document.querySelector('janelaimagemperfil'),
 			  ].some(obj => obj && obj.classList.contains('aberta'));
 			  if (janelasabertas) {
 				  track.style.display = 'none';
 				  document.documentElement.style.overflow = 'hidden';
 				  document.body.style.overflow = 'hidden';
 				  return;
+			  } else {
+				  if (altura > janela) {
+					  track.style.display = 'block';
+					  document.documentElement.style.overflow = '';
+					  document.body.style.overflow = '';
+				  }
 			  }
 			  if (altura > janela) {
 				  track.style.display = 'block';
@@ -207,16 +214,12 @@ fecharerrorwindow.onclick = function() {
 		  }
 		  fecharjanelaamigo.onclick = function() {
 			  janelaamigo.style.display = 'none';
-			  document.body.style.overflow = 'hidden';
 		  }
 		  const iniciobtn = document.getElementById('iniciobtn');
 		  fecharjanelaamizades.onclick = function() {
 			  iniciobtn.classList.add('selecionado');
 			  abrirjanelaamizades.classList.remove('selecionado');
 			  janelaamizades.classList.remove('aberta');
-			  document.body.style.overflow = '';
-			  const scrollheight = document.documentElement.scrollHeight;
-			  const janela = window.innerHeight;
 			  atualizarscroll();
 		  }
 		  abrirjanelaamizades.onclick = function() {
@@ -274,6 +277,7 @@ fecharerrorwindow.onclick = function() {
 			  janelaimagemperfil.classList.add('aberta');
 			  track.style.display = 'none';
 			  abrirjanelaimagemperfil.style.display = 'none';
+			  atualizarscroll();
 		  }
 		  document.addEventListener('click', (e) => {
 			  const clicounoabrirjanelaimagemperfil = abrirjanelaimagemperfil.contains(e.target);
@@ -327,6 +331,7 @@ fecharerrorwindow.onclick = function() {
 		  trocarnomeecriarconta.addEventListener('click', () => {
 			  fecharmenuaoabrirjanela();
 			  janelacriarconta.classList.add('aberta');
+			  atualizarscroll();
 			  document.body.style.overflow = 'hidden';
 			  menu.style.display = 'none';
 			  track.style.display = 'none';
@@ -586,7 +591,6 @@ const chatebtn = document.getElementById('chatebtn');
 		  const fecharjaneladascomunidades = document.querySelector('.fecharjaneladascomunidades');
 		  fecharjaneladascomunidades.onclick = function() {
 		  janeladascomunidades.classList.remove('aberta');
-		  document.body.style.overflow = '';
 		  iniciobtn.classList.add('selecionado');
 		  atualizarscroll();
 		  }
@@ -1013,6 +1017,5 @@ const tirarimagem = document.querySelector('.tirarimagem');
 		  const fecharjanelacriarconta = document.querySelector('.fecharjanelacriarconta');
 		  fecharjanelacriarconta.onclick = function() {
 			  janelacriarconta.classList.remove('aberta');
-			  document.body.style.overflow = '';
 			  atualizarscroll();
 		  }
