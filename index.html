@@ -74,13 +74,12 @@
 		font-family: "Playfair Display", serif;
 		user-select: none;
 		-webkit-user-select: none;
-		overflow-x: hidden;
+		overflow-x: none !important;
 		  min-height: 100vh;
 		  background:
 			  url("estrelas.svg"),
 			  linear-gradient(rgb(15,8,25), #010409) padding-box;
 		  background-repeat: repeat, no-repeat;
-		  background-size: cover;
 		  transition: overflow 0.35s ease;
       }
 		body::before {
@@ -405,8 +404,8 @@
 			height: 100dvh;
 			z-index: 100;
 			top: 0;
+			background-color: rgba(0,0,0,0.5);
 			background: linear-gradient(#151515, rgba(0,0,0,0.5)) padding-box;
-			background-size: cover;
 			padding: 20px 20px 0 20px;
 			backdrop-filter: blur(10px);
 			-webkit-backdrop-filter: blur(10px);
