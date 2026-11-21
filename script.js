@@ -292,6 +292,7 @@ fecharerrorwindow.onclick = function() {
 		  janelaimagemperfil.addEventListener('click', (e) => {
 			  if (!botaocolocarfoto.contains(e.target) && !imgdajanelaimagemperfil.contains(e.target)) {
 				  janelaimagemperfil.classList.remove('aberta');
+				  abrirjanelaimagemperfil.style.left = '70px';
 				  track.style.display = 'block';
 			  }
 		  });
