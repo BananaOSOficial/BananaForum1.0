@@ -626,23 +626,24 @@
 		}
 		#olaenomeusuario {
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
 			flex-direction: row;
 		}
 		#olaenomeusuarioeimg {
 			display: flex;
 		margin-top: 2px;
-			flex-direction: column;
+			flex-direction: row;
 			margin-left: 40px;
 			height: fit-content;
-			background: linear-gradient(rgb(45,0,75), rgb(100,51,153));
-			padding-bottom: 2px;
-			padding-left: 10px;
-			padding-right: 20px;
-			border-radius: 30px;
+			background: linear-gradient(135deg, rgb(45,0,75), rgb(102,51,153));
+			padding: 8px 14px 8px 8px;
+			border: 1px solid rgb(102,51,153);
+			box-shadow: 0 0 12px rgb(102,51,153);
 		}
 		#olaenomeusuarioeimg img {
 			margin-top: 2px;
+			margin: 0;
+			flex-shrink: 0;
 		}
 		.nomeusuario:hover {
 			color: transparent;
