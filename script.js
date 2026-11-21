@@ -191,14 +191,14 @@ fecharerrorwindow.onclick = function() {
 			  if (aberto) {
 				  abrirmenucombotoes.style.left = '145px';
 				  olaenomeusuarioeimg.style.marginLeft = '165px';
-				  abrirjanelaimagemperfil.style.left = '185px';
+				  abrirjanelaimagemperfil.style.left = '195px';
 				  menucriarconta.style.left = '215px';
 				  abrirmenucombotoes.classList.add('selecionado');
 				  document.querySelector('header').classList.add('menuaberto');
 			  } else {
 				  abrirmenucombotoes.style.left = '5px';
 				  olaenomeusuarioeimg.style.marginLeft = '40px';
-				  abrirjanelaimagemperfil.style.left = '60px';
+				  abrirjanelaimagemperfil.style.left = '70px';
 				  menucriarconta.style.left = '90px';
 				  abrirmenucombotoes.classList.remove('selecionado');
 				  document.querySelector('header').classList.remove('menuaberto');
